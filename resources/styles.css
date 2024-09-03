@@ -1,0 +1,347 @@
+/* Color Theme: Black & white illustration vol.3 */
+:root {
+    --color-accent1: #595857;
+    --color-accent2: #403F3E;
+    --color-accent3: #8C8C8B;
+    --color-accent4: #D9D1CC;
+    --color-accent5: #F2EEEB;
+    --color-white: #FFF;
+    --color-black: #000;
+}
+
+/* Body */
+body {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    color: var(--color-accent1) !important;
+    font-family: Buda, Georgia, serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1.25rem;
+    line-height: 2rem;
+}
+
+/* Fade out effect when navigating away */
+body.is-loading {
+    opacity: 0;
+}
+
+h1 {
+    font-family: "Fleur De Leah", 'Times New Roman', Times, serif;
+}
+
+h2 {
+    font-family: "Dancing Script", Garamond, serif;
+}
+
+/* Links */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Mouse over links */
+a:hover {
+    color: var(--color-accent3) !important;
+}
+
+/* Buttons */
+.btn {
+    border-color: var(--color-accent5);
+    background-color: var(--color-accent5);
+}
+    
+/* Mouse over buttons */
+.btn:hover,
+.btn:active,
+.btn:focus {
+    border-color: var(--color-accent4);
+    background-color: var(--color-accent4);
+    color: var(--color-accent1) !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Header Button */
+header .btn {
+    border-color: var(--color-accent1);
+    background-color: var(--color-accent5);
+    color: var(--color-accent1);
+}
+
+/* Mouse over buttons */
+header .btn:hover {
+    border-color: var(--color-accent1);
+    background-color: var(--color-accent4);
+    color: var(--color-accent1) !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Links and buttons using TAB key */
+a:focus-visible,
+.btn:focus-visible {
+    outline: none !important;
+    box-shadow: 0 0 0 0.125rem var(--color-accent4) !important;
+    border-radius: 5px;
+}
+
+/* HEADER */
+header {
+    background-color: var(--color-accent5) !important;
+}
+
+.navbar-brand,
+.nav-link {
+    color: var(--color-accent1) !important;
+    font-size: 1.125rem;
+}
+
+/* Hide the dropdown toggle arrow */
+.dropdown-toggle::after {
+    display: none;
+}
+
+/* Hide dropdown menu by default */
+.dropdown-menu {
+    display: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background-color: var(--color-accent5);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Show dropdown menu on hover for desktop */
+@media (min-width: 767.99px) {
+    .hover-dropdown:hover .dropdown-menu {
+        display: block;
+    }
+}
+
+/* Remove hover background color for dropdown items */
+.dropdown-menu .dropdown-item {
+    background-color: transparent;
+}
+
+/* Optional: Remove hover effect for dropdown items */
+.dropdown-menu .dropdown-item:hover {
+    background-color: transparent;
+}
+
+/* Optional: Ensure that the dropdown menu is properly aligned */
+.nav-item {
+    position: relative;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        display: none;
+        position: static;
+        width: 100%;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+
+    .nav-item.dropdown.show .dropdown-menu {
+        display: block;
+    }
+}
+
+/* Remove border, outline, and box shadow from navbar toggler */
+.navbar-toggler {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* MAIN */
+.jumbotron {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    padding: 0;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.heading-content,
+.quote {
+    position: relative;
+    color: var(--color-accent1);
+    z-index: 2;
+}
+
+.introduction {
+    background-color: rgba(242, 238, 235, 0.3);
+}
+
+.card-img-top {
+    border-radius: 0 !important;
+    height: auto;
+}
+
+/* Small screens (phones) */
+@media (max-width: 767.99px) {
+    .card-img-top {
+        max-width: 100%;
+    }
+}
+
+/* Medium screens (tablets) */
+@media (min-width: 768px) and (max-width: 991.99px) {
+    .card-img-top {
+        max-width: 75%;
+    }
+}
+
+/* Large screens (laptops and desktops) */
+@media (min-width: 992px) {
+    .card-img-top {
+        max-width: 50%;
+    }
+
+    /* Crop height of photo carousel on larger screens */
+    .carousel-item img {
+        height: 50vh;
+        object-fit: cover;
+    }
+}
+
+/* Newsletter */
+.newsletter {
+    background-color: rgba(242, 238, 235, 0.3);
+}
+
+
+
+
+
+.quote {
+    font-family: "Fleur De Leah", "Brush Script MT", cursive;
+}
+
+/* process Container */
+
+
+.process h2 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: var(--color-accent1);
+}
+
+/* process List */
+.process-list {
+    list-style: none;
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+.process-item {
+    position: relative;
+    padding: 1rem 0;
+    border-left: 2px solid var(--color-accent5);
+    margin-left: 2rem;
+}
+
+.process-item::before {
+    content: "";
+    position: absolute;
+    left: -7px;
+    top: 0;
+    width: 14px;
+    height: 14px;
+    background-color: var(--color-accent5);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px var(--color-accent5);
+}
+
+.process-content {
+    padding-left: 1.5rem;
+}
+
+.process-content h3 {
+    font-size: 1.5rem;
+    color: var(--color-accent1);
+    margin-bottom: 0.5rem;
+}
+
+.process-content p {
+    font-size: 1rem;
+    color: var(--color-accent2);
+}
+
+.faqs-content h3 {
+    font-size: 1.5rem;
+    color: var(--color-accent1);
+    margin-bottom: 0.5rem;
+}
+
+.faqs-content p {
+    font-size: 1rem;
+    color: var(--color-accent2);
+}
+
+
+/* Apply border styles to all relevant form elements */
+input,
+textarea,
+select,
+.form-control,
+input[type=checkbox],
+input[type=radio],
+.form-check-input {
+    border: 1px solid var(--color-accent3) !important; /* Custom border color */
+}
+
+/* Remove default blue outlines and apply custom styles to all relevant form elements */
+input:focus,
+input:hover,
+input:active,
+textarea:focus,
+textarea:hover,
+textarea:active,
+select:focus,
+select:hover,
+select:active,
+.form-control:focus,
+.form-control:hover,
+.form-control:active,
+input[type=checkbox]:focus,
+input[type=checkbox]:hover,
+input[type=checkbox]:active,
+input[type=radio]:focus,
+input[type=radio]:hover,
+input[type=radio]:active,
+.form-check-input:focus,
+.form-check-input:hover,
+.form-check-input:active {
+    outline: none !important; /* Remove default outline */
+    box-shadow: 0 0 5px var(--color-accent3) !important; /* Custom focus/hover shadow */
+}
+
+/* Custom styles for checked checkboxes and radio buttons */
+.form-check-input:checked {
+    background-color: var(--color-accent3) !important; /* Custom background color */
+}
+
+
+/* FOOTER */
+footer {
+    background-color: var(--color-accent5);
+}
