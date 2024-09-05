@@ -392,9 +392,10 @@
                 <p class="fs-6">Subscribe to our newsletter for wedding stationery tips, the latest updates on our
                     invitations, and
                     our newest blog posts.</p>
-                    <!-- Newsletter Subscription Form -->
-                    <form class="row" name="newsletter" method="POST" action="newsletter.html" data-netlify="true"
-                    data-netlify-honeypot="honeypot">
+
+                <!-- Newsletter Subscription Form -->
+                <form class="row" name="newsletter" method="POST" data-netlify="true"
+                    data-netlify-honeypot="honeypot" action="newsletter.html">
                     <!-- Honeypot Field -->
                     <div style="display: none;">
                         <label for="honeypot">Do not fill this out</label>
@@ -402,13 +403,15 @@
                     </div>
                     <!-- Email Address Field -->
                     <div class="form-group col-xl-2 col-lg-4 col-md-6 col-8 mb-3">
-                        <input type="email" class="form-control" id="FormControlEmail" name="email" placeholder="Enter your email address" required>
+                        <input type="email" class="form-control" id="FormControlEmail" name="email"
+                            placeholder="Enter your email address" required>
                     </div>
                     <!-- Subscribe Button -->
                     <div class="form-group col-12 text-md-start text-center mt-5">
                         <button type="submit" class="btn rounded-pill">Subscribe</button>
                     </div>
                 </form>
+
             </div>
         </section>
 
