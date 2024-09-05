@@ -392,16 +392,20 @@
                 <p class="fs-6">Subscribe to our newsletter for wedding stationery tips, the latest updates on our
                     invitations, and
                     our newest blog posts.</p>
-                <form name="newsletter" method="POST" action="/submit_form.php" data-netlify="true">
-                    <!-- Hidden input field to specify form name -->
-                    <input type="hidden" name="form-name" value="newsletter">
-
-                    <div class="form-group col-xl-2 col-lg-4 col-md-6 col-8 mb-3">
-                        <input type="email" class="form-control" id="FormControlEmail" name="email"
-                            placeholder="Enter your email address" required>
+                    <!-- Newsletter Subscription Form -->
+                    <form class="row" name="newsletter" method="POST" action="newsletter.html" data-netlify="true"
+                    data-netlify-honeypot="honeypot">
+                    <!-- Honeypot Field -->
+                    <div style="display: none;">
+                        <label for="honeypot">Do not fill this out</label>
+                        <input type="text" id="honeypot" name="honeypot">
                     </div>
-
-                    <div class="form-group">
+                    <!-- Email Address Field -->
+                    <div class="form-group col-xl-2 col-lg-4 col-md-6 col-8 mb-3">
+                        <input type="email" class="form-control" id="FormControlEmail" name="email" placeholder="Enter your email address" required>
+                    </div>
+                    <!-- Subscribe Button -->
+                    <div class="form-group col-12 text-md-start text-center mt-5">
                         <button type="submit" class="btn rounded-pill">Subscribe</button>
                     </div>
                 </form>
