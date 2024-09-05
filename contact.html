@@ -116,7 +116,14 @@
                 We're excited to design beautiful wedding invitations featuring charming bird and floral elements for
                 your special day!</p>
 
-            <form class="px-3" action="submit_form.php" method="POST" netlify>
+                  <!-- Order Form -->
+                  <form class="row" name="order-form" method="POST" data-netlify="true"
+                  data-netlify-honeypot="honeypot" action="thank-you.html">
+                  <!-- Honeypot Field -->
+                  <div style="display: none;">
+                      <label for="honeypot">Do not fill this out</label>
+                      <input type="text" id="honeypot" name="honeypot">
+                  </div>
 
                 <!-- Your Details -->
                 <div class="row py-3">
