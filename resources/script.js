@@ -159,41 +159,6 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleDesignRequired('envelopeSeals', 'envelopeSealsDesign');
     toggleDesignRequired('otherCheckbox', 'additionalDetails');
 
-    // Function to collect form data based on checked items
-    function collectFormData() {
-        const formData = {};
-
-      // List of sections with their respective design select IDs
-      const sections = [
-        { checkboxId: 'sampleSet', designId: 'sampleSetDesign', label: 'Sample Set Design' },
-        { checkboxId: 'saveTheDate', designId: 'saveTheDateDesign', label: 'Save The Date Design' },
-        { checkboxId: 'invitationsEnvelopes', designId: 'invitationsDesign', label: 'Invitations Design' },
-        { checkboxId: 'rsvpCardsEnvelopes', designId: 'rsvpDesign', label: 'RSVP Design' },
-        { checkboxId: 'detailsCard', designId: 'detailsDesign', label: 'Details Card Design' },
-        { checkboxId: 'invitationsRsvpSet', designId: 'invitationsRsvpSetDesign', label: 'Invitations + RSVP Set Design' },
-        { checkboxId: 'invitationsRsvpDetailsSet', designId: 'invitationsRsvpDetailsSetDesign', label: 'Invitations + RSVP + Details Set Design' },
-        { checkboxId: 'programs', designId: 'programsDesign', label: 'Programs Design' },
-        { checkboxId: 'menus', designId: 'menusDesign', label: 'Menus Design' },
-        { checkboxId: 'placeCards', designId: 'placeCardsDesign', label: 'Place Cards Design' },
-        { checkboxId: 'favourTags', designId: 'favourTagsDesign', label: 'Favour Tags Design' },
-        { checkboxId: 'thankYouNoteCards', designId: 'thankYouNoteCardsDesign', label: 'Thank You Note Cards Design' },
-        { checkboxId: 'envelopeSeals', designId: 'envelopeSealsDesign', label: 'Envelope Seals Design' }
-    ];
-
-   // Collect data for each section
-   sections.forEach(section => {
-    const checkbox = document.getElementById(section.checkboxId);
-    if (checkbox && checkbox.checked) {
-        const designSelect = document.getElementById(section.designId);
-        if (designSelect) {
-            formData[section.label] = designSelect.value;
-        }
-    }
-});
-   
-    }
-
-    
 });
 
 
