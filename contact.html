@@ -166,25 +166,23 @@
 <div class="form-check">
     <div class="row py-3">
         <div class="col-lg-4 col-6">
-            <input type="checkbox" class="form-check-input" id="sampleSet" name="sampleSet"
-                aria-labelledby="sampleSetLabel">
-            <label class="form-check-label ms-2" for="sampleSet">Sample Set</label>
+            <input type="checkbox" class="form-check-input" id="sampleSet" name="sampleSet" aria-labelledby="sampleSetLabel">
+            <label class="form-check-label ms-2" id="sampleSetLabel" for="sampleSet">Sample Set</label>
         </div>
+        <!-- Conditional design selection based on the checkbox -->
         <div class="col-lg-4 col-6 d-flex align-items-center" aria-labelledby="sampleSetSelectLabel">
-            <select class="form-select" id="sampleSetDesign" name="sampleSetDesign" aria-required="true"
-                aria-labelledby="sampleSetLabel" required>
-                <option value="" disabled selected>Select Design</option>
+            <select class="form-select" id="sampleSetDesign" name="sampleSetDesign" aria-labelledby="sampleSetSelectLabel" aria-required="false">
+                <option value="" disabled selected>Select Design (optional)</option>
                 <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
                 <option value="Pink Robins">Pink Robins</option>
                 <option value="Fagus">Fagus</option>
                 <option value="Waratah">Waratah</option>
             </select>
-            <label id="sampleSetSelectLabel" for="sampleSetDesign" class="visually-hidden">
-                Select Design
-            </label>
+            <label id="sampleSetSelectLabel" for="sampleSetDesign" class="visually-hidden">Select Design for Sample Set</label>
         </div>
     </div>
 </div>
+
 
 <!-- Save The Date Cards + Envelopes -->
 <div class="form-check">
