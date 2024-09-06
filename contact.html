@@ -162,363 +162,354 @@
                     <!-- Orders -->
                     <div class="row mt-5 pt-3">
                         <label class="form-label">What are you wishing to order?</label>
+<!-- Sample Set -->
+<div class="form-check">
+    <div class="row py-3">
+        <div class="col-lg-4 col-6">
+            <input type="checkbox" class="form-check-input" id="sampleSet" name="sampleSet"
+                aria-labelledby="sampleSetLabel">
+            <label class="form-check-label ms-2" for="sampleSet">Sample Set</label>
+        </div>
+        <div class="col-lg-4 col-6 d-flex align-items-center" aria-labelledby="sampleSetSelectLabel">
+            <select class="form-select" id="sampleSetDesign" name="sampleSetDesign" aria-required="true"
+                aria-labelledby="sampleSetLabel" required>
+                <option value="" disabled selected>Select Design</option>
+                <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
+                <option value="Pink Robins">Pink Robins</option>
+                <option value="Fagus">Fagus</option>
+                <option value="Waratah">Waratah</option>
+            </select>
+            <label id="sampleSetSelectLabel" for="sampleSetDesign" class="visually-hidden">
+                Select Design
+            </label>
+        </div>
+    </div>
+</div>
 
-                        <!-- Sample Set -->
-                        <div class="form-check">
-                            <div class="row py-3">
-                                <div class="col-lg-4 col-6">
-                                    <input type="checkbox" class="form-check-input" id="sampleSet" name="sampleSet">
-                                    <label class="form-check-label ms-2" for="sampleSet">Sample Set</label>
-                                </div>
-                                <div class="col-lg-4 col-6 d-flex align-items-center">
-                                    <select class="form-select" id="sampleSetDesign" name="sampleSetDesign">
-                                        <option value="">Select Design</option>
-                                        <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
-                                        <option value="Pink Robins">Pink Robins</option>
-                                        <option value="Fagus">Fagus</option>
-                                        <option value="Waratah">Waratah</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+<!-- Save The Date Cards + Envelopes -->
+<div class="form-check">
+    <div class="row py-3">
+        <div class="col-lg-4 col-6">
+            <input type="checkbox" class="form-check-input" id="saveTheDate" name="saveTheDate"
+                aria-labelledby="saveTheDateLabel">
+            <label class="form-check-label ms-2" id="saveTheDateLabel" for="saveTheDate">
+                Save The Date Cards + Envelopes
+            </label>
+        </div>
+        <div class="col-lg-4 col-6 d-flex align-items-center" aria-labelledby="saveTheDateSelectLabel">
+            <select class="form-select" id="saveTheDateDesign" name="saveTheDateDesign" aria-required="true"
+                aria-labelledby="saveTheDateLabel">
+                <option value="" disabled selected>Select Design</option>
+                <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
+                <option value="Pink Robins">Pink Robins</option>
+                <option value="Fagus">Fagus</option>
+                <option value="Waratah">Waratah</option>
+            </select>
+            <label id="saveTheDateSelectLabel" for="saveTheDateDesign" class="visually-hidden">
+                Select Design
+            </label>
+        </div>
+    </div>
+</div>
 
-                        <!-- Save The Date Cards + Envelopes -->
-                        <div class="form-check">
-                            <div class="row py-3">
-                                <div class="col-lg-4 col-6">
-                                    <input type="checkbox" class="form-check-input" id="saveTheDate" name="saveTheDate">
-                                    <label class="form-check-label ms-2" for="saveTheDate">Save The Date Cards +
-                                        Envelopes</label>
-                                </div>
-                                <div class="col-lg-4 col-6 d-flex align-items-center">
-                                    <select class="form-select" id="saveTheDateDesign" name="saveTheDateDesign">
-                                        <option value="">Select Design</option>
-                                        <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
-                                        <option value="Pink Robins">Pink Robins</option>
-                                        <option value="Fagus">Fagus</option>
-                                        <option value="Waratah">Waratah</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+<!-- Invitations + Envelopes -->
+<div class="form-check">
+    <div class="row py-3">
+        <div class="col-lg-4 col-6">
+            <input type="checkbox" class="form-check-input" id="invitationsEnvelopes" name="invitationsEnvelopes" aria-labelledby="invitationsEnvelopesLabel">
+            <label class="form-check-label ms-2" id="invitationsEnvelopesLabel" for="invitationsEnvelopes">Invitations + Envelopes</label>
+        </div>
+        <div class="col-lg-4 col-6 d-flex align-items-center" aria-labelledby="invitationsDesignSelectLabel">
+            <select class="form-select" id="invitationsDesign" name="invitationsDesign" aria-required="true" aria-labelledby="invitationsEnvelopesLabel">
+                <option value="" disabled selected>Select Design</option>
+                <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
+                <option value="Pink Robins">Pink Robins</option>
+                <option value="Fagus">Fagus</option>
+                <option value="Waratah">Waratah</option>
+            </select>
+            <label id="invitationsDesignSelectLabel" for="invitationsDesign" class="visually-hidden">Select Design</label>
+        </div>
+    </div>
+</div>
 
+<!-- RSVP Cards + Envelopes -->
+<div class="form-check">
+    <div class="row py-3">
+        <div class="col-lg-4 col-6">
+            <input type="checkbox" class="form-check-input" id="rsvpCardsEnvelopes" name="rsvpCardsEnvelopes" aria-labelledby="rsvpCardsEnvelopesLabel">
+            <label class="form-check-label ms-2" id="rsvpCardsEnvelopesLabel" for="rsvpCardsEnvelopes">RSVP Cards + Envelopes</label>
+        </div>
+        <div class="col-lg-4 col-6 d-flex align-items-center" aria-labelledby="rsvpDesignSelectLabel">
+            <select class="form-select" id="rsvpDesign" name="rsvpDesign" aria-required="true" aria-labelledby="rsvpCardsEnvelopesLabel">
+                <option value="" disabled selected>Select Design</option>
+                <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
+                <option value="Pink Robins">Pink Robins</option>
+                <option value="Fagus">Fagus</option>
+                <option value="Waratah">Waratah</option>
+            </select>
+            <label id="rsvpDesignSelectLabel" for="rsvpDesign" class="visually-hidden">Select Design</label>
+        </div>
+    </div>
+</div>
 
-                        <!-- Invitations + Envelopes -->
-                        <div class="form-check">
-                            <div class="row py-3">
-                                <div class="col-lg-4 col-6">
-                                    <input type="checkbox" class="form-check-input" id="invitationsEnvelopes"
-                                        name="invitationsEnvelopes">
-                                    <label class="form-check-label ms-2" for="invitationsEnvelopes">Invitations +
-                                        Envelopes</label>
-                                </div>
-                                <div class="col-lg-4 col-6 d-flex align-items-center">
-                                    <select class="form-select" id="invitationsDesign" name="invitationsDesign">
-                                        <option value="">Select Design</option>
-                                        <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
-                                        <option value="Pink Robins">Pink Robins</option>
-                                        <option value="Fagus">Fagus</option>
-                                        <option value="Waratah">Waratah</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- RSVP Cards + Envelopes -->
-                        <div class="form-check">
-                            <div class="row py-3">
-                                <div class="col-lg-4 col-6">
-                                    <input type="checkbox" class="form-check-input" id="rsvpCardsEnvelopes"
-                                        name="rsvpCardsEnvelopes">
-                                    <label class="form-check-label ms-2" for="rsvpCardsEnvelopes">RSVP Cards +
-                                        Envelopes</label>
-                                </div>
-                                <div class="col-lg-4 col-6 d-flex align-items-center">
-                                    <select class="form-select" id="rsvpDesign" name="rsvpDesign">
-                                        <option value="">Select Design</option>
-                                        <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
-                                        <option value="Pink Robins">Pink Robins</option>
-                                        <option value="Fagus">Fagus</option>
-                                        <option value="Waratah">Waratah</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Details Card -->
-                        <div class="form-check">
-                            <div class="row py-3">
-                                <div class="col-lg-4 col-6">
-                                    <input type="checkbox" class="form-check-input" id="detailsCard" name="detailsCard">
-                                    <label class="form-check-label ms-2" for="detailsCard">Details Card</label>
-                                </div>
-                                <div class="col-lg-4 col-6 d-flex align-items-center">
-                                    <select class="form-select" id="detailsDesign" name="detailsDesign">
-                                        <option value="">Select Design</option>
-                                        <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
-                                        <option value="Pink Robins">Pink Robins</option>
-                                        <option value="Fagus">Fagus</option>
-                                        <option value="Waratah">Waratah</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Invitations + RSVP Cards Set -->
-                        <div class="form-check">
-                            <div class="row py-3">
-                                <div class="col-lg-4 col-6">
-                                    <input type="checkbox" class="form-check-input" id="invitationsRsvpSet"
-                                        name="invitationsRsvpSet">
-                                    <label class="form-check-label ms-2" for="invitationsRsvpSet">Invitations + RSVP
-                                        Cards Set</label>
-                                </div>
-                                <div class="col-lg-4 col-6 d-flex align-items-center">
-                                    <select class="form-select" id="invitationsRsvpSetDesign"
-                                        name="invitationsRsvpSetDesign">
-                                        <option value="">Select Design</option>
-                                        <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
-                                        <option value="Pink Robins">Pink Robins</option>
-                                        <option value="Fagus">Fagus</option>
-                                        <option value="Waratah">Waratah</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+<!-- Details Card -->
+<div class="form-check">
+    <div class="row py-3">
+        <div class="col-lg-4 col-6">
+            <input type="checkbox" class="form-check-input" id="detailsCard" name="detailsCard" aria-labelledby="detailsCardLabel">
+            <label class="form-check-label ms-2" id="detailsCardLabel" for="detailsCard">Details Card</label>
+        </div>
+        <div class="col-lg-4 col-6 d-flex align-items-center" aria-labelledby="detailsDesignSelectLabel">
+            <select class="form-select" id="detailsDesign" name="detailsDesign" aria-required="true" aria-labelledby="detailsCardLabel">
+                <option value="" disabled selected>Select Design</option>
+                <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
+                <option value="Pink Robins">Pink Robins</option>
+                <option value="Fagus">Fagus</option>
+                <option value="Waratah">Waratah</option>
+            </select>
+            <label id="detailsDesignSelectLabel" for="detailsDesign" class="visually-hidden">Select Design</label>
+        </div>
+    </div>
+</div>
 
 
-                        <!-- Invitations + RSVP Cards + Details Cards Set -->
-                        <div class="form-check">
-                            <div class="row py-3">
-                                <div class="col-lg-4 col-6">
-                                    <input type="checkbox" class="form-check-input" id="invitationsRsvpDetailsSet"
-                                        name="invitationsRsvpDetailsSet">
-                                    <label class="form-check-label ms-2" for="invitationsRsvpDetailsSet">Invitations +
-                                        RSVP Cards + Details Cards Set</label>
-                                </div>
-                                <div class="col-lg-4 col-6 d-flex align-items-center">
-                                    <select class="form-select" id="invitationsRsvpDetailsSetDesign"
-                                        name="invitationsRsvpDetailsSetDesign">
-                                        <option value="">Select Design</option>
-                                        <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
-                                        <option value="Pink Robins">Pink Robins</option>
-                                        <option value="Fagus">Fagus</option>
-                                        <option value="Waratah">Waratah</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+                      <!-- Invitations + RSVP Cards Set -->
+<div class="form-check">
+    <div class="row py-3">
+        <div class="col-lg-4 col-6">
+            <input type="checkbox" class="form-check-input" id="invitationsRsvpSet" name="invitationsRsvpSet" aria-labelledby="invitationsRsvpSetLabel">
+            <label class="form-check-label ms-2" id="invitationsRsvpSetLabel" for="invitationsRsvpSet">Invitations + RSVP Cards Set</label>
+        </div>
+        <div class="col-lg-4 col-6 d-flex align-items-center" aria-labelledby="invitationsRsvpSetDesignSelectLabel">
+            <select class="form-select" id="invitationsRsvpSetDesign" name="invitationsRsvpSetDesign" aria-required="true" aria-labelledby="invitationsRsvpSetLabel">
+                <option value="" disabled selected>Select Design</option>
+                <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
+                <option value="Pink Robins">Pink Robins</option>
+                <option value="Fagus">Fagus</option>
+                <option value="Waratah">Waratah</option>
+            </select>
+            <label id="invitationsRsvpSetDesignSelectLabel" for="invitationsRsvpSetDesign" class="visually-hidden">Select Design</label>
+        </div>
+    </div>
+</div>
+
+<!-- Invitations + RSVP Cards + Details Cards Set -->
+<div class="form-check">
+    <div class="row py-3">
+        <div class="col-lg-4 col-6">
+            <input type="checkbox" class="form-check-input" id="invitationsRsvpDetailsSet" name="invitationsRsvpDetailsSet" aria-labelledby="invitationsRsvpDetailsSetLabel">
+            <label class="form-check-label ms-2" id="invitationsRsvpDetailsSetLabel" for="invitationsRsvpDetailsSet">Invitations + RSVP Cards + Details Cards Set</label>
+        </div>
+        <div class="col-lg-4 col-6 d-flex align-items-center" aria-labelledby="invitationsRsvpDetailsSetDesignSelectLabel">
+            <select class="form-select" id="invitationsRsvpDetailsSetDesign" name="invitationsRsvpDetailsSetDesign" aria-required="true" aria-labelledby="invitationsRsvpDetailsSetLabel">
+                <option value="" disabled selected>Select Design</option>
+                <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
+                <option value="Pink Robins">Pink Robins</option>
+                <option value="Fagus">Fagus</option>
+                <option value="Waratah">Waratah</option>
+            </select>
+            <label id="invitationsRsvpDetailsSetDesignSelectLabel" for="invitationsRsvpDetailsSetDesign" class="visually-hidden">Select Design</label>
+        </div>
+    </div>
+</div>
 
                         <!-- Programs -->
-                        <div class="form-check">
-                            <div class="row py-3">
-                                <div class="col-lg-4 col-6">
-                                    <input type="checkbox" class="form-check-input" id="programs" name="programs">
-                                    <label class="form-check-label ms-2" for="programs">Programs</label>
-                                </div>
-                                <div class="col-lg-4 col-6 d-flex align-items-center">
-                                    <select class="form-select" id="programsDesign" name="programsDesign">
-                                        <option value="">Select Design</option>
-                                        <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
-                                        <option value="Pink Robins">Pink Robins</option>
-                                        <option value="Fagus">Fagus</option>
-                                        <option value="Waratah">Waratah</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+<div class="form-check">
+    <div class="row py-3">
+        <div class="col-lg-4 col-6">
+            <input type="checkbox" class="form-check-input" id="programs" name="programs" aria-labelledby="programsLabel">
+            <label class="form-check-label ms-2" id="programsLabel" for="programs">Programs</label>
+        </div>
+        <div class="col-lg-4 col-6 d-flex align-items-center" aria-labelledby="programsDesignSelectLabel">
+            <select class="form-select" id="programsDesign" name="programsDesign" aria-required="true" aria-labelledby="programsLabel">
+                <option value="" disabled selected>Select Design</option>
+                <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
+                <option value="Pink Robins">Pink Robins</option>
+                <option value="Fagus">Fagus</option>
+                <option value="Waratah">Waratah</option>
+            </select>
+            <label id="programsDesignSelectLabel" for="programsDesign" class="visually-hidden">Select Design</label>
+        </div>
+    </div>
+</div>
 
-                        <!-- Menus -->
-                        <div class="form-check">
-                            <div class="row py-3">
-                                <div class="col-lg-4 col-6">
-                                    <input type="checkbox" class="form-check-input" id="menus" name="menus">
-                                    <label class="form-check-label ms-2" for="menus">Menus</label>
-                                </div>
-                                <div class="col-lg-4 col-6 d-flex align-items-center">
-                                    <select class="form-select" id="menusDesign" name="menusDesign">
-                                        <option value="">Select Design</option>
-                                        <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
-                                        <option value="Pink Robins">Pink Robins</option>
-                                        <option value="Fagus">Fagus</option>
-                                        <option value="Waratah">Waratah</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+<!-- Menus -->
+<div class="form-check">
+    <div class="row py-3">
+        <div class="col-lg-4 col-6">
+            <input type="checkbox" class="form-check-input" id="menus" name="menus" aria-labelledby="menusLabel">
+            <label class="form-check-label ms-2" id="menusLabel" for="menus">Menus</label>
+        </div>
+        <div class="col-lg-4 col-6 d-flex align-items-center" aria-labelledby="menusDesignSelectLabel">
+            <select class="form-select" id="menusDesign" name="menusDesign" aria-required="true" aria-labelledby="menusLabel">
+                <option value="" disabled selected>Select Design</option>
+                <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
+                <option value="Pink Robins">Pink Robins</option>
+                <option value="Fagus">Fagus</option>
+                <option value="Waratah">Waratah</option>
+            </select>
+            <label id="menusDesignSelectLabel" for="menusDesign" class="visually-hidden">Select Design</label>
+        </div>
+    </div>
+</div>
 
-                        <!-- Place Cards -->
-                        <div class="form-check">
-                            <div class="row py-3">
-                                <div class="col-lg-4 col-6">
-                                    <input type="checkbox" class="form-check-input" id="placeCards" name="placeCards">
-                                    <label class="form-check-label ms-2" for="placeCards">Place Cards</label>
-                                </div>
-                                <div class="col-lg-4 col-6 d-flex align-items-center">
-                                    <select class="form-select" id="placeCardsDesign" name="placeCardsDesign">
-                                        <option value="">Select Design</option>
-                                        <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
-                                        <option value="Pink Robins">Pink Robins</option>
-                                        <option value="Fagus">Fagus</option>
-                                        <option value="Waratah">Waratah</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+<!-- Place Cards -->
+<div class="form-check">
+    <div class="row py-3">
+        <div class="col-lg-4 col-6">
+            <input type="checkbox" class="form-check-input" id="placeCards" name="placeCards" aria-labelledby="placeCardsLabel">
+            <label class="form-check-label ms-2" id="placeCardsLabel" for="placeCards">Place Cards</label>
+        </div>
+        <div class="col-lg-4 col-6 d-flex align-items-center" aria-labelledby="placeCardsDesignSelectLabel">
+            <select class="form-select" id="placeCardsDesign" name="placeCardsDesign" aria-required="true" aria-labelledby="placeCardsLabel">
+                <option value="" disabled selected>Select Design</option>
+                <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
+                <option value="Pink Robins">Pink Robins</option>
+                <option value="Fagus">Fagus</option>
+                <option value="Waratah">Waratah</option>
+            </select>
+            <label id="placeCardsDesignSelectLabel" for="placeCardsDesign" class="visually-hidden">Select Design</label>
+        </div>
+    </div>
+</div>
 
-                        <!-- Favour Tags -->
-                        <div class="form-check">
-                            <div class="row py-3">
-                                <div class="col-lg-4 col-6">
-                                    <input type="checkbox" class="form-check-input" id="favourTags" name="favourTags">
-                                    <label class="form-check-label ms-2" for="favourTags">Favour Tags</label>
-                                </div>
-                                <div class="col-lg-4 col-6 d-flex align-items-center">
-                                    <select class="form-select" id="favourTagsDesign" name="favourTagsDesign">
-                                        <option value="">Select Design</option>
-                                        <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
-                                        <option value="Pink Robins">Pink Robins</option>
-                                        <option value="Fagus">Fagus</option>
-                                        <option value="Waratah">Waratah</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+<!-- Favour Tags -->
+<div class="form-check">
+    <div class="row py-3">
+        <div class="col-lg-4 col-6">
+            <input type="checkbox" class="form-check-input" id="favourTags" name="favourTags" aria-labelledby="favourTagsLabel">
+            <label class="form-check-label ms-2" id="favourTagsLabel" for="favourTags">Favour Tags</label>
+        </div>
+        <div class="col-lg-4 col-6 d-flex align-items-center" aria-labelledby="favourTagsDesignSelectLabel">
+            <select class="form-select" id="favourTagsDesign" name="favourTagsDesign" aria-required="true" aria-labelledby="favourTagsLabel">
+                <option value="" disabled selected>Select Design</option>
+                <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
+                <option value="Pink Robins">Pink Robins</option>
+                <option value="Fagus">Fagus</option>
+                <option value="Waratah">Waratah</option>
+            </select>
+            <label id="favourTagsDesignSelectLabel" for="favourTagsDesign" class="visually-hidden">Select Design</label>
+        </div>
+    </div>
+</div>
 
-                        <!-- Thank You Note Cards -->
-                        <div class="form-check">
-                            <div class="row py-3">
-                                <div class="col-lg-4 col-6">
-                                    <input type="checkbox" class="form-check-input" id="thankYouNoteCards"
-                                        name="thankYouNoteCards">
-                                    <label class="form-check-label ms-2" for="thankYouNoteCards">Thank You Note
-                                        Cards</label>
-                                </div>
-                                <div class="col-lg-4 col-6 d-flex align-items-center">
-                                    <select class="form-select" id="thankYouNoteCardsDesign"
-                                        name="thankYouNoteCardsDesign">
-                                        <option value="">Select Design</option>
-                                        <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
-                                        <option value="Pink Robins">Pink Robins</option>
-                                        <option value="Fagus">Fagus</option>
-                                        <option value="Waratah">Waratah</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+<!-- Thank You Note Cards -->
+<div class="form-check">
+    <div class="row py-3">
+        <div class="col-lg-4 col-6">
+            <input type="checkbox" class="form-check-input" id="thankYouNoteCards" name="thankYouNoteCards" aria-labelledby="thankYouNoteCardsLabel">
+            <label class="form-check-label ms-2" id="thankYouNoteCardsLabel" for="thankYouNoteCards">Thank You Note Cards</label>
+        </div>
+        <div class="col-lg-4 col-6 d-flex align-items-center" aria-labelledby="thankYouNoteCardsDesignSelectLabel">
+            <select class="form-select" id="thankYouNoteCardsDesign" name="thankYouNoteCardsDesign" aria-required="true" aria-labelledby="thankYouNoteCardsLabel">
+                <option value="" disabled selected>Select Design</option>
+                <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
+                <option value="Pink Robins">Pink Robins</option>
+                <option value="Fagus">Fagus</option>
+                <option value="Waratah">Waratah</option>
+            </select>
+            <label id="thankYouNoteCardsDesignSelectLabel" for="thankYouNoteCardsDesign" class="visually-hidden">Select Design</label>
+        </div>
+    </div>
+</div>
 
-                        <!-- Envelope Seals -->
-                        <div class="form-check">
-                            <div class="row py-3">
-                                <div class="col-lg-4 col-6">
-                                    <input type="checkbox" class="form-check-input" id="envelopeSeals"
-                                        name="envelopeSeals">
-                                    <label class="form-check-label ms-2" for="envelopeSeals">Envelope Seals</label>
-                                </div>
-                                <div class="col-lg-4 col-6 d-flex align-items-center">
-                                    <select class="form-select" id="envelopeSealsDesign" name="envelopeSealsDesign">
-                                        <option value="">Select Design</option>
-                                        <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
-                                        <option value="Pink Robins">Pink Robins</option>
-                                        <option value="Fagus">Fagus</option>
-                                        <option value="Waratah">Waratah</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Sender Address Labels -->
-                        <div class="form-check">
-                            <div class="row py-3">
-                                <div class="col-lg-4 col-6">
-                                    <input type="checkbox" class="form-check-input" id="senderAddressLabels"
-                                        name="senderAddressLabels">
-                                    <label class="form-check-label ms-2" for="senderAddressLabels">Sender Address
-                                        Labels</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Other -->
-                        <div class="form-check">
-                            <div class="row py-3">
-                                <div class="col-12">
-                                    <input type="checkbox" class="form-check-input" id="otherCheckbox"
-                                        name="otherCheckbox">
-                                    <label class="form-check-label ms-2" for="otherCheckbox">Other (please specify
-                                        below)</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Additional Details -->
-                        <div class="row py-3">
-                            <div class="col-lg-8 col-12">
-                                <label for="additionalDetails" class="form-label">Additional Details:</label>
-                                <textarea class="form-control" id="additionalDetails" name="additionalDetails"
-                                    rows="5"></textarea>
-                            </div>
-                        </div>
+<!-- Envelope Seals -->
+<div class="form-check">
+    <div class="row py-3">
+        <div class="col-lg-4 col-6">
+            <input type="checkbox" class="form-check-input" id="envelopeSeals" name="envelopeSeals" aria-labelledby="envelopeSealsLabel">
+            <label class="form-check-label ms-2" id="envelopeSealsLabel" for="envelopeSeals">Envelope Seals</label>
+        </div>
+        <div class="col-lg-4 col-6 d-flex align-items-center" aria-labelledby="envelopeSealsDesignSelectLabel">
+            <select class="form-select" id="envelopeSealsDesign" name="envelopeSealsDesign" aria-required="true" aria-labelledby="envelopeSealsLabel">
+                <option value="" disabled selected>Select Design</option>
+                <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
+                <option value="Pink Robins">Pink Robins</option>
+                <option value="Fagus">Fagus</option>
+                <option value="Waratah">Waratah</option>
+            </select>
+            <label id="envelopeSealsDesignSelectLabel" for="envelopeSealsDesign" class="visually-hidden">Select Design</label>
+        </div>
+    </div>
+</div>
 
 
-                        <!-- Budget -->
-                        <div class="row py-3">
-                            <div class="col-lg-8 col-12">
-                                <h3>Budget</h3>
-                                <p class="text-muted">The cost of wedding invitations varies based on your needs and the
-                                    size of your wedding. For a small, simple event, you can expect to spend around $500
-                                    for
-                                    invitations and an additional $500 for day-of stationery items like menus, programs,
-                                    and
-                                    place cards. For larger weddings, the cost can increase to $1,500 or more for
-                                    invitations, with an additional $1,000 to $1,500 for day-of stationery.
-                                </p>
-                                <p>Please provide an estimated budget for your order. This will help us tailor our
-                                    services
-                                    to your needs and ensure we offer options that fit within your budget.</p>
-                                <div class="col-lg-4 col-6">
-                                    <label for="budget" class="form-label">What is your estimated budget?<span
-                                            class="required-star">*</span></label>
-                                    <input type="number" class="form-control" id="budget" name="budget" required>
-                                </div>
-                            </div>
-                        </div>
+        <!-- Sender Address Labels -->
+<div class="form-check">
+    <div class="row py-3">
+        <div class="col-lg-4 col-6">
+            <input type="checkbox" class="form-check-input" id="senderAddressLabels" name="senderAddressLabels" aria-labelledby="senderAddressLabelsLabel">
+            <label class="form-check-label ms-2" id="senderAddressLabelsLabel" for="senderAddressLabels">Sender Address Labels</label>
+        </div>
+    </div>
+</div>
 
-                        <!-- How did you hear about us? -->
-                        <div class="row py-3">
-                            <div class="col-12">
-                                <label for="howDidYouHear" class="form-label">How did you hear about Feather and
-                                    Flora?<span class="required-star">*</span></label>
-                            </div>
-                            <div class="col-lg-4 col-6">
-                                <select class="form-select" id="howDidYouHear" name="howDidYouHear" required>
-                                    <option value="">Select</option>
-                                    <option value="Google">Google</option>
-                                    <option value="Etsy">Etsy</option>
-                                    <option value="Instagram">Instagram</option>
-                                    <option value="Facebook">Facebook</option>
-                                    <option value="Pinterest">Pinterest</option>
-                                    <option value="Word of Mouth">Word of Mouth</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                            </div>
-                        </div>
+<!-- Other -->
+<div class="form-check">
+    <div class="row py-3">
+        <div class="col-12">
+            <input type="checkbox" class="form-check-input" id="otherCheckbox" name="otherCheckbox" aria-labelledby="otherCheckboxLabel">
+            <label class="form-check-label ms-2" id="otherCheckboxLabel" for="otherCheckbox">Other (please specify below)</label>
+        </div>
+        <!-- Additional input for specifying details -->
+        <div class="col-12 mt-2" id="otherDetailsContainer" aria-labelledby="otherDetailsLabel" style="display: none;">
+            <textarea id="otherDetails" name="otherDetails" rows="3" class="form-control" placeholder="Please specify..."></textarea>
+            <label for="otherDetails" id="otherDetailsLabel" class="visually-hidden">Please specify details</label>
+        </div>
+    </div>
+</div>
 
-                        <!-- Thank You Message -->
-                        <div class="row py-5">
-                            <div class="col-lg-8 col-12">
-                                <h3>Thank You for Completing the Form!</h3>
-                                <p class="text-muted">We appreciate you taking the time to provide your details. Your
-                                    input
-                                    helps us tailor our services to meet your needs and ensure we offer options that fit
-                                    your budget. We look forward to working with you to create something special for
-                                    your
-                                    wedding!</p>
-                                <div class="d-flex justify-content-start">
-                                    <button type="submit" class="btn rounded-pill mt-3">Submit</button>
-                                </div>
-                            </div>
-                        </div>
+<!-- Additional Details -->
+<div class="row py-3">
+    <div class="col-lg-8 col-12">
+        <label for="additionalDetails" class="form-label">Additional Details:</label>
+        <textarea class="form-control" id="additionalDetails" name="additionalDetails" rows="5" aria-required="false" placeholder="Provide any additional information or specifications here..."></textarea>
+    </div>
+</div>
+
+<!-- Budget -->
+<div class="row py-3">
+    <div class="col-lg-8 col-12">
+        <h3>Budget</h3>
+        <p class="text-muted">The cost of wedding invitations varies based on your needs and the size of your wedding. For a small, simple event, you can expect to spend around $500 for invitations and an additional $500 for day-of stationery items like menus, programs, and place cards. For larger weddings, the cost can increase to $1,500 or more for invitations, with an additional $1,000 to $1,500 for day-of stationery.</p>
+        <p>Please provide an estimated budget for your order. This will help us tailor our services to your needs and ensure we offer options that fit within your budget.</p>
+        <div class="col-lg-4 col-6">
+            <label for="budget" class="form-label">What is your estimated budget?<span class="required-star">*</span></label>
+            <input type="number" class="form-control" id="budget" name="budget" required aria-required="true" placeholder="Enter your estimated budget">
+        </div>
+    </div>
+</div>
+<!-- How did you hear about us? -->
+<div class="row py-3">
+    <div class="col-12">
+        <label for="howDidYouHear" class="form-label">How did you hear about Feather and Flora?<span class="required-star">*</span></label>
+    </div>
+    <div class="col-lg-4 col-6">
+        <select class="form-select" id="howDidYouHear" name="howDidYouHear" required aria-required="true">
+            <option value="" disabled selected>Select</option>
+            <option value="Google">Google</option>
+            <option value="Etsy">Etsy</option>
+            <option value="Instagram">Instagram</option>
+            <option value="Facebook">Facebook</option>
+            <option value="Pinterest">Pinterest</option>
+            <option value="Word of Mouth">Word of Mouth</option>
+            <option value="Other">Other</option>
+        </select>
+        <label for="howDidYouHear" class="visually-hidden">How did you hear about Feather and Flora?</label>
+    </div>
+</div>
+
+<!-- Thank You Message -->
+<div class="row py-5">
+    <div class="col-lg-8 col-12">
+        <h3>Thank You for Completing the Form!</h3>
+        <p class="text-muted">We appreciate you taking the time to provide your details. Your input helps us tailor our services to meet your needs and ensure we offer options that fit your budget. We look forward to working with you to create something special for your wedding!</p>
+        <div class="d-flex justify-content-start">
+            <button type="submit" class="btn rounded-pill mt-3">Submit</button>
+        </div>
+    </div>
+</div>
+
             </form>
         </section>
 
@@ -625,6 +616,14 @@
                 icon.classList.add('navbar-toggler-icon');
             }
         });
+
+
+
+
+
+
+
+        
     </script>
 
 </body>
