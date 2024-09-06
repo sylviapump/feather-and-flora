@@ -30,7 +30,6 @@ navbarToggler.addEventListener('click', function () {
     }
 });
 
-// Handle conditional required fields functions
 document.addEventListener('DOMContentLoaded', function() {
     // Function to toggle visibility and required attributes
     function toggleDesignElements(checkboxId, designSelectId) {
@@ -78,48 +77,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     toggles.forEach(([checkboxId, designSelectId]) => toggleDesignElements(checkboxId, designSelectId));
 
-    // Function to collect and filter form data
-    function getFilteredFormData() {
-        const formData = new FormData(document.getElementById('orderForm'));
-        const filteredData = {};
-
-        formData.forEach((value, key) => {
-            const checkbox = document.getElementById(key);
-
-            if (checkbox && checkbox.type === 'checkbox' && checkbox.checked) {
-                filteredData[key] = value;
-            } else if (checkbox && checkbox.type !== 'checkbox') {
-                filteredData[key] = value;
-            }
-        });
-
-        return filteredData;
-    }
-
     // Handle form submission
-    document.getElementById('orderForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
-
-        // Filter form data
-        const filteredData = getFilteredFormData();
-        const actionUrl = event.target.action; // Netlify form action URL
-
-        fetch(actionUrl, {
-            method: 'POST',
-            body: new URLSearchParams(filteredData),
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-        })
-        .then(response => response.text())
-        .then(result => {
-            console.log('Form submitted successfully:', result);
-            // Redirect or show a success message here
-            window.location.href = 'thank-you.html'; // Redirect to thank you page
-        })
-        .catch(error => {
-            console.error('Error submitting form:', error);
-            // Handle the error
+    document.querySelector('form').addEventListener('submit', function(event) {
+        // Exclude unchecked options
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(checkbox => {
+            const select = document.getElementById(`${checkbox.id}Design`);
+            if (checkbox.checked && select) {
+                select.style.display = 'block'; // Ensure select box is visible
+            } else {
+                if (select) {
+                    select.style.display = 'none'; // Hide select box if checkbox is unchecked
+                }
+            }
         });
     });
 });
+
+
+
