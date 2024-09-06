@@ -77,22 +77,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     toggles.forEach(([checkboxId, designSelectId]) => toggleDesignElements(checkboxId, designSelectId));
 
-// Handle form submission
-document.getElementById('myForm').addEventListener('submit', function(event) {
-    const form = event.target;
-    const checkboxes = form.querySelectorAll('input[type="checkbox"]');
-    
-    // Hide unchecked select elements
-    checkboxes.forEach(checkbox => {
-        const select = document.getElementById(`${checkbox.id}Design`);
-        if (select) {
-            if (!checkbox.checked) {
-                select.style.display = 'none'; // Hide select box if checkbox is unchecked
+    // Handle form submission
+    document.querySelector('form').addEventListener('submit', function(event) {
+        // Exclude unchecked options
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(checkbox => {
+            const select = document.getElementById(`${checkbox.id}Design`);
+            if (checkbox.checked && select) {
+                select.style.display = 'block'; // Ensure select box is visible
             } else {
-                select.style.display = 'block'; // Ensure select box is visible if checkbox is checked
+                if (select) {
+                    select.style.display = 'none'; // Hide select box if checkbox is unchecked
+                }
             }
-        }
+        });
     });
+});
 
 
 
