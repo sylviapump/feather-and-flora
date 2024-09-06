@@ -76,6 +76,22 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
 
     toggles.forEach(([checkboxId, designSelectId]) => toggleDesignElements(checkboxId, designSelectId));
+
+    // Handle form submission
+    document.querySelector('form').addEventListener('submit', function(event) {
+        // Exclude unchecked options
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(checkbox => {
+            const select = document.getElementById(`${checkbox.id}Design`);
+            if (checkbox.checked && select) {
+                select.style.display = 'block'; // Ensure select box is visible
+            } else {
+                if (select) {
+                    select.style.display = 'none'; // Hide select box if checkbox is unchecked
+                }
+            }
+        });
+    });
 });
 
 
