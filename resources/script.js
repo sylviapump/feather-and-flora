@@ -32,100 +32,6 @@ navbarToggler.addEventListener('click', function () {
 
 // Handle conditional required fields
 document.addEventListener('DOMContentLoaded', function() {
-    // Sample Set
-    const sampleSetCheckbox = document.getElementById('sampleSet');
-    const sampleSetDesignSelect = document.getElementById('sampleSetDesign');
-
-    function toggleSampleSetRequired() {
-        if (sampleSetCheckbox.checked) {
-            sampleSetDesignSelect.setAttribute('aria-required', 'true');
-            sampleSetDesignSelect.setAttribute('required', 'required');
-            sampleSetDesignSelect.querySelector('option[value=""]').textContent = 'Select Design (required)';
-        } else {
-            sampleSetDesignSelect.removeAttribute('aria-required');
-            sampleSetDesignSelect.removeAttribute('required');
-            sampleSetDesignSelect.querySelector('option[value=""]').textContent = 'Select Design ';
-        }
-    }
-
-    sampleSetCheckbox.addEventListener('change', toggleSampleSetRequired);
-
-    // Save The Date Cards
-    const saveTheDateCheckbox = document.getElementById('saveTheDate');
-    const saveTheDateDesignSelect = document.getElementById('saveTheDateDesign');
-
-    function toggleSaveTheDateRequired() {
-        if (saveTheDateCheckbox.checked) {
-            saveTheDateDesignSelect.setAttribute('aria-required', 'true');
-            saveTheDateDesignSelect.setAttribute('required', 'required');
-            saveTheDateDesignSelect.querySelector('option[value=""]').textContent = 'Select Design (required)';
-        } else {
-            saveTheDateDesignSelect.removeAttribute('aria-required');
-            saveTheDateDesignSelect.removeAttribute('required');
-            saveTheDateDesignSelect.querySelector('option[value=""]').textContent = 'Select Design ';
-        }
-    }
-
-    saveTheDateCheckbox.addEventListener('change', toggleSaveTheDateRequired);
-
-        // Invitations + Envelopes
-        const invitationsEnvelopesCheckbox = document.getElementById('invitationsEnvelopes');
-        const invitationsDesignSelect = document.getElementById('invitationsDesign');
-    
-        function toggleInvitationsRequired() {
-            if (invitationsEnvelopesCheckbox.checked) {
-                invitationsDesignSelect.setAttribute('aria-required', 'true');
-                invitationsDesignSelect.setAttribute('required', 'required');
-                invitationsDesignSelect.querySelector('option[value=""]').textContent = 'Select Design (required)';
-            } else {
-                invitationsDesignSelect.removeAttribute('aria-required');
-                invitationsDesignSelect.removeAttribute('required');
-                invitationsDesignSelect.querySelector('option[value=""]').textContent = 'Select Design ';
-            }
-        }
-    
-        invitationsEnvelopesCheckbox.addEventListener('change', toggleInvitationsRequired);
-    
-        // RSVP Cards + Envelopes
-        const rsvpCardsEnvelopesCheckbox = document.getElementById('rsvpCardsEnvelopes');
-        const rsvpDesignSelect = document.getElementById('rsvpDesign');
-    
-        function toggleRsvpRequired() {
-            if (rsvpCardsEnvelopesCheckbox.checked) {
-                rsvpDesignSelect.setAttribute('aria-required', 'true');
-                rsvpDesignSelect.setAttribute('required', 'required');
-                rsvpDesignSelect.querySelector('option[value=""]').textContent = 'Select Design (required)';
-            } else {
-                rsvpDesignSelect.removeAttribute('aria-required');
-                rsvpDesignSelect.removeAttribute('required');
-                rsvpDesignSelect.querySelector('option[value=""]').textContent = 'Select Design ';
-            }
-        }
-    
-        rsvpCardsEnvelopesCheckbox.addEventListener('change', toggleRsvpRequired);
-    
-        // Details Card
-        const detailsCardCheckbox = document.getElementById('detailsCard');
-        const detailsDesignSelect = document.getElementById('detailsDesign');
-    
-        function toggleDetailsRequired() {
-            if (detailsCardCheckbox.checked) {
-                detailsDesignSelect.setAttribute('aria-required', 'true');
-                detailsDesignSelect.setAttribute('required', 'required');
-                detailsDesignSelect.querySelector('option[value=""]').textContent = 'Select Design (required)';
-            } else {
-                detailsDesignSelect.removeAttribute('aria-required');
-                detailsDesignSelect.removeAttribute('required');
-                detailsDesignSelect.querySelector('option[value=""]').textContent = 'Select Design ';
-            }
-        }
-    
-        detailsCardCheckbox.addEventListener('change', toggleDetailsRequired);
-
-
-});
-
-document.addEventListener('DOMContentLoaded', function() {
     // Function to toggle the required attribute for design selects based on checkbox state
     function toggleDesignRequired(checkboxId, designSelectId) {
         const checkbox = document.getElementById(checkboxId);
@@ -148,52 +54,74 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleRequired();
     }
 
-    // Set up required state toggles for each section
-    toggleDesignRequired('invitationsRsvpSet', 'invitationsRsvpSetDesign');
-    toggleDesignRequired('invitationsRsvpDetailsSet', 'invitationsRsvpDetailsSetDesign');
-    toggleDesignRequired('programs', 'programsDesign');
-    toggleDesignRequired('menus', 'menusDesign');
-    toggleDesignRequired('placeCards', 'placeCardsDesign');
-    toggleDesignRequired('favourTags', 'favourTagsDesign');
-    toggleDesignRequired('thankYouNoteCards', 'thankYouNoteCardsDesign');
-    toggleDesignRequired('envelopeSeals', 'envelopeSealsDesign');
-    toggleDesignRequired('otherCheckbox', 'additionalDetails');
+    // List of sections with their respective design select IDs
+    const sections = [
+        { checkboxId: 'sampleSet', designId: 'sampleSetDesign' },
+        { checkboxId: 'saveTheDate', designId: 'saveTheDateDesign' },
+        { checkboxId: 'invitationsEnvelopes', designId: 'invitationsDesign' },
+        { checkboxId: 'rsvpCardsEnvelopes', designId: 'rsvpDesign' },
+        { checkboxId: 'detailsCard', designId: 'detailsDesign' },
+        { checkboxId: 'invitationsRsvpSet', designId: 'invitationsRsvpSetDesign' },
+        { checkboxId: 'invitationsRsvpDetailsSet', designId: 'invitationsRsvpDetailsSetDesign' },
+        { checkboxId: 'programs', designId: 'programsDesign' },
+        { checkboxId: 'menus', designId: 'menusDesign' },
+        { checkboxId: 'placeCards', designId: 'placeCardsDesign' },
+        { checkboxId: 'favourTags', designId: 'favourTagsDesign' },
+        { checkboxId: 'thankYouNoteCards', designId: 'thankYouNoteCardsDesign' },
+        { checkboxId: 'envelopeSeals', designId: 'envelopeSealsDesign' },
+        { checkboxId: 'otherCheckbox', designId: 'additionalDetails' }
+    ];
+
+    // Apply required state toggles for each section
+    sections.forEach(section => toggleDesignRequired(section.checkboxId, section.designId));
 
     // Function to collect form data based on checked items
     function collectFormData() {
         const formData = {};
 
-      // List of sections with their respective design select IDs
-      const sections = [
-        { checkboxId: 'sampleSet', designId: 'sampleSetDesign', label: 'Sample Set Design' },
-        { checkboxId: 'saveTheDate', designId: 'saveTheDateDesign', label: 'Save The Date Design' },
-        { checkboxId: 'invitationsEnvelopes', designId: 'invitationsDesign', label: 'Invitations Design' },
-        { checkboxId: 'rsvpCardsEnvelopes', designId: 'rsvpDesign', label: 'RSVP Design' },
-        { checkboxId: 'detailsCard', designId: 'detailsDesign', label: 'Details Card Design' },
-        { checkboxId: 'invitationsRsvpSet', designId: 'invitationsRsvpSetDesign', label: 'Invitations + RSVP Set Design' },
-        { checkboxId: 'invitationsRsvpDetailsSet', designId: 'invitationsRsvpDetailsSetDesign', label: 'Invitations + RSVP + Details Set Design' },
-        { checkboxId: 'programs', designId: 'programsDesign', label: 'Programs Design' },
-        { checkboxId: 'menus', designId: 'menusDesign', label: 'Menus Design' },
-        { checkboxId: 'placeCards', designId: 'placeCardsDesign', label: 'Place Cards Design' },
-        { checkboxId: 'favourTags', designId: 'favourTagsDesign', label: 'Favour Tags Design' },
-        { checkboxId: 'thankYouNoteCards', designId: 'thankYouNoteCardsDesign', label: 'Thank You Note Cards Design' },
-        { checkboxId: 'envelopeSeals', designId: 'envelopeSealsDesign', label: 'Envelope Seals Design' }
-    ];
+        // Collect data for each section
+        sections.forEach(section => {
+            const checkbox = document.getElementById(section.checkboxId);
+            if (checkbox && checkbox.checked) {
+                const designSelect = document.getElementById(section.designId);
+                if (designSelect) {
+                    const value = designSelect.value.trim();
+                    if (value) {
+                        formData[section.checkboxId.replace(/([A-Z])/g, ' $1').trim() + ' Design'] = value;
+                    }
+                }
+            }
+        });
 
-   // Collect data for each section
-   sections.forEach(section => {
-    const checkbox = document.getElementById(section.checkboxId);
-    if (checkbox && checkbox.checked) {
-        const designSelect = document.getElementById(section.designId);
-        if (designSelect) {
-            formData[section.label] = designSelect.value;
+        // Handle 'Other' section
+        const otherCheckbox = document.getElementById('otherCheckbox');
+        if (otherCheckbox && otherCheckbox.checked) {
+            const additionalDetails = document.getElementById('additionalDetails').value.trim();
+            if (additionalDetails) {
+                formData['Additional Details'] = additionalDetails;
+            }
         }
+
+        return formData;
+    }
+
+    // Example function to format and send email
+    function sendEmail() {
+        const formData = collectFormData();
+
+        // Convert formData to a string for email body
+        let emailBody = 'Here are the details submitted:\n\n';
+        for (const [key, value] of Object.entries(formData)) {
+            emailBody += `${key}: ${value}\n`;
+        }
+
+        // Example placeholder for sending email
+        console.log('Sending email with body:', emailBody);
+    }
+
+    // Add event listener to the submit button (assuming there's one with id 'submitForm')
+    const submitButton = document.getElementById('submitForm');
+    if (submitButton) {
+        submitButton.addEventListener('click', sendEmail);
     }
 });
-   
-    }
-
-    
-});
-
-
