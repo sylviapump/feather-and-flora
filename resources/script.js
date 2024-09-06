@@ -30,12 +30,13 @@ navbarToggler.addEventListener('click', function () {
     }
 });
 
-// Handle conditional required fields
 document.addEventListener('DOMContentLoaded', function() {
     // Function to toggle visibility and required attributes
     function toggleDesignElements(checkboxId, designSelectId) {
         const checkbox = document.getElementById(checkboxId);
         const designSelect = document.getElementById(designSelectId);
+
+        if (!checkbox || !designSelect) return; // Early exit if elements don't exist
 
         function toggleElements() {
             if (checkbox.checked) {
@@ -57,20 +58,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Set up visibility and required state toggles for each section
-    toggleDesignElements('sampleSet', 'sampleSetDesign');
-    toggleDesignElements('saveTheDate', 'saveTheDateDesign');
-    toggleDesignElements('invitationsEnvelopes', 'invitationsDesign');
-    toggleDesignElements('rsvpCardsEnvelopes', 'rsvpDesign');
-    toggleDesignElements('detailsCard', 'detailsDesign');
-    toggleDesignElements('invitationsRsvpSet', 'invitationsRsvpSetDesign');
-    toggleDesignElements('invitationsRsvpDetailsSet', 'invitationsRsvpDetailsSetDesign');
-    toggleDesignElements('programs', 'programsDesign');
-    toggleDesignElements('menus', 'menusDesign');
-    toggleDesignElements('placeCards', 'placeCardsDesign');
-    toggleDesignElements('favourTags', 'favourTagsDesign');
-    toggleDesignElements('thankYouNoteCards', 'thankYouNoteCardsDesign');
-    toggleDesignElements('envelopeSeals', 'envelopeSealsDesign');
-    toggleDesignElements('otherCheckbox', 'otherTextBox');
+    const toggles = [
+        ['sampleSet', 'sampleSetDesign'],
+        ['saveTheDate', 'saveTheDateDesign'],
+        ['invitationsEnvelopes', 'invitationsDesign'],
+        ['rsvpCardsEnvelopes', 'rsvpDesign'],
+        ['detailsCard', 'detailsDesign'],
+        ['invitationsRsvpSet', 'invitationsRsvpSetDesign'],
+        ['invitationsRsvpDetailsSet', 'invitationsRsvpDetailsSetDesign'],
+        ['programs', 'programsDesign'],
+        ['menus', 'menusDesign'],
+        ['placeCards', 'placeCardsDesign'],
+        ['favourTags', 'favourTagsDesign'],
+        ['thankYouNoteCards', 'thankYouNoteCardsDesign'],
+        ['envelopeSeals', 'envelopeSealsDesign'],
+        ['otherCheckbox', 'otherTextBox']
+    ];
+
+    toggles.forEach(([checkboxId, designSelectId]) => toggleDesignElements(checkboxId, designSelectId));
 });
 
 
