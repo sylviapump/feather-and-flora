@@ -30,47 +30,48 @@ navbarToggler.addEventListener('click', function () {
     }
 });
 
+// Handle conditional required fields
 document.addEventListener('DOMContentLoaded', function() {
-    // Toggle visibility and required attributes for design elements
+    // Function to toggle visibility and required attributes
     function toggleDesignElements(checkboxId, designSelectId) {
         const checkbox = document.getElementById(checkboxId);
         const designSelect = document.getElementById(designSelectId);
 
         function toggleElements() {
-            const isChecked = checkbox.checked;
-            designSelect.style.display = isChecked ? 'block' : 'none';
-            designSelect.setAttribute('aria-required', isChecked ? 'true' : 'false');
-            isChecked ? designSelect.setAttribute('required', 'required') : designSelect.removeAttribute('required');
-            designSelect.querySelector('option[value=""]').textContent = 'Select Design';
+            if (checkbox.checked) {
+                designSelect.style.display = 'block'; // Show select box
+                designSelect.setAttribute('aria-required', 'true');
+                designSelect.setAttribute('required', 'required');
+                designSelect.querySelector('option[value=""]').textContent = 'Select Design';
+            } else {
+                designSelect.style.display = 'none'; // Hide select box
+                designSelect.removeAttribute('aria-required');
+                designSelect.removeAttribute('required');
+                designSelect.querySelector('option[value=""]').textContent = 'Select Design';
+            }
         }
 
         checkbox.addEventListener('change', toggleElements);
-        toggleElements(); // Initialize state
+        // Initialize state
+        toggleElements();
     }
 
-    // Apply toggle to all relevant elements
-    const elements = [
-        { checkboxId: 'sampleSet', designSelectId: 'sampleSetDesign' },
-        { checkboxId: 'saveTheDate', designSelectId: 'saveTheDateDesign' },
-        // Add other pairs here...
-    ];
-    elements.forEach(({ checkboxId, designSelectId }) => toggleDesignElements(checkboxId, designSelectId));
-
-    // Format the budget input with a dollar sign
-    function formatBudgetInput() {
-        const budgetInput = document.getElementById('budget');
-
-        budgetInput.addEventListener('input', function(e) {
-            let value = e.target.value.replace(/[^0-9.]/g, '');
-            value = parseFloat(value).toFixed(2);
-            e.target.value = value ? `$${value}` : '';
-        });
-
-        // Remove dollar sign before form submission
-        document.querySelector('form').addEventListener('submit', function() {
-            budgetInput.value = budgetInput.value.replace(/[^0-9.]/g, '');
-        });
-    }
-
-    formatBudgetInput(); // Initialize budget formatting
+    // Set up visibility and required state toggles for each section
+    toggleDesignElements('sampleSet', 'sampleSetDesign');
+    toggleDesignElements('saveTheDate', 'saveTheDateDesign');
+    toggleDesignElements('invitationsEnvelopes', 'invitationsDesign');
+    toggleDesignElements('rsvpCardsEnvelopes', 'rsvpDesign');
+    toggleDesignElements('detailsCard', 'detailsDesign');
+    toggleDesignElements('invitationsRsvpSet', 'invitationsRsvpSetDesign');
+    toggleDesignElements('invitationsRsvpDetailsSet', 'invitationsRsvpDetailsSetDesign');
+    toggleDesignElements('programs', 'programsDesign');
+    toggleDesignElements('menus', 'menusDesign');
+    toggleDesignElements('placeCards', 'placeCardsDesign');
+    toggleDesignElements('favourTags', 'favourTagsDesign');
+    toggleDesignElements('thankYouNoteCards', 'thankYouNoteCardsDesign');
+    toggleDesignElements('envelopeSeals', 'envelopeSealsDesign');
+    toggleDesignElements('otherCheckbox', 'otherTextBox');
 });
+
+
+
