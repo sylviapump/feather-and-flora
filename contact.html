@@ -114,6 +114,7 @@
                 quote for your wedding stationery.
                 We're excited to design beautiful wedding invitations featuring charming bird and floral elements for
                 your special day!</p>
+                <p class="fs-6"><span class="required-star">*</span> Indicates a required field</p>
 
             <!-- Order Form -->
             <form class="row small" name="order-form" method="POST" data-netlify="true" data-netlify-honeypot="honeypot"
@@ -142,10 +143,10 @@
                         <input type="email" class="form-control" id="email" name="email" required>
                     </div>
                     <div class="col-lg-4 col-6 mb-3">
-                        <label for="weddingDate" class="form-label">Wedding Date<span
-                                class="required-star">*</span></label>
-                        <input type="date" class="form-control" id="weddingDate" name="weddingDate" required>
+                        <label for="weddingDate" class="form-label">Wedding Date<span class="required-star">*</span></label>
+                        <input type="date" class="form-control" id="weddingDate" name="weddingDate" required min="<?php echo date('Y-m-d'); ?>">
                     </div>
+                    
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-6 mb-3">
@@ -159,7 +160,7 @@
                         <input type="text" class="form-control" id="postcode" name="postcode" placeholder="Postcode"
                             required>
                     </div>
-                    </div>
+                </div>
                 </div>
 
 
@@ -167,7 +168,7 @@
 
                 <!-- Orders -->
                 <div class="row mt-5 pt-3">
-                    <label class="form-label">What are you wishing to order?</label>
+                    <label class="form-label">What are you wishing to order?<span class="required-star">*</span></label>
 
                     <!-- Sample Set -->
                     <div class="form-check">
@@ -181,8 +182,8 @@
                             <!-- Conditional design selection based on the checkbox -->
                             <div class="col-lg-4 col-6" aria-labelledby="sampleSetSelectLabel">
                                 <select class="form-select mt-2" id="sampleSetDesign" name="sampleSetDesign"
-                                    aria-labelledby="sampleSetSelectLabel" aria-required="false">
-                                    <option value="" disabled selected>Select Design </option>
+                                    aria-labelledby="sampleSetSelectLabel">
+                                    <option value="" disabled selected>Select Design</option>
                                     <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
                                     <option value="Pink Robins">Pink Robins</option>
                                     <option value="Fagus">Fagus</option>
@@ -194,34 +195,30 @@
                         </div>
                     </div>
 
-
                     <!-- Save The Date Cards + Envelopes -->
                     <div class="form-check">
                         <div class="row py-3">
                             <div class="col-12">
                                 <input type="checkbox" class="form-check-input" id="saveTheDate" name="saveTheDate"
                                     aria-labelledby="saveTheDateLabel">
-                                <label class="form-check-label ms-2" id="saveTheDateLabel" for="saveTheDate">
-                                    Save The Date Cards + Envelopes
-                                </label>
+                                <label class="form-check-label ms-2" id="saveTheDateLabel" for="saveTheDate">Save The
+                                    Date Cards + Envelopes</label>
                             </div>
                             <!-- Conditional design selection based on the checkbox -->
                             <div class="col-lg-4 col-6" aria-labelledby="saveTheDateSelectLabel">
                                 <select class="form-select mt-2" id="saveTheDateDesign" name="saveTheDateDesign"
-                                    aria-labelledby="saveTheDateSelectLabel" aria-required="false">
-                                    <option value="" disabled selected>Select Design </option>
+                                    aria-labelledby="saveTheDateSelectLabel">
+                                    <option value="" disabled selected>Select Design</option>
                                     <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
                                     <option value="Pink Robins">Pink Robins</option>
                                     <option value="Fagus">Fagus</option>
                                     <option value="Waratah">Waratah</option>
                                 </select>
-                                <label id="saveTheDateSelectLabel" for="saveTheDateDesign" class="visually-hidden">
-                                    Select Design for Save The Date Cards
-                                </label>
+                                <label id="saveTheDateSelectLabel" for="saveTheDateDesign"
+                                    class="visually-hidden">Select Design for Save The Date Cards</label>
                             </div>
                         </div>
                     </div>
-
 
                     <!-- Invitations + Envelopes -->
                     <div class="form-check">
@@ -238,7 +235,7 @@
                             <div class="col-lg-4 col-6" aria-labelledby="invitationsDesignSelectLabel">
                                 <select class="form-select mt-2" id="invitationsDesign" name="invitationsDesign"
                                     aria-labelledby="invitationsDesignSelectLabel" aria-required="false">
-                                    <option value="" disabled selected>Select Design </option>
+                                    <option value="" disabled selected>Select Design</option>
                                     <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
                                     <option value="Pink Robins">Pink Robins</option>
                                     <option value="Fagus">Fagus</option>
@@ -267,7 +264,7 @@
                             <div class="col-lg-4 col-6" aria-labelledby="rsvpDesignSelectLabel">
                                 <select class="form-select mt-2" id="rsvpDesign" name="rsvpDesign"
                                     aria-labelledby="rsvpDesignSelectLabel" aria-required="false">
-                                    <option value="" disabled selected>Select Design </option>
+                                    <option value="" disabled selected>Select Design</option>
                                     <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
                                     <option value="Pink Robins">Pink Robins</option>
                                     <option value="Fagus">Fagus</option>
@@ -294,7 +291,7 @@
                             <div class="col-lg-4 col-6" aria-labelledby="detailsDesignSelectLabel">
                                 <select class="form-select mt-2" id="detailsDesign" name="detailsDesign"
                                     aria-labelledby="detailsDesignSelectLabel" aria-required="false">
-                                    <option value="" disabled selected>Select Design </option>
+                                    <option value="" disabled selected>Select Design</option>
                                     <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
                                     <option value="Pink Robins">Pink Robins</option>
                                     <option value="Fagus">Fagus</option>
@@ -306,7 +303,6 @@
                             </div>
                         </div>
                     </div>
-
 
                     <!-- Invitations + RSVP Cards Set -->
                     <div class="form-check">
@@ -354,7 +350,7 @@
                                 <select class="form-select mt-2" id="invitationsRsvpDetailsSetDesign"
                                     name="invitationsRsvpDetailsSetDesign"
                                     aria-labelledby="invitationsRsvpDetailsSetDesignSelectLabel" aria-required="false">
-                                    <option value="" disabled selected>Select Design </option>
+                                    <option value="" disabled selected>Select Design</option>
                                     <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
                                     <option value="Pink Robins">Pink Robins</option>
                                     <option value="Fagus">Fagus</option>
@@ -382,7 +378,7 @@
                             <div class="col-lg-4 col-6" aria-labelledby="programsDesignSelectLabel">
                                 <select class="form-select mt-2" id="programsDesign" name="programsDesign"
                                     aria-labelledby="programsDesignSelectLabel" aria-required="false">
-                                    <option value="" disabled selected>Select Design </option>
+                                    <option value="" disabled selected>Select Design</option>
                                     <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
                                     <option value="Pink Robins">Pink Robins</option>
                                     <option value="Fagus">Fagus</option>
@@ -409,7 +405,7 @@
                             <div class="col-lg-4 col-6" aria-labelledby="menusDesignSelectLabel">
                                 <select class="form-select mt-2" id="menusDesign" name="menusDesign"
                                     aria-labelledby="menusDesignSelectLabel" aria-required="false">
-                                    <option value="" disabled selected>Select Design </option>
+                                    <option value="" disabled selected>Select Design</option>
                                     <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
                                     <option value="Pink Robins">Pink Robins</option>
                                     <option value="Fagus">Fagus</option>
@@ -436,7 +432,7 @@
                             <div class="col-lg-4 col-6" aria-labelledby="placeCardsDesignSelectLabel">
                                 <select class="form-select mt-2" id="placeCardsDesign" name="placeCardsDesign"
                                     aria-labelledby="placeCardsDesignSelectLabel" aria-required="false">
-                                    <option value="" disabled selected>Select Design </option>
+                                    <option value="" disabled selected>Select Design</option>
                                     <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
                                     <option value="Pink Robins">Pink Robins</option>
                                     <option value="Fagus">Fagus</option>
@@ -463,7 +459,7 @@
                             <div class="col-lg-4 col-6" aria-labelledby="favourTagsDesignSelectLabel">
                                 <select class="form-select mt-2" id="favourTagsDesign" name="favourTagsDesign"
                                     aria-labelledby="favourTagsDesignSelectLabel" aria-required="false">
-                                    <option value="" disabled selected>Select Design </option>
+                                    <option value="" disabled selected>Select Design</option>
                                     <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
                                     <option value="Pink Robins">Pink Robins</option>
                                     <option value="Fagus">Fagus</option>
@@ -492,7 +488,7 @@
                                 <select class="form-select mt-2" id="thankYouNoteCardsDesign"
                                     name="thankYouNoteCardsDesign" aria-labelledby="thankYouNoteCardsDesignSelectLabel"
                                     aria-required="false">
-                                    <option value="" disabled selected>Select Design </option>
+                                    <option value="" disabled selected>Select Design</option>
                                     <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
                                     <option value="Pink Robins">Pink Robins</option>
                                     <option value="Fagus">Fagus</option>
@@ -516,6 +512,7 @@
                                     Envelope Seals
                                 </label>
                             </div>
+                            <!-- Conditional design selection based on the checkbox -->
                             <div class="col-lg-4 col-6" aria-labelledby="envelopeSealsDesignSelectLabel">
                                 <select class="form-select mt-2" id="envelopeSealsDesign" name="envelopeSealsDesign"
                                     aria-labelledby="envelopeSealsDesignSelectLabel" aria-required="false">
@@ -532,6 +529,9 @@
                             </div>
                         </div>
                     </div>
+
+
+
 
                     <!-- Sender Address Labels -->
                     <div class="form-check">
@@ -587,23 +587,23 @@
                             <label for="howDidYouHear" class="form-label">How did you hear about Feather and Flora?<span
                                     class="required-star">*</span></label>
 
-       
-                        <div class="col-lg-4 col-md-6 col-10">
-                            <select class="form-select" id="howDidYouHear" name="howDidYouHear" required
-                                aria-required="true">
-                                <option value="" disabled selected>Select</option>
-                                <option value="Google">Google</option>
-                                <option value="Etsy">Etsy</option>
-                                <option value="Instagram">Instagram</option>
-                                <option value="Facebook">Facebook</option>
-                                <option value="Pinterest">Pinterest</option>
-                                <option value="Word of Mouth">Word of Mouth</option>
-                                <option value="Other">Other</option>
-                            </select>
-                            <label for="howDidYouHear" class="visually-hidden">How did you hear about Feather and
-                                Flora?</label>
+
+                            <div class="col-lg-4 col-md-6 col-10">
+                                <select class="form-select" id="howDidYouHear" name="howDidYouHear" required
+                                    aria-required="true">
+                                    <option value="" disabled selected>Select</option>
+                                    <option value="Google">Google</option>
+                                    <option value="Etsy">Etsy</option>
+                                    <option value="Instagram">Instagram</option>
+                                    <option value="Facebook">Facebook</option>
+                                    <option value="Pinterest">Pinterest</option>
+                                    <option value="Word of Mouth">Word of Mouth</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <label for="howDidYouHear" class="visually-hidden">How did you hear about Feather and
+                                    Flora?</label>
+                            </div>
                         </div>
-                    </div>
                     </div>
 
                     <!-- Thank You Message -->
@@ -619,6 +619,12 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Error Message Placeholder -->
+                    <div id="error-message" class="text-danger mt-3" style="display:none;">
+                        Please select at least one option before submitting.
+                    </div>
+
 
             </form>
         </section>

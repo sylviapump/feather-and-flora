@@ -19,7 +19,7 @@ function closeNavbar() {
 }
 
 // Toggle navbar icon between default and 'X' icon
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     var navbarToggler = document.querySelector('.navbar-toggler');
     if (navbarToggler) {
         navbarToggler.addEventListener('click', function () {
@@ -34,6 +34,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         });
+    }
+
+    // Get current date in YYYY-MM-DD format
+    const today = new Date().toISOString().split('T')[0]; 
+    const weddingDateInput = document.getElementById('weddingDate');
+    if (weddingDateInput) {
+        weddingDateInput.setAttribute('min', today); // Set the min attribute
     }
 
     // Function to toggle visibility and required attributes
@@ -82,15 +89,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     toggles.forEach(([checkboxId, designSelectId]) => toggleDesignElements(checkboxId, designSelectId));
 
+    // Function to validate form before submission
+    function validateForm(event) {
+        // Check if any checkbox is checked
+        const anyCheckboxChecked = toggles.some(([checkboxId]) => {
+            const checkbox = document.getElementById(checkboxId);
+            return checkbox && checkbox.checked;
+        });
+
+        if (!anyCheckboxChecked) {
+            document.getElementById('error-message').style.display = 'block'; // Show error message
+            event.preventDefault(); // Prevent form submission
+        } else {
+            document.getElementById('error-message').style.display = 'none'; // Hide error message
+        }
+    }
+
+    // Attach submit event listener to the form
     const form = document.querySelector('form');
     if (form) {
-        form.addEventListener('submit', function(event) {
-            const guestCount = document.getElementById('guestCount');
-            if (guestCount) {
-                console.log('Guest Count:', guestCount.value);
-            } else {
-                console.error('Guest Count input not found.');
-            }
-        });
+        form.addEventListener('submit', validateForm);
     }
 });

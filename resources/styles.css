@@ -298,6 +298,9 @@ header {
 }
 
 /* Contact Form */
+.required-star {
+    color: red;
+}
 
 /* Ensure labels do not wrap onto multiple lines */
 .form-label {
