@@ -1,5 +1,3 @@
-// Custom JavaScript
-
 // Function to close navbar when link is clicked
 function closeNavbar() {
     var navToggler = document.querySelector('.navbar-toggler');
@@ -89,23 +87,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     toggles.forEach(([checkboxId, designSelectId]) => toggleDesignElements(checkboxId, designSelectId));
 
-    // Function to validate form before submission
-    function validateForm(event) {
-        // Check if any checkbox is checked
-        const anyCheckboxChecked = toggles.some(([checkboxId]) => {
-            const checkbox = document.getElementById(checkboxId);
-            return checkbox && checkbox.checked;
-        });
-
-        if (!anyCheckboxChecked) {
-            document.getElementById('error-message').style.display = 'block'; // Show error message
-            return false; // Prevent form submission
-        } else {
-            document.getElementById('error-message').style.display = 'none'; // Hide error message
-            return true; // Allow form submission
-        }
-    }
-
     // Function to handle form submission
     function handleSubmit(event) {
         if (!validateForm(event)) {
@@ -141,8 +122,29 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
+        // Filter out specific design fields that should not be included in the email
+        const excludedFields = [
+            'sampleSetDesign',
+            'saveTheDateDesign',
+            'invitationsDesign',
+            'rsvpDesign',
+            'detailsDesign',
+            'invitationsRsvpSetDesign',
+            'invitationsRsvpDetailsSetDesign',
+            'programsDesign',
+            'menusDesign',
+            'placeCardsDesign',
+            'favourTagsDesign',
+            'thankYouNoteCardsDesign',
+            'envelopeSealsDesign'
+        ];
+
+        excludedFields.forEach(field => {
+            delete data[field];
+        });
+
         // Optional: Log the data object to verify
-        console.log('Form Data:', data);
+        console.log('Filtered Form Data:', data);
 
         // Use fetch to submit the form data
         fetch(form.action, {
