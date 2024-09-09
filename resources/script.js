@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     designSelect.style.display = 'none'; // Hide select box
                     designSelect.removeAttribute('aria-required');
                     designSelect.removeAttribute('required');
-                    designSelect.querySelector('option[value=""]').textContent = 'None Selected'; // Change default text
+                    designSelect.querySelector('option[value=""]').textContent = 'No'; // Change default text
                 }
             }
     
@@ -89,16 +89,16 @@ document.addEventListener('DOMContentLoaded', function () {
             // Collect all the checkbox inputs in the form
             const checkboxes = form.querySelectorAll('input[type="checkbox"]');
     
-            // Ensure all checkboxes are included in the FormData object with "yes" for checked and "None Selected" for unchecked
+            // Ensure all checkboxes are included in the FormData object with "Yes" for checked and "None Selected" for unchecked
             checkboxes.forEach(checkbox => {
                 if (checkbox.checked) {
                     // Specific case for checkboxes with associated selects
                     const designSelect = form.querySelector(`select[name="${checkbox.name}Design"]`);
                     if (designSelect) {
-                        formData.set(checkbox.name, 'yes');
+                        formData.set(checkbox.name, 'Yes');
                         formData.set(designSelect.name, designSelect.value); // Use set instead of append to overwrite value
                     } else {
-                        formData.set(checkbox.name, 'yes');
+                        formData.set(checkbox.name, 'Yes');
                     }
                 } else {
                     formData.set(checkbox.name, 'None Selected');
