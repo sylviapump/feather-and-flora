@@ -105,19 +105,27 @@ document.addEventListener('DOMContentLoaded', function () {
             'senderAddressLabelsDesign'
         ];
 
-        // Prepare a plain object for submission
-        const data = {};
-
         // Ensure all checkboxes are included in the FormData object with "Yes" for checked and "No" for unchecked
         checkboxes.forEach(checkbox => {
             const designSelect = form.querySelector(`select[name="${checkbox.name}Design"]`);
+
             if (checkbox.checked) {
-                data[checkbox.name] = 'Yes';
+                formData.set(checkbox.name, 'Yes');
                 if (designSelect && !excludeDesigns.includes(designSelect.name)) {
-                    data[designSelect.name] = designSelect.value; // Add design value if not excluded
+                    formData.set(designSelect.name, designSelect.value); // Use set instead of append to overwrite value
                 }
             } else {
-                data[checkbox.name] = 'No';
+                formData.set(checkbox.name, 'No');
+            }
+        });
+
+        // Convert FormData to a plain object
+        const data = {};
+        formData.forEach((value, key) => {
+            if (data[key]) {
+                data[key] = Array.isArray(data[key]) ? [...data[key], value] : [data[key], value];
+            } else {
+                data[key] = value;
             }
         });
 
