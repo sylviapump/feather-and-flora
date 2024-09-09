@@ -1,5 +1,3 @@
-// Custom JavaScript
-
 // Function to close navbar when link is clicked
 function closeNavbar() {
     var navToggler = document.querySelector('.navbar-toggler');
@@ -60,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 designSelect.style.display = 'none'; // Hide select box
                 designSelect.removeAttribute('aria-required');
                 designSelect.removeAttribute('required');
-                designSelect.querySelector('option[value=""]').textContent = 'None Selected'; // Change default text
+                designSelect.querySelector('option[value=""]').textContent = 'Select Design';
             }
         }
 
@@ -89,38 +87,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     toggles.forEach(([checkboxId, designSelectId]) => toggleDesignElements(checkboxId, designSelectId));
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    // Function to validate the form before submission
-    function validateForm() {
-=======
     // Function to validate form before submission
     function validateForm(event) {
         // Check if any checkbox is checked
->>>>>>> parent of d40058d (Checkbox form submisision)
-=======
-    // Function to validate form before submission
-    function validateForm(event) {
-        // Check if any checkbox is checked
->>>>>>> parent of d40058d (Checkbox form submisision)
-=======
-    // Function to validate form before submission
-    function validateForm(event) {
-        // Check if any checkbox is checked
->>>>>>> parent of d40058d (Checkbox form submisision)
-=======
-    // Function to validate form before submission
-    function validateForm(event) {
-        // Check if any checkbox is checked
->>>>>>> parent of d40058d (Checkbox form submisision)
-=======
-    // Function to validate form before submission
-    function validateForm(event) {
-        // Check if any checkbox is checked
->>>>>>> parent of d40058d (Checkbox form submisision)
         const anyCheckboxChecked = toggles.some(([checkboxId]) => {
             const checkbox = document.getElementById(checkboxId);
             return checkbox && checkbox.checked;
@@ -128,93 +97,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (!anyCheckboxChecked) {
             document.getElementById('error-message').style.display = 'block'; // Show error message
-            return false; // Prevent form submission
+            event.preventDefault(); // Prevent form submission
         } else {
             document.getElementById('error-message').style.display = 'none'; // Hide error message
-            return true; // Allow form submission
         }
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    // Function to handle form submission
-    function handleSubmit(event) {
-        if (!validateForm()) {
-            event.preventDefault(); // Prevent form submission if validation fails
-            return;
-        }
-
-        event.preventDefault(); // Prevent default form submission
-
-        // Get the form element
-        const form = event.target;
-
-        // Create a FormData object from the form
-        const formData = new FormData(form);
-
-        // Collect all the checkbox inputs in the form
-        const checkboxes = form.querySelectorAll('input[type="checkbox"]');
-
-        // Ensure all checkboxes are included in the FormData object with "None Selected" for unchecked
-        checkboxes.forEach(checkbox => {
-            if (!checkbox.checked) {
-                formData.append(checkbox.name, 'None Selected'); // Add "None Selected" for unchecked
-            }
-        });
-
-        // Convert FormData to a plain object
-        const data = {};
-        formData.forEach((value, key) => {
-            if (data[key]) {
-                data[key] = Array.isArray(data[key]) ? [...data[key], value] : [data[key], value];
-            } else {
-                data[key] = value;
-            }
-        });
-
-        // Optional: Log the data object to verify
-        console.log('Form Data:', data);
-
-        // Use fetch to submit the form data
-        fetch(form.action, {
-            method: 'POST',
-            body: new URLSearchParams(data),
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            }
-        })
-        .then(response => response.text())
-        .then(result => {
-            console.log('Success:', result);
-            // Redirect or show a success message
-            window.location.href = 'thank-you.html'; // Redirect to thank you page
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            // Optionally, show an error message
-        });
-
-        return false; // Prevent default form submission
-    }
-
-    // Attach the submit handler to the form
-    const form = document.querySelector('form[name="order-form"]');
-=======
-=======
->>>>>>> parent of d40058d (Checkbox form submisision)
-=======
->>>>>>> parent of d40058d (Checkbox form submisision)
-=======
->>>>>>> parent of d40058d (Checkbox form submisision)
-=======
->>>>>>> parent of d40058d (Checkbox form submisision)
     // Attach submit event listener to the form
     const form = document.querySelector('form');
->>>>>>> parent of d40058d (Checkbox form submisision)
     if (form) {
-        form.addEventListener('submit', handleSubmit);
+        form.addEventListener('submit', validateForm);
     }
 });
