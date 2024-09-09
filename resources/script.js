@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Collect all the checkbox inputs in the form
             const checkboxes = form.querySelectorAll('input[type="checkbox"]');
     
-            // Ensure all checkboxes are included in the FormData object with "Yes" for checked and "None Selected" for unchecked
+            // Ensure all checkboxes are included in the FormData object with "Yes" for checked and "No" for unchecked
             checkboxes.forEach(checkbox => {
                 if (checkbox.checked) {
                     // Specific case for checkboxes with associated selects
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         formData.set(checkbox.name, 'Yes');
                     }
                 } else {
-                    formData.set(checkbox.name, 'None Selected');
+                    formData.set(checkbox.name, 'No');
                 }
             });
     
