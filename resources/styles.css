@@ -297,6 +297,25 @@ header {
     color: var(--color-accent2);
 }
 
+/* Contact Form */
+
+/* Ensure labels do not wrap onto multiple lines */
+.form-label {
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden;    /* Hide overflowing text if needed */
+    text-overflow: ellipsis; /* Add ellipsis for long text */
+}
+
+/* Optional: Adjust the vertical alignment of the label and input */
+.form-label {
+    display: block; /* Ensure the label is a block element */
+    margin-bottom: 0.5rem; /* Adjust spacing between label and input */
+}
+
+.form-control {
+    width: 100%; /* Ensure input fields take full width of their container */
+}
+
 
 /* Apply border styles to all relevant form elements */
 input,
