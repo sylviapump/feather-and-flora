@@ -79,33 +79,46 @@ document.addEventListener('DOMContentLoaded', function () {
     // Handle form submission
     function handleSubmit(event) {
         event.preventDefault(); // Prevent default form submission
-    
+
         // Get the form element
         const form = event.target;
-    
+
         // Create a FormData object from the form
         const formData = new FormData(form);
-    
+
         // Collect all the checkbox inputs in the form
         const checkboxes = form.querySelectorAll('input[type="checkbox"]');
-    
+
+        // Define sections to exclude from email
+        const excludeDesigns = [
+            'sampleSetDesign',
+            'saveTheDateDesign',
+            'invitationsDesign',
+            'invitationsRsvpSetDesign',
+            'invitationsRsvpDetailsSetDesign',
+            'programsDesign',
+            'menusDesign',
+            'placeCardsDesign',
+            'favourTagsDesign',
+            'thankYouNoteCardsDesign',
+            'envelopeSealsDesign',
+            'senderAddressLabelsDesign'
+        ];
+
         // Ensure all checkboxes are included in the FormData object with "Yes" for checked and "No" for unchecked
         checkboxes.forEach(checkbox => {
             const designSelect = form.querySelector(`select[name="${checkbox.name}Design"]`);
-    
+
             if (checkbox.checked) {
                 formData.set(checkbox.name, 'Yes');
-                if (designSelect) {
+                if (designSelect && !excludeDesigns.includes(designSelect.name)) {
                     formData.set(designSelect.name, designSelect.value); // Use set instead of append to overwrite value
                 }
             } else {
                 formData.set(checkbox.name, 'No');
-                if (designSelect) {
-                    formData.delete(designSelect.name); // Remove design selection if checkbox is not checked
-                }
             }
         });
-    
+
         // Convert FormData to a plain object
         const data = {};
         formData.forEach((value, key) => {
@@ -115,10 +128,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 data[key] = value;
             }
         });
-    
+
         // Optional: Log the data object to verify
         console.log('Form Data:', data);
-    
+
         // Use fetch to submit the form data
         fetch(form.action, {
             method: 'POST',
@@ -137,14 +150,13 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Error:', error);
             // Optionally, show an error message
         });
-    
+
         return false; // Prevent default form submission
     }
-    
+
     // Attach submit event listener to the form
     const form = document.querySelector('form[name="order-form"]');
     if (form) {
         form.addEventListener('submit', handleSubmit);
     }
-    
 });
