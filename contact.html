@@ -118,7 +118,7 @@
 
             <!-- Order Form -->
             <form class="row small" name="order-form" method="POST" data-netlify="true" data-netlify-honeypot="honeypot"
-                action="/.netlify/functions/send-email">
+                action="thank-you.html">
 
                 <!-- Honeypot Field -->
                 <div style="display: none;">
@@ -144,10 +144,8 @@
                         <input type="email" class="form-control" id="email" name="email" required>
                     </div>
                     <div class="col-lg-4 col-6 mb-3">
-                        <label for="weddingDate" class="form-label">Wedding Date<span
-                                class="required-star">*</span></label>
-                        <input type="date" class="form-control" id="weddingDate" name="weddingDate" required
-                            min="<?php echo date('Y-m-d'); ?>">
+                        <label for="weddingDate" class="form-label">Wedding Date<span class="required-star">*</span></label>
+                        <input type="date" class="form-control" id="weddingDate" name="weddingDate" required>
                     </div>
 
                 </div>
