@@ -90,8 +90,14 @@ document.addEventListener('DOMContentLoaded', function () {
     toggles.forEach(([checkboxId, designSelectId]) => toggleDesignElements(checkboxId, designSelectId));
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Function to validate the form before submission
     function validateForm() {
+=======
+    // Function to validate form before submission
+    function validateForm(event) {
+        // Check if any checkbox is checked
+>>>>>>> parent of d40058d (Checkbox form submisision)
 =======
     // Function to validate form before submission
     function validateForm(event) {
@@ -111,6 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     // Function to handle form submission
     function handleSubmit(event) {
@@ -175,6 +182,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Attach the submit handler to the form
     const form = document.querySelector('form[name="order-form"]');
 =======
+=======
+>>>>>>> parent of d40058d (Checkbox form submisision)
     // Attach submit event listener to the form
     const form = document.querySelector('form');
 >>>>>>> parent of d40058d (Checkbox form submisision)
