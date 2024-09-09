@@ -1,37 +1,26 @@
-// Custom JavaScript
-
 // Function to close navbar when link is clicked
 function closeNavbar() {
-    var navToggler = document.querySelector('.navbar-toggler');
+    const navToggler = document.querySelector('.navbar-toggler');
     if (navToggler) {
-        var navCollapse = document.querySelector('.navbar-collapse');
-        var icon = navToggler.querySelector('span');
-        if (navCollapse && icon) {
-            if (navCollapse.classList.contains('show')) {
-                navCollapse.classList.remove('show');
-                if (icon.classList.contains('fa-times')) {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('navbar-toggler-icon');
-                }
-            }
+        const navCollapse = document.querySelector('.navbar-collapse');
+        const icon = navToggler.querySelector('span');
+        if (navCollapse && icon && navCollapse.classList.contains('show')) {
+            navCollapse.classList.remove('show');
+            icon.classList.toggle('fa-times', false);
+            icon.classList.toggle('navbar-toggler-icon', true);
         }
     }
 }
 
 // Toggle navbar icon between default and 'X' icon
 document.addEventListener('DOMContentLoaded', function () {
-    var navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarToggler = document.querySelector('.navbar-toggler');
     if (navbarToggler) {
         navbarToggler.addEventListener('click', function () {
-            var icon = navbarToggler.querySelector('span');
+            const icon = navbarToggler.querySelector('span');
             if (icon) {
-                if (icon.classList.contains('navbar-toggler-icon')) {
-                    icon.classList.remove('navbar-toggler-icon');
-                    icon.classList.add('fa', 'fa-times');
-                } else {
-                    icon.classList.remove('fa', 'fa-times');
-                    icon.classList.add('navbar-toggler-icon');
-                }
+                icon.classList.toggle('navbar-toggler-icon');
+                icon.classList.toggle('fa-times');
             }
         });
     }
@@ -89,29 +78,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
     toggles.forEach(([checkboxId, designSelectId]) => toggleDesignElements(checkboxId, designSelectId));
 
-    // Function to handle form submission
     function handleSubmit(event) {
         if (!validateForm(event)) {
             event.preventDefault(); // Prevent form submission if validation fails
             return;
         }
-
+    
         event.preventDefault(); // Prevent default form submission
-
+    
         // Get the form element
         const form = event.target;
-
+    
         // Create a FormData object from the form
         const formData = new FormData(form);
-
+    
         // Collect all the checkbox inputs in the form
         const checkboxes = form.querySelectorAll('input[type="checkbox"]');
-
+    
         // Ensure all checkboxes are included in the FormData object with "Yes" for checked and "No" for unchecked
         checkboxes.forEach(checkbox => {
-            formData.append(checkbox.name, checkbox.checked ? 'Yes' : 'No');
+            if (checkbox.checked) {
+                formData.append(checkbox.name, 'Yes');
+                const associatedSelect = form.querySelector(`select[name="${checkbox.name}Design"]`);
+                if (associatedSelect) {
+                    formData.append(associatedSelect.name, associatedSelect.value);
+                }
+            } else {
+                formData.append(checkbox.name, 'No');
+            }
         });
-
+    
         // Convert FormData to a plain object
         const data = {};
         formData.forEach((value, key) => {
@@ -121,10 +117,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 data[key] = value;
             }
         });
-
+    
         // Optional: Log the data object to verify
         console.log('Form Data:', data);
-
+    
         // Use fetch to submit the form data
         fetch(form.action, {
             method: 'POST',
@@ -143,10 +139,10 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Error:', error);
             // Optionally, show an error message
         });
-
+    
         return false; // Prevent default form submission
     }
-
+    
     // Attach submit event listener to the form
     const form = document.querySelector('form[name="order-form"]');
     if (form) {
