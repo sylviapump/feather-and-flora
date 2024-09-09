@@ -37,10 +37,12 @@
 
 <body class="d-flex align-items-center justify-content-center vh-100">
     <main class="d-flex align-items-center justify-content-center w-100">
-        <div class="col-md-6 d-flex flex-column align-items-center justify-content-center text-center bg-white border rounded shadow-sm p-5">
+        <div
+            class="col-md-6 d-flex flex-column align-items-center justify-content-center text-center bg-white border rounded shadow-sm p-5">
             <h4>Thank you for subscribing to our newsletter!</h4>
             <br>
-            <p class="fs-6">We're thrilled to share our wedding stationery tips, exciting invitation updates, and heartfelt blog posts with you. We can’t wait to embark on this journey together!</p>
+            <p class="fs-6">We're thrilled to share our wedding stationery tips, exciting invitation updates, and
+                heartfelt blog posts with you. We can’t wait to embark on this journey together!</p>
             <!-- Back to Home Button -->
             <a href="index.html" class="btn rounded-pill mt-4">Back to Feather and Flora</a>
         </div>
@@ -52,37 +54,8 @@
         crossorigin="anonymous"></script>
 
     <!-- Custom JavaScript -->
-    <script>
-        // Function to close navbar when link is clicked
-        function closeNavbar() {
-            var navToggler = document.querySelector('.navbar-toggler');
-            var navCollapse = document.querySelector('.navbar-collapse');
-            var icon = navToggler.querySelector('span');
+    <script src="resources/script.js"></script>
 
-            if (navCollapse.classList.contains('show')) {
-                navCollapse.classList.remove('show');
-                // Change the toggle icon back to the default state
-                if (icon.classList.contains('fa-times')) {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('navbar-toggler-icon');
-                }
-            }
-        }
-
-        // Toggle navbar icon between default and 'X' icon
-        var navbarToggler = document.querySelector('.navbar-toggler');
-
-        navbarToggler.addEventListener('click', function () {
-            var icon = navbarToggler.querySelector('span');
-            if (icon.classList.contains('navbar-toggler-icon')) {
-                icon.classList.remove('navbar-toggler-icon');
-                icon.classList.add('fa', 'fa-times');
-            } else {
-                icon.classList.remove('fa', 'fa-times');
-                icon.classList.add('navbar-toggler-icon');
-            }
-        });
-    </script>
 </body>
 
 </html>
