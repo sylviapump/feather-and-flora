@@ -103,37 +103,65 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to handle form submission
     function handleSubmit(event) {
+        event.preventDefault(); // Prevent default form submission
+
         // Get the form element
         const form = event.target;
+
+        // Create a FormData object from the form
+        const formData = new FormData(form);
 
         // Collect all the checkbox inputs in the form
         const checkboxes = form.querySelectorAll('input[type="checkbox"]');
 
-        // Loop through each checkbox
+        // Remove unchecked checkboxes from the FormData object
         checkboxes.forEach(checkbox => {
             if (!checkbox.checked) {
-                // Remove unchecked checkboxes from the form data
-                const checkboxWrapper = checkbox.closest('label');
-                if (checkboxWrapper) {
-                    checkboxWrapper.style.display = 'none'; // Hide the unchecked checkboxes
-                }
+                formData.delete(checkbox.name); // Remove unchecked checkboxes
             }
         });
 
-        // Remove the entire label if it contains only hidden checkboxes
-        const labels = form.querySelectorAll('label');
-        labels.forEach(label => {
-            if (label.style.display === 'none') {
-                label.remove();
+        // Convert FormData to a plain object
+        const data = {};
+        formData.forEach((value, key) => {
+            if (data[key]) {
+                data[key] = Array.isArray(data[key]) ? [...data[key], value] : [data[key], value];
+            } else {
+                data[key] = value;
             }
         });
 
-        // Continue with form submission
-        return true; // Proceed with the form submission
+        // Optional: Log the data object to verify
+        console.log('Form Data:', data);
+
+        // Use fetch to submit the form data
+        fetch(form.action, {
+            method: 'POST',
+            body: new URLSearchParams(data),
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        })
+        .then(response => response.text())
+        .then(result => {
+            console.log('Success:', result);
+            // Redirect or show a success message
+            window.location.href = 'thank-you.html'; // Redirect to thank you page
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Optionally, show an error message
+        });
+
+        return false; // Prevent default form submission
     }
-    // Attach submit event listener to the form
-    const form = document.querySelector('form');
+
+    // Attach the submit handler to the form
+    const form = document.querySelector('form[name="order-form"]');
     if (form) {
-        form.addEventListener('submit', validateForm);
+        form.addEventListener('submit', function(event) {
+            validateForm(event); // Validate form
+            handleSubmit(event); // Handle form submission
+        });
     }
 });
