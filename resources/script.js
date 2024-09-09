@@ -1,5 +1,19 @@
+// Function to close navbar when link is clicked
+function closeNavbar() {
+    const navToggler = document.querySelector('.navbar-toggler');
+    if (navToggler) {
+        const navCollapse = document.querySelector('.navbar-collapse');
+        const icon = navToggler.querySelector('span');
+        if (navCollapse && icon && navCollapse.classList.contains('show')) {
+            navCollapse.classList.remove('show');
+            icon.classList.toggle('fa-times', false);
+            icon.classList.toggle('navbar-toggler-icon', true);
+        }
+    }
+}
+
+// Toggle navbar icon between default and 'X' icon
 document.addEventListener('DOMContentLoaded', function () {
-    // Function to toggle navbar icon between default and 'X' icon
     const navbarToggler = document.querySelector('.navbar-toggler');
     if (navbarToggler) {
         navbarToggler.addEventListener('click', function () {
@@ -132,23 +146,5 @@ document.addEventListener('DOMContentLoaded', function () {
     if (form) {
         form.addEventListener('submit', handleSubmit);
     }
-
-    // Function to close navbar when link is clicked
-    function closeNavbar() {
-        const navToggler = document.querySelector('.navbar-toggler');
-        if (navToggler) {
-            const navCollapse = document.querySelector('.navbar-collapse');
-            const icon = navToggler.querySelector('span');
-            if (navCollapse && icon && navCollapse.classList.contains('show')) {
-                navCollapse.classList.remove('show');
-                icon.classList.toggle('fa-times', false);
-                icon.classList.toggle('navbar-toggler-icon', true);
-            }
-        }
-    }
-
-    // Example of closing the navbar when a link is clicked (if needed)
-    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
-        link.addEventListener('click', closeNavbar);
-    });
+    
 });
