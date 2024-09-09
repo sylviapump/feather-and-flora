@@ -76,6 +76,12 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
 
     toggles.forEach(([checkboxId, designSelectId]) => toggleDesignElements(checkboxId, designSelectId));
+
+    document.querySelector('form').addEventListener('submit', function(event) {
+        const guestCount = document.getElementById('guestCount').value;
+        console.log('Guest Count:', guestCount);
+    });
+
 });
 
 
