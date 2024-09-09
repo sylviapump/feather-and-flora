@@ -91,8 +91,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Function to validate the form before submission
     function validateForm() {
+=======
+    // Function to validate form before submission
+    function validateForm(event) {
+        // Check if any checkbox is checked
+>>>>>>> parent of d40058d (Checkbox form submisision)
 =======
     // Function to validate form before submission
     function validateForm(event) {
@@ -117,6 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     // Function to handle form submission
@@ -182,6 +189,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Attach the submit handler to the form
     const form = document.querySelector('form[name="order-form"]');
 =======
+=======
+>>>>>>> parent of d40058d (Checkbox form submisision)
 =======
 >>>>>>> parent of d40058d (Checkbox form submisision)
     // Attach submit event listener to the form
