@@ -367,3 +367,8 @@ input[type=radio]:active,
 footer {
     background-color: var(--color-accent5);
 }
+
+
+.hidden {
+    display: none;
+}
