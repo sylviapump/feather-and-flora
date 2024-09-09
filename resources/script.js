@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Get current date in YYYY-MM-DD format
-    const today = new Date().toISOString().split('T')[0];
+    const today = new Date().toISOString().split('T')[0]; 
     const weddingDateInput = document.getElementById('weddingDate');
     if (weddingDateInput) {
         weddingDateInput.setAttribute('min', today); // Set the min attribute
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 designSelect.style.display = 'none'; // Hide select box
                 designSelect.removeAttribute('aria-required');
                 designSelect.removeAttribute('required');
-                designSelect.querySelector('option[value=""]').textContent = 'Not Applicable'; // Change default text
+                designSelect.querySelector('option[value=""]').textContent = 'None Selected'; // Change default text
             }
         }
 
@@ -94,6 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
         // Collect all the checkbox inputs in the form
         const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+<<<<<<< HEAD
     
         // Ensure all checkboxes are included in the FormData object with "Yes" for checked and "No" for unchecked
         checkboxes.forEach(checkbox => {
@@ -105,6 +106,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             } else {
                 formData.append(checkbox.name, 'No');
+=======
+
+        // Ensure all checkboxes are included in the FormData object with "None Selected" for unchecked
+        checkboxes.forEach(checkbox => {
+            if (!checkbox.checked) {
+                formData.append(checkbox.name, 'None Selected'); // Add "None Selected" for unchecked
+>>>>>>> parent of 9d8e9c7 (Update script.js)
             }
         });
     
@@ -117,10 +125,38 @@ document.addEventListener('DOMContentLoaded', function () {
                 data[key] = value;
             }
         });
+<<<<<<< HEAD
     
         // Optional: Log the data object to verify
         console.log('Form Data:', data);
     
+=======
+
+        // Filter out specific design fields that should not be included in the email
+        const excludedFields = [
+            'sampleSetDesign',
+            'saveTheDateDesign',
+            'invitationsDesign',
+            'rsvpDesign',
+            'detailsDesign',
+            'invitationsRsvpSetDesign',
+            'invitationsRsvpDetailsSetDesign',
+            'programsDesign',
+            'menusDesign',
+            'placeCardsDesign',
+            'favourTagsDesign',
+            'thankYouNoteCardsDesign',
+            'envelopeSealsDesign'
+        ];
+
+        excludedFields.forEach(field => {
+            delete data[field];
+        });
+
+        // Optional: Log the data object to verify
+        console.log('Filtered Form Data:', data);
+
+>>>>>>> parent of 9d8e9c7 (Update script.js)
         // Use fetch to submit the form data
         fetch(form.action, {
             method: 'POST',
