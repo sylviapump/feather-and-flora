@@ -25,132 +25,125 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Get current date in YYYY-MM-DD format
-    const today = new Date().toISOString().split('T')[0]; 
-    const weddingDateInput = document.getElementById('weddingDate');
-    if (weddingDateInput) {
-        weddingDateInput.setAttribute('min', today); // Set the min attribute
-    }
-
-    // Function to toggle visibility and required attributes
-    function toggleDesignElements(checkboxId, designSelectId) {
-        const checkbox = document.getElementById(checkboxId);
-        const designSelect = document.getElementById(designSelectId);
-
-        if (!checkbox || !designSelect) return; // Early exit if elements don't exist
-
-        function toggleElements() {
-            if (checkbox.checked) {
-                designSelect.style.display = 'block'; // Show select box
-                designSelect.setAttribute('aria-required', 'true');
-                designSelect.setAttribute('required', 'required');
-                designSelect.querySelector('option[value=""]').textContent = 'Select Design';
-            } else {
-                designSelect.style.display = 'none'; // Hide select box
-                designSelect.removeAttribute('aria-required');
-                designSelect.removeAttribute('required');
-                designSelect.querySelector('option[value=""]').textContent = 'None Selected'; // Change default text
-            }
-        }
-
-        checkbox.addEventListener('change', toggleElements);
-        // Initialize state
-        toggleElements();
-    }
-
-    // Set up visibility and required state toggles for each section
-    const toggles = [
-        ['sampleSet', 'sampleSetDesign'],
-        ['saveTheDate', 'saveTheDateDesign'],
-        ['invitationsEnvelopes', 'invitationsDesign'],
-        ['rsvpCardsEnvelopes', 'rsvpDesign'],
-        ['detailsCard', 'detailsDesign'],
-        ['invitationsRsvpSet', 'invitationsRsvpSetDesign'],
-        ['invitationsRsvpDetailsSet', 'invitationsRsvpDetailsSetDesign'],
-        ['programs', 'programsDesign'],
-        ['menus', 'menusDesign'],
-        ['placeCards', 'placeCardsDesign'],
-        ['favourTags', 'favourTagsDesign'],
-        ['thankYouNoteCards', 'thankYouNoteCardsDesign'],
-        ['envelopeSeals', 'envelopeSealsDesign'],
-        ['otherCheckbox', 'otherTextBox']
-    ];
-
-    toggles.forEach(([checkboxId, designSelectId]) => toggleDesignElements(checkboxId, designSelectId));
-
-    // Handle form submission
-    function handleSubmit(event) {
-        if (!validateForm(event)) {
-            event.preventDefault(); // Prevent form submission if validation fails
-            return;
+        // Get current date in YYYY-MM-DD format
+        const today = new Date().toISOString().split('T')[0];
+        const weddingDateInput = document.getElementById('weddingDate');
+        if (weddingDateInput) {
+            weddingDateInput.setAttribute('min', today); // Set the min attribute
         }
     
-        event.preventDefault(); // Prevent default form submission
+        // Function to toggle visibility and required attributes
+        function toggleDesignElements(checkboxId, designSelectId) {
+            const checkbox = document.getElementById(checkboxId);
+            const designSelect = document.getElementById(designSelectId);
     
-        // Get the form element
-        const form = event.target;
+            if (!checkbox || !designSelect) return; // Early exit if elements don't exist
     
-        // Create a FormData object from the form
-        const formData = new FormData(form);
-    
-        // Collect all the checkbox inputs in the form
-        const checkboxes = form.querySelectorAll('input[type="checkbox"]');
-    
-        // Ensure all checkboxes are included in the FormData object with "Yes" for checked and "None Selected" for unchecked
-        checkboxes.forEach(checkbox => {
-            if (checkbox.checked) {
-                if (checkbox.name === 'invitationsRsvpSet') {
-                    formData.append(checkbox.name, 'Yes'); // Specific case for 'Invitations + RSVP Cards + Details Cards Set'
+            function toggleElements() {
+                if (checkbox.checked) {
+                    designSelect.style.display = 'block'; // Show select box
+                    designSelect.setAttribute('aria-required', 'true');
+                    designSelect.setAttribute('required', 'required');
+                    designSelect.querySelector('option[value=""]').textContent = 'Select Design';
                 } else {
-                    formData.append(checkbox.name, 'Yes'); // General case for other checkboxes
+                    designSelect.style.display = 'none'; // Hide select box
+                    designSelect.removeAttribute('aria-required');
+                    designSelect.removeAttribute('required');
+                    designSelect.querySelector('option[value=""]').textContent = 'None Selected'; // Change default text
                 }
-                const associatedSelect = form.querySelector(`select[name="${checkbox.name}Design"]`);
-                if (associatedSelect) {
-                    formData.append(associatedSelect.name, associatedSelect.value);
+            }
+    
+            checkbox.addEventListener('change', toggleElements);
+            // Initialize state
+            toggleElements();
+        }
+    
+        // Set up visibility and required state toggles for each section
+        const toggles = [
+            ['sampleSet', 'sampleSetDesign'],
+            ['saveTheDate', 'saveTheDateDesign'],
+            ['invitationsEnvelopes', 'invitationsDesign'],
+            ['invitationsRsvpSet', 'invitationsRsvpSetDesign'],
+            ['invitationsRsvpDetailsSet', 'invitationsRsvpDetailsSetDesign'],
+            ['programs', 'programsDesign'],
+            ['menus', 'menusDesign'],
+            ['placeCards', 'placeCardsDesign'],
+            ['favourTags', 'favourTagsDesign'],
+            ['thankYouNoteCards', 'thankYouNoteCardsDesign'],
+            ['envelopeSeals', 'envelopeSealsDesign'],
+            ['senderAddressLabels', 'senderAddressLabelsDesign']
+        ];
+    
+        toggles.forEach(([checkboxId, designSelectId]) => toggleDesignElements(checkboxId, designSelectId));
+    
+        // Handle form submission
+        function handleSubmit(event) {
+            event.preventDefault(); // Prevent default form submission
+    
+            // Get the form element
+            const form = event.target;
+    
+            // Create a FormData object from the form
+            const formData = new FormData(form);
+    
+            // Collect all the checkbox inputs in the form
+            const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+    
+            // Ensure all checkboxes are included in the FormData object with "yes" for checked and "None Selected" for unchecked
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    // Specific case for checkboxes with associated selects
+                    const designSelect = form.querySelector(`select[name="${checkbox.name}Design"]`);
+                    if (designSelect) {
+                        formData.set(checkbox.name, 'yes');
+                        formData.set(designSelect.name, designSelect.value); // Use set instead of append to overwrite value
+                    } else {
+                        formData.set(checkbox.name, 'yes');
+                    }
+                } else {
+                    formData.set(checkbox.name, 'None Selected');
                 }
-            } else {
-                formData.append(checkbox.name, 'None Selected'); // Add "None Selected" for unchecked
-            }
-        });
+            });
     
-        // Convert FormData to a plain object
-        const data = {};
-        formData.forEach((value, key) => {
-            if (data[key]) {
-                data[key] = Array.isArray(data[key]) ? [...data[key], value] : [data[key], value];
-            } else {
-                data[key] = value;
-            }
-        });
-
-        // Optional: Log the data object to verify
-        console.log('Form Data:', data);
-
-        // Use fetch to submit the form data
-        fetch(form.action, {
-            method: 'POST',
-            body: new URLSearchParams(data),
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            }
-        })
-        .then(response => response.text())
-        .then(result => {
-            console.log('Success:', result);
-            // Redirect or show a success message
-            window.location.href = 'thank-you.html'; // Redirect to thank you page
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            // Optionally, show an error message
-        });
+            // Convert FormData to a plain object
+            const data = {};
+            formData.forEach((value, key) => {
+                if (data[key]) {
+                    data[key] = Array.isArray(data[key]) ? [...data[key], value] : [data[key], value];
+                } else {
+                    data[key] = value;
+                }
+            });
     
-        return false; // Prevent default form submission
-    }
+            // Optional: Log the data object to verify
+            console.log('Form Data:', data);
     
-    // Attach submit event listener to the form
-    const form = document.querySelector('form[name="order-form"]');
-    if (form) {
-        form.addEventListener('submit', handleSubmit);
-    }
-});
+            // Use fetch to submit the form data
+            fetch(form.action, {
+                method: 'POST',
+                body: new URLSearchParams(data),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+            .then(response => response.text())
+            .then(result => {
+                console.log('Success:', result);
+                // Redirect or show a success message
+                window.location.href = 'thank-you.html'; // Redirect to thank you page
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Optionally, show an error message
+            });
+    
+            return false; // Prevent default form submission
+        }
+    
+        // Attach submit event listener to the form
+        const form = document.querySelector('form[name="order-form"]');
+        if (form) {
+            form.addEventListener('submit', handleSubmit);
+        }
+    });
+    
