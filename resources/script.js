@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 designSelect.style.display = 'none'; // Hide design select
                 designSelect.removeAttribute('aria-required');
                 designSelect.removeAttribute('required');
-                designSelect.querySelector('option[value=""]').textContent = 'Select Design';
+                designSelect.querySelector('option[value=""]').textContent = 'None Selected'; // Change default text
             }
         }
 
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
     toggles.forEach(([checkboxId, designSelectId]) => toggleDesignElements(checkboxId, designSelectId));
 
     // Function to validate the form before submission
-    function validateForm(event) {
+    function validateForm() {
         const anyCheckboxChecked = toggles.some(([checkboxId]) => {
             const checkbox = document.getElementById(checkboxId);
             return checkbox && checkbox.checked;
@@ -95,14 +95,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (!anyCheckboxChecked) {
             document.getElementById('error-message').style.display = 'block'; // Show error message
-            event.preventDefault(); // Prevent form submission
+            return false; // Prevent form submission
         } else {
             document.getElementById('error-message').style.display = 'none'; // Hide error message
+            return true; // Allow form submission
         }
     }
 
     // Function to handle form submission
     function handleSubmit(event) {
+        if (!validateForm()) {
+            event.preventDefault(); // Prevent form submission if validation fails
+            return;
+        }
+
         event.preventDefault(); // Prevent default form submission
 
         // Get the form element
@@ -114,10 +120,10 @@ document.addEventListener('DOMContentLoaded', function () {
         // Collect all the checkbox inputs in the form
         const checkboxes = form.querySelectorAll('input[type="checkbox"]');
 
-        // Remove unchecked checkboxes from the FormData object
+        // Ensure all checkboxes are included in the FormData object with "None Selected" for unchecked
         checkboxes.forEach(checkbox => {
             if (!checkbox.checked) {
-                formData.delete(checkbox.name); // Remove unchecked checkboxes
+                formData.append(checkbox.name, 'None Selected'); // Add "None Selected" for unchecked
             }
         });
 
@@ -159,9 +165,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Attach the submit handler to the form
     const form = document.querySelector('form[name="order-form"]');
     if (form) {
-        form.addEventListener('submit', function(event) {
-            validateForm(event); // Validate form
-            handleSubmit(event); // Handle form submission
-        });
+        form.addEventListener('submit', handleSubmit);
     }
 });
