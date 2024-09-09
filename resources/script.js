@@ -94,9 +94,8 @@ document.addEventListener('DOMContentLoaded', function () {
     
         // Collect all the checkbox inputs in the form
         const checkboxes = form.querySelectorAll('input[type="checkbox"]');
-<<<<<<< HEAD
     
-        // Ensure all checkboxes are included in the FormData object with "Yes" for checked and "No" for unchecked
+        // Ensure all checkboxes are included in the FormData object with "Yes" for checked and "None Selected" for unchecked
         checkboxes.forEach(checkbox => {
             if (checkbox.checked) {
                 formData.append(checkbox.name, 'Yes');
@@ -105,14 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     formData.append(associatedSelect.name, associatedSelect.value);
                 }
             } else {
-                formData.append(checkbox.name, 'No');
-=======
-
-        // Ensure all checkboxes are included in the FormData object with "None Selected" for unchecked
-        checkboxes.forEach(checkbox => {
-            if (!checkbox.checked) {
                 formData.append(checkbox.name, 'None Selected'); // Add "None Selected" for unchecked
->>>>>>> parent of 9d8e9c7 (Update script.js)
             }
         });
     
@@ -125,12 +117,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 data[key] = value;
             }
         });
-<<<<<<< HEAD
-    
-        // Optional: Log the data object to verify
-        console.log('Form Data:', data);
-    
-=======
 
         // Filter out specific design fields that should not be included in the email
         const excludedFields = [
@@ -156,7 +142,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Optional: Log the data object to verify
         console.log('Filtered Form Data:', data);
 
->>>>>>> parent of 9d8e9c7 (Update script.js)
         // Use fetch to submit the form data
         fetch(form.action, {
             method: 'POST',
