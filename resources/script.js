@@ -1,4 +1,6 @@
-// Function to close the navbar and toggle the icon
+// Custom JavaScript
+
+// Function to close navbar when link is clicked
 function closeNavbar() {
     var navToggler = document.querySelector('.navbar-toggler');
     if (navToggler) {
@@ -34,28 +36,28 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Set minimum date for the wedding date input
-    const today = new Date().toISOString().split('T')[0];
+    // Get current date in YYYY-MM-DD format
+    const today = new Date().toISOString().split('T')[0]; 
     const weddingDateInput = document.getElementById('weddingDate');
     if (weddingDateInput) {
-        weddingDateInput.setAttribute('min', today);
+        weddingDateInput.setAttribute('min', today); // Set the min attribute
     }
 
-    // Function to toggle visibility and required attributes of design elements
+    // Function to toggle visibility and required attributes
     function toggleDesignElements(checkboxId, designSelectId) {
         const checkbox = document.getElementById(checkboxId);
         const designSelect = document.getElementById(designSelectId);
 
-        if (!checkbox || !designSelect) return; // Exit if elements don't exist
+        if (!checkbox || !designSelect) return; // Early exit if elements don't exist
 
         function toggleElements() {
             if (checkbox.checked) {
-                designSelect.style.display = 'block'; // Show design select
+                designSelect.style.display = 'block'; // Show select box
                 designSelect.setAttribute('aria-required', 'true');
                 designSelect.setAttribute('required', 'required');
                 designSelect.querySelector('option[value=""]').textContent = 'Select Design';
             } else {
-                designSelect.style.display = 'none'; // Hide design select
+                designSelect.style.display = 'none'; // Hide select box
                 designSelect.removeAttribute('aria-required');
                 designSelect.removeAttribute('required');
                 designSelect.querySelector('option[value=""]').textContent = 'None Selected'; // Change default text
@@ -63,10 +65,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         checkbox.addEventListener('change', toggleElements);
-        toggleElements(); // Initialize state
+        // Initialize state
+        toggleElements();
     }
 
-    // Set up toggles for each checkbox and design select
+    // Set up visibility and required state toggles for each section
     const toggles = [
         ['sampleSet', 'sampleSetDesign'],
         ['saveTheDate', 'saveTheDateDesign'],
@@ -86,8 +89,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     toggles.forEach(([checkboxId, designSelectId]) => toggleDesignElements(checkboxId, designSelectId));
 
+<<<<<<< HEAD
     // Function to validate the form before submission
     function validateForm() {
+=======
+    // Function to validate form before submission
+    function validateForm(event) {
+        // Check if any checkbox is checked
+>>>>>>> parent of d40058d (Checkbox form submisision)
         const anyCheckboxChecked = toggles.some(([checkboxId]) => {
             const checkbox = document.getElementById(checkboxId);
             return checkbox && checkbox.checked;
@@ -102,6 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+<<<<<<< HEAD
     // Function to handle form submission
     function handleSubmit(event) {
         if (!validateForm()) {
@@ -164,6 +174,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Attach the submit handler to the form
     const form = document.querySelector('form[name="order-form"]');
+=======
+    // Attach submit event listener to the form
+    const form = document.querySelector('form');
+>>>>>>> parent of d40058d (Checkbox form submisision)
     if (form) {
         form.addEventListener('submit', handleSubmit);
     }
