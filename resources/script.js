@@ -89,13 +89,29 @@ document.addEventListener('DOMContentLoaded', function () {
         // Collect all the checkbox inputs in the form
         const checkboxes = form.querySelectorAll('input[type="checkbox"]');
 
+        // Define sections to exclude from email
+        const excludeDesigns = [
+            'sampleSetDesign',
+            'saveTheDateDesign',
+            'invitationsDesign',
+            'invitationsRsvpSetDesign',
+            'invitationsRsvpDetailsSetDesign',
+            'programsDesign',
+            'menusDesign',
+            'placeCardsDesign',
+            'favourTagsDesign',
+            'thankYouNoteCardsDesign',
+            'envelopeSealsDesign',
+            'senderAddressLabelsDesign'
+        ];
+
         // Ensure all checkboxes are included in the FormData object with "Yes" for checked and "No" for unchecked
         checkboxes.forEach(checkbox => {
             const designSelect = form.querySelector(`select[name="${checkbox.name}Design"]`);
 
             if (checkbox.checked) {
                 formData.set(checkbox.name, 'Yes');
-                if (designSelect) {
+                if (designSelect && !excludeDesigns.includes(designSelect.name)) {
                     formData.set(designSelect.name, designSelect.value); // Use set instead of append to overwrite value
                 }
             } else {
