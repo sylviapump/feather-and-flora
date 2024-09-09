@@ -92,17 +92,14 @@ document.addEventListener('DOMContentLoaded', function () {
         // Ensure all checkboxes are included in the FormData object with "Yes" for checked and "No" for unchecked
         checkboxes.forEach(checkbox => {
             const designSelect = form.querySelector(`select[name="${checkbox.name}Design"]`);
-            const label = form.querySelector(`label[for="${checkbox.name}Design"]`);
 
             if (checkbox.checked) {
                 formData.set(checkbox.name, 'Yes');
                 if (designSelect) {
                     formData.set(designSelect.name, designSelect.value); // Use set instead of append to overwrite value
                 }
-                if (label) label.style.display = ''; // Show label if checkbox is checked
             } else {
                 formData.set(checkbox.name, 'No');
-                if (label) label.style.display = 'none'; // Hide label if checkbox is unchecked
             }
         });
 
