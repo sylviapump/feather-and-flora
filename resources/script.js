@@ -1,36 +1,41 @@
-// Custom JavaScript 
+// Custom JavaScript
 
- // Function to close navbar when link is clicked
- function closeNavbar() {
+// Function to close navbar when link is clicked
+function closeNavbar() {
     var navToggler = document.querySelector('.navbar-toggler');
-    var navCollapse = document.querySelector('.navbar-collapse');
-    var icon = navToggler.querySelector('span');
-
-    if (navCollapse.classList.contains('show')) {
-        navCollapse.classList.remove('show');
-        // Change the toggle icon back to the default state
-        if (icon.classList.contains('fa-times')) {
-            icon.classList.remove('fa-times');
-            icon.classList.add('navbar-toggler-icon');
+    if (navToggler) {
+        var navCollapse = document.querySelector('.navbar-collapse');
+        var icon = navToggler.querySelector('span');
+        if (navCollapse && icon) {
+            if (navCollapse.classList.contains('show')) {
+                navCollapse.classList.remove('show');
+                if (icon.classList.contains('fa-times')) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('navbar-toggler-icon');
+                }
+            }
         }
     }
 }
 
 // Toggle navbar icon between default and 'X' icon
-var navbarToggler = document.querySelector('.navbar-toggler');
-
-navbarToggler.addEventListener('click', function () {
-    var icon = navbarToggler.querySelector('span');
-    if (icon.classList.contains('navbar-toggler-icon')) {
-        icon.classList.remove('navbar-toggler-icon');
-        icon.classList.add('fa', 'fa-times');
-    } else {
-        icon.classList.remove('fa', 'fa-times');
-        icon.classList.add('navbar-toggler-icon');
-    }
-});
-
 document.addEventListener('DOMContentLoaded', function() {
+    var navbarToggler = document.querySelector('.navbar-toggler');
+    if (navbarToggler) {
+        navbarToggler.addEventListener('click', function () {
+            var icon = navbarToggler.querySelector('span');
+            if (icon) {
+                if (icon.classList.contains('navbar-toggler-icon')) {
+                    icon.classList.remove('navbar-toggler-icon');
+                    icon.classList.add('fa', 'fa-times');
+                } else {
+                    icon.classList.remove('fa', 'fa-times');
+                    icon.classList.add('navbar-toggler-icon');
+                }
+            }
+        });
+    }
+
     // Function to toggle visibility and required attributes
     function toggleDesignElements(checkboxId, designSelectId) {
         const checkbox = document.getElementById(checkboxId);
@@ -77,12 +82,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     toggles.forEach(([checkboxId, designSelectId]) => toggleDesignElements(checkboxId, designSelectId));
 
-    document.querySelector('form').addEventListener('submit', function(event) {
-        const guestCount = document.getElementById('guestCount').value;
-        console.log('Guest Count:', guestCount);
-    });
-
+    const form = document.querySelector('form');
+    if (form) {
+        form.addEventListener('submit', function(event) {
+            const guestCount = document.getElementById('guestCount');
+            if (guestCount) {
+                console.log('Guest Count:', guestCount.value);
+            } else {
+                console.error('Guest Count input not found.');
+            }
+        });
+    }
 });
-
-
-
