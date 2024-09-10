@@ -1,19 +1,19 @@
-// Function to close navbar when a link is clicked
-function closeNavbar() {
-    const navToggler = document.querySelector('.navbar-toggler');
-    if (navToggler) {
-        const navCollapse = document.querySelector('.navbar-collapse');
-        const icon = navToggler.querySelector('span');
-        if (navCollapse && icon && navCollapse.classList.contains('show')) {
-            navCollapse.classList.remove('show');
-            icon.classList.toggle('fa-times', false);
-            icon.classList.toggle('navbar-toggler-icon', true);
+document.addEventListener('DOMContentLoaded', function () {
+    // Function to close navbar when a link is clicked
+    function closeNavbar() {
+        const navToggler = document.querySelector('.navbar-toggler');
+        if (navToggler) {
+            const navCollapse = document.querySelector('.navbar-collapse');
+            const icon = navToggler.querySelector('span');
+            if (navCollapse && icon && navCollapse.classList.contains('show')) {
+                navCollapse.classList.remove('show');
+                icon.classList.toggle('fa-times', false);
+                icon.classList.toggle('navbar-toggler-icon', true);
+            }
         }
     }
-}
 
-// Toggle navbar icon between default and 'X' icon
-document.addEventListener('DOMContentLoaded', function () {
+    // Toggle navbar icon between default and 'X' icon
     const navbarToggler = document.querySelector('.navbar-toggler');
     if (navbarToggler) {
         navbarToggler.addEventListener('click', function () {
@@ -88,6 +88,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Collect all the checkbox inputs in the form
         const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+        const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+
+        // Display an error message if no checkboxes are checked
+        const errorMessage = document.getElementById('error-message');
+        if (!anyChecked) {
+            if (errorMessage) {
+                errorMessage.textContent = 'Please select at least one option.';
+                errorMessage.style.display = 'block'; // Show error message
+            }
+            return; // Exit function to prevent form submission
+        } else {
+            if (errorMessage) {
+                errorMessage.textContent = '';
+                errorMessage.style.display = 'none'; // Hide error message
+            }
+        }
 
         // Define sections to exclude from email
         const excludeDesigns = [
