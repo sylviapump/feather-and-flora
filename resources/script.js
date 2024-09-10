@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Attach submit event listener to the form
-    const form = document.querySelector('form[name="order-form"]');
+    const form = document.querySelector('form[name="order"]');
     if (form) {
         form.addEventListener('submit', handleSubmit);
     }
