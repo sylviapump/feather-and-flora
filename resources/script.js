@@ -33,12 +33,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Prevent mouse scrolling adjusting increments
-    document.getElementById('guestCount').addEventListener('wheel', function (event) {
-        event.preventDefault(); // Prevent scrolling
-    });
-    document.getElementById('budget').addEventListener('wheel', function (event) {
-        event.preventDefault(); // Prevent scrolling
-    });
+    const guestCountElement = document.getElementById('guestCount');
+    if (guestCountElement) {
+        guestCountElement.addEventListener('wheel', function (event) {
+            event.preventDefault(); // Prevent scrolling
+        });
+    }
+
+    const budgetElement = document.getElementById('budget');
+    if (budgetElement) {
+        budgetElement.addEventListener('wheel', function (event) {
+            event.preventDefault(); // Prevent scrolling
+        });
+    }
 
     // Function to toggle visibility and required attributes
     function toggleDesignElements(checkboxId, designSelectId) {
@@ -84,26 +91,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     toggles.forEach(([checkboxId, designSelectId]) => toggleDesignElements(checkboxId, designSelectId));
 
-    // Update checkbox values to "Yes" for checked items and "No" for unchecked items
-    document.querySelectorAll('.form-check-input').forEach(function (checkbox) {
-        checkbox.addEventListener('change', function () {
-            this.value = this.checked ? 'Yes' : 'No';
-        });
-    });
-
     // Function to handle form submission
     function handleSubmit(event) {
         event.preventDefault(); // Prevent default form submission
 
-        // Function to update checkbox values to "Yes" for checked items and "No" for unchecked items
+        // Function to update checkbox values to "Yes" for checked items
         function updateCheckboxValues() {
             const checkboxes = document.querySelectorAll('input[type="checkbox"]');
             checkboxes.forEach(checkbox => {
-                if (checkbox.checked) {
-                    checkbox.value = 'Yes';
-                } else {
-                    checkbox.value = 'No';
-                }
+                checkbox.value = checkbox.checked ? 'Yes' : 'No';
             });
         }
 
@@ -138,4 +134,3 @@ document.addEventListener('DOMContentLoaded', function () {
         form.addEventListener('submit', handleSubmit);
     }
 });
-
