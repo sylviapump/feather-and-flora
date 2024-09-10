@@ -33,12 +33,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Prevent mouse scrolling adjusting increments
-    document.getElementById('guestCount').addEventListener('wheel', function (event) {
-        event.preventDefault(); // Prevent scrolling
-    });
-    document.getElementById('budget').addEventListener('wheel', function (event) {
-        event.preventDefault(); // Prevent scrolling
-    });
+    const guestCountInput = document.getElementById('guestCount');
+    const budgetInput = document.getElementById('budget');
+    if (guestCountInput) {
+        guestCountInput.addEventListener('wheel', function (event) {
+            event.preventDefault(); // Prevent scrolling
+        });
+    }
+    if (budgetInput) {
+        budgetInput.addEventListener('wheel', function (event) {
+            event.preventDefault(); // Prevent scrolling
+        });
+    }
 
     // Function to toggle visibility and required attributes
     function toggleDesignElements(checkboxId, designSelectId) {
@@ -142,5 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('form[name="order-form"]');
     if (form) {
         form.addEventListener('submit', handleSubmit);
+    } else {
+        console.error('Form with name "order-form" not found.');
     }
 });
