@@ -127,8 +127,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (checkbox.checked) {
                 formData.set(checkbox.id, 'Yes');
-                if (designSelect && !excludeDesigns.includes(designSelect.id)) {
-                    formData.set(designSelect.id, designSelect.value); // Use set instead of append to overwrite value
+                if (designSelect && !excludeDesigns.includes(designSelect.name)) {
+                    formData.set(designSelect.name, designSelect.value); // Use set instead of append to overwrite value
                 }
             } else {
                 formData.set(checkbox.id, 'No');
