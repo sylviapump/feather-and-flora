@@ -84,60 +84,65 @@ document.addEventListener('DOMContentLoaded', function () {
 
     toggles.forEach(([checkboxId, designSelectId]) => toggleDesignElements(checkboxId, designSelectId));
 
-    // Function to handle form submission
-    function handleSubmit(event) {
-        event.preventDefault(); // Prevent default form submission
-
-        // Remove default checkbox values
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        checkboxes.forEach(checkbox => {
-            checkbox.value = ''; // Clear value attribute
-        });
-
-        // Function to update hidden inputs for checkbox values
-        function updateHiddenInputs() {
+        // Function to handle form submission
+        function handleSubmit(event) {
+            event.preventDefault(); // Prevent default form submission
+    
+            // Remove default checkbox values
             const checkboxes = document.querySelectorAll('input[type="checkbox"]');
             checkboxes.forEach(checkbox => {
-                const hiddenInputId = checkbox.id + '-hidden';
-                let hiddenInput = document.getElementById(hiddenInputId);
-                if (!hiddenInput) {
-                    hiddenInput = document.createElement('input');
-                    hiddenInput.type = 'hidden';
-                    hiddenInput.name = checkbox.name; // Ensure name matches checkbox
-                    hiddenInput.id = hiddenInputId;
-                    event.target.appendChild(hiddenInput); // Append hidden input to the form
-                }
-                hiddenInput.value = checkbox.checked ? 'Yes' : 'No'; // Set value based on checkbox state
+                checkbox.value = ''; // Clear value attribute
             });
-        }
-
-        updateHiddenInputs(); // Update hidden inputs
-
-        // Get all checkboxes in the form
-        const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
-
-        // Get the error message element
-        const errorMessage = document.getElementById('error-message');
-        if (!anyChecked) {
-            // Display an error message if no checkboxes are checked
-            if (errorMessage) {
-                errorMessage.style.display = 'block'; // Show error message
+    
+            // Function to update hidden inputs for checkbox values
+            function updateHiddenInputs() {
+                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach(checkbox => {
+                    const hiddenInputId = checkbox.id + '-hidden';
+                    let hiddenInput = document.getElementById(hiddenInputId);
+                    if (!hiddenInput) {
+                        hiddenInput = document.createElement('input');
+                        hiddenInput.type = 'hidden';
+                        hiddenInput.name = checkbox.name; // Ensure name matches checkbox
+                        hiddenInput.id = hiddenInputId;
+                        event.target.appendChild(hiddenInput); // Append hidden input to the form
+                    }
+                    hiddenInput.value = checkbox.checked ? 'Yes' : 'No'; // Set value based on checkbox state
+    
+                    // Debugging: Log hidden input value
+                    console.log(`Checkbox ID: ${checkbox.id}, Hidden Input ID: ${hiddenInputId}, Value: ${hiddenInput.value}`);
+                });
             }
-            return; // Prevent form submission
-        } else {
-            // Hide the error message if at least one checkbox is checked
-            if (errorMessage) {
-                errorMessage.style.display = 'none'; // Hide error message
+    
+            updateHiddenInputs(); // Update hidden inputs
+    
+            // Get all checkboxes in the form
+            const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+    
+            // Get the error message element
+            const errorMessage = document.getElementById('error-message');
+            if (!anyChecked) {
+                // Display an error message if no checkboxes are checked
+                if (errorMessage) {
+                    errorMessage.style.display = 'block'; // Show error message
+                }
+                return; // Prevent form submission
+            } else {
+                // Hide the error message if at least one checkbox is checked
+                if (errorMessage) {
+                    errorMessage.style.display = 'none'; // Hide error message
+                }
             }
+    
+            // If validation passed, submit the form
+            event.target.submit();
         }
-
-        // If validation passed, submit the form
-        event.target.submit();
-    }
-
-    // Attach submit event listener to the form
-    const form = document.querySelector('form[name="order-form"]');
-    if (form) {
-        form.addEventListener('submit', handleSubmit);
-    }
+    
+        // Attach submit event listener to the form
+        const form = document.querySelector('form[name="order-form"]');
+        if (form) {
+            form.addEventListener('submit', handleSubmit);
+        }
+    });
+    
 });
