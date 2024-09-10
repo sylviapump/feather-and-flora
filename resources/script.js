@@ -79,17 +79,17 @@ document.addEventListener('DOMContentLoaded', function () {
     // Handle form submission
     function handleSubmit(event) {
         event.preventDefault(); // Prevent default form submission
-
+    
         // Get the form element
         const form = event.target;
-
+    
         // Create a FormData object from the form
-        const formData = new FormData(form);
-
+        const formData = new FormData();
+    
         // Collect all the checkbox inputs in the form
         const checkboxes = form.querySelectorAll('input[type="checkbox"]');
         const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
-
+    
         // Display an error message if no checkboxes are checked
         const errorMessage = document.getElementById('error-message');
         if (!anyChecked) {
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 errorMessage.style.display = 'none'; // Hide error message
             }
         }
-
+    
         // Define sections to exclude from email
         const excludeDesigns = [
             'sampleSetDesign',
@@ -120,21 +120,19 @@ document.addEventListener('DOMContentLoaded', function () {
             'envelopeSealsDesign',
             'senderAddressLabelsDesign'
         ];
-
-        // Ensure all checkboxes are included in the FormData object with "Yes" for checked and "No" for unchecked
+    
+        // Ensure all checkboxes and design labels are included in the FormData object with "Yes" for checked
         checkboxes.forEach(checkbox => {
             const designSelect = form.querySelector(`select[name="${checkbox.id}Design"]`);
-
+    
             if (checkbox.checked) {
-                formData.set(checkbox.id, 'Yes');
+                formData.append(checkbox.id, 'Yes');
                 if (designSelect && !excludeDesigns.includes(designSelect.name)) {
-                    formData.set(designSelect.name, designSelect.value); // Use set instead of append to overwrite value
+                    formData.append(designSelect.name, designSelect.value); // Add design select value if checkbox is checked
                 }
-            } else {
-                formData.set(checkbox.id, 'No');
             }
         });
-
+    
         // Convert FormData to a plain object
         const data = {};
         formData.forEach((value, key) => {
@@ -144,10 +142,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 data[key] = value;
             }
         });
-
+    
         // Optional: Log the data object to verify
         console.log('Form Data:', data);
-
+    
         // Use fetch to submit the form data
         fetch(form.action, {
             method: 'POST',
@@ -166,13 +164,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Error:', error);
             // Optionally, show an error message
         });
-
+    
         return false; // Prevent default form submission
-    }
-
-    // Attach submit event listener to the form
-    const form = document.querySelector('form[name="order-form"]');
-    if (form) {
-        form.addEventListener('submit', handleSubmit);
-    }
+    }      
 });
