@@ -80,31 +80,20 @@ document.addEventListener('DOMContentLoaded', function () {
     function handleSubmit(event) {
         event.preventDefault(); // Prevent default form submission
 
-        // Collect checkbox data
+        // Get all checkboxes in the form
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        let emailBody = 'Checkbox Statuses:\n\n';
-
-        checkboxes.forEach(checkbox => {
-            const label = document.querySelector(`label[for="${checkbox.id}"]`);
-            const status = checkbox.checked ? 'Yes' : 'No';
-            emailBody += `${label ? label.textContent.trim() : checkbox.id}: ${status}\n`;
-        });
-
-        // Display the email content in the designated area
-        document.getElementById('email-content').textContent = emailBody;
-
-        // Log it to the console for debugging
-        console.log(emailBody);
-
-        // If validation passed, submit the form
         const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+
+        // Get the error message element
         const errorMessage = document.getElementById('error-message');
         if (!anyChecked) {
+            // Display an error message if no checkboxes are checked
             if (errorMessage) {
                 errorMessage.style.display = 'block'; // Show error message
             }
             return; // Prevent form submission
         } else {
+            // Hide the error message if at least one checkbox is checked
             if (errorMessage) {
                 errorMessage.style.display = 'none'; // Hide error message
             }
@@ -119,5 +108,4 @@ document.addEventListener('DOMContentLoaded', function () {
     if (form) {
         form.addEventListener('submit', handleSubmit);
     }
-    
 });
