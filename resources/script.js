@@ -83,8 +83,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // Get the form element
         const form = event.target;
 
-        // Create a FormData object
-        const formData = new FormData();
+        // Create a FormData object from the form
+        const formData = new FormData(form);
 
         // Collect all the checkbox inputs in the form
         const checkboxes = form.querySelectorAll('input[type="checkbox"]');
@@ -105,26 +105,48 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
-        // Add all checkboxes with their values and associated design labels
+        // Define sections to exclude from email
+        const excludeDesigns = [
+            'sampleSetDesign',
+            'saveTheDateDesign',
+            'invitationsDesign',
+            'invitationsRsvpSetDesign',
+            'invitationsRsvpDetailsSetDesign',
+            'programsDesign',
+            'menusDesign',
+            'placeCardsDesign',
+            'favourTagsDesign',
+            'thankYouNoteCardsDesign',
+            'envelopeSealsDesign',
+            'senderAddressLabelsDesign'
+        ];
+
+        // Ensure all checkboxes are included in the FormData object with "Yes" for checked and "No" for unchecked
         checkboxes.forEach(checkbox => {
-            const designSelect = form.querySelector(`select[name="${checkbox.id}Design"]`);
+            const designSelect = form.querySelector(select[name="${checkbox.id}Design"]);
 
             if (checkbox.checked) {
-                formData.append(checkbox.id, 'Yes'); // Add checked checkbox value
-                if (designSelect) {
-                    formData.append(designSelect.name, designSelect.value); // Add design select value
+                formData.set(checkbox.id, 'Yes');
+                if (designSelect && !excludeDesigns.includes(designSelect.name)) {
+                    formData.set(designSelect.name, designSelect.value); // Use set instead of append to overwrite value
                 }
             } else {
-                formData.append(checkbox.id, 'No'); // Explicitly append "No" for unchecked checkboxes
+                formData.set(checkbox.id, 'No');
             }
         });
 
-        // Convert FormData to a plain object and log it
+        // Convert FormData to a plain object
         const data = {};
         formData.forEach((value, key) => {
-            data[key] = value;
+            if (data[key]) {
+                data[key] = Array.isArray(data[key]) ? [...data[key], value] : [data[key], value];
+            } else {
+                data[key] = value;
+            }
         });
-        console.log('Form Data:', data); // Check the contents
+
+        // Optional: Log the data object to verify
+        console.log('Form Data:', data);
 
         // Use fetch to submit the form data
         fetch(form.action, {
@@ -134,12 +156,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
         })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.text();
-        })
+        .then(response => response.text())
         .then(result => {
             console.log('Success:', result);
             // Redirect or show a success message
