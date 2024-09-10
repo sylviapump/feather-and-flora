@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (!hiddenInput) {
                     hiddenInput = document.createElement('input');
                     hiddenInput.type = 'hidden';
-                    hiddenInput.name = checkbox.name;
+                    hiddenInput.name = checkbox.name; // Ensure name matches checkbox
                     hiddenInput.id = hiddenInputId;
                     event.target.appendChild(hiddenInput); // Append hidden input to the form
                 }
@@ -107,8 +107,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         updateHiddenInputs(); // Update hidden inputs
 
-        // Get all checkboxes in the form
+        // Remove default checkbox values
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(checkbox => {
+            checkbox.removeAttribute('value');
+        });
+
+        // Get all checkboxes in the form
         const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
 
         // Get the error message element
