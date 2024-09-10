@@ -143,11 +143,11 @@
                         <label for="email" class="form-label">Email<span class="required-star">*</span></label>
                         <input type="email" class="form-control" id="email" name="email" required>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-8 col-8 mb-3">
-                        <label for="weddingDate" class="form-label">Wedding Date<span class="required-star">*</span></label>
+                    <div class="col-lg-4 col-md-6 col-8 mb-3">
+                        <label for="weddingDate" class="form-label">Wedding Date<span
+                                class="required-star">*</span></label>
                         <input type="date" class="form-control" id="weddingDate" name="weddingDate" required>
                     </div>
-
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-8 mb-3">
@@ -161,10 +161,6 @@
                         <input type="text" class="form-control" id="postcode" name="postcode" placeholder="Postcode"
                             required>
                     </div>
-                </div>
-                </div>
-
-
                 </div>
 
                 <!-- Orders -->
@@ -280,7 +276,8 @@
                                 </label>
                             </div>
                             <!-- Conditional design selection based on the checkbox -->
-                            <div class="col-lg-4 col-md-6 col-8" aria-labelledby="invitationsRsvpDetailsSetDesignSelectLabel">
+                            <div class="col-lg-4 col-md-6 col-8"
+                                aria-labelledby="invitationsRsvpDetailsSetDesignSelectLabel">
                                 <select class="form-select mt-2" id="invitationsRsvpDetailsSetDesign"
                                     name="invitationsRsvpDetailsSetDesign"
                                     aria-labelledby="invitationsRsvpDetailsSetDesignSelectLabel" aria-required="false">
@@ -459,7 +456,6 @@
                         </div>
                     </div>
 
-
                     <!-- Additional Details -->
                     <div class="row py-3">
                         <div class="col-lg-8 col-12">
@@ -469,72 +465,71 @@
                                 placeholder="Please provide any additional details, special requests, or specific information related to your wedding stationery here."></textarea>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Budget -->
-                    <div class="row py-3">
-                        <div class="col-lg-8 col-md-10">
-                            <h3>Budget</h3>
-                            <p class="text-muted">The cost of wedding invitations varies based on your needs and the
-                                size of your wedding. For a small, simple event, you can expect to spend around $500 for
-                                invitations and an additional $500 for day-of stationery items like menus, programs, and
-                                place cards. For larger weddings, the cost can increase to $1,500 or more for
-                                invitations, with an additional $1,000 to $1,500 for day-of stationery.</p>
-                            <p>Please provide an estimated budget for your order. This will help us tailor our services
-                                to your needs and ensure we offer options that fit within your budget.</p>
-                            <div class="col-lg-4 col-md-6 col-10">
-                                <label for="budget" class="form-label">What is your estimated budget?<span
-                                        class="required-star">*</span></label>
-                                <div class="input-group">
-                                    <span class="input-group-text">$</span>
-                                    <input type="number" class="form-control" id="budget" name="budget" required
-                                        aria-required="true" placeholder="Enter your estimated budget">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- How did you hear about us? -->
-                    <div class="row py-3">
-                        <div class="col-lg-8 col-md-10">
-                            <label for="howDidYouHear" class="form-label">How did you hear about Feather and Flora?<span
+                <!-- Budget -->
+                <div class="row py-3">
+                    <div class="col-lg-8 col-md-10">
+                        <h3>Budget</h3>
+                        <p class="text-muted">The cost of wedding invitations varies based on your needs and the size of
+                            your wedding. For a small, simple event, you can expect to spend around $500 for invitations
+                            and an additional $500 for day-of stationery items like menus, programs, and place cards.
+                            For larger weddings, the cost can increase to $1,500 or more for invitations, with an
+                            additional $1,000 to $1,500 for day-of stationery.</p>
+                        <p>Please provide an estimated budget for your order. This will help us tailor our services to
+                            your needs and ensure we offer options that fit within your budget.</p>
+                        <div class="col-lg-4 col-md-6 col-10">
+                            <label for="budget" class="form-label">What is your estimated budget?<span
                                     class="required-star">*</span></label>
-
-
-                            <div class="col-lg-4 col-md-6 col-10">
-                                <select class="form-select" id="howDidYouHear" name="howDidYouHear" required
-                                    aria-required="true">
-                                    <option value="" disabled selected>Select</option>
-                                    <option value="Google">Google</option>
-                                    <option value="Etsy">Etsy</option>
-                                    <option value="Instagram">Instagram</option>
-                                    <option value="Facebook">Facebook</option>
-                                    <option value="Pinterest">Pinterest</option>
-                                    <option value="Word of Mouth">Word of Mouth</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                                <label for="howDidYouHear" class="visually-hidden">How did you hear about Feather and
-                                    Flora?</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control" id="budget" name="budget" required
+                                    aria-required="true" placeholder="Enter your estimated budget">
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Thank You Message -->
-                    <div class="row py-5">
-                        <div class="col-lg-8 col-12">
-                            <h3>Thank You for Completing the Form!</h3>
-                            <p class="text-muted">We appreciate you taking the time to provide your details. Your input
-                                helps us tailor our services to meet your needs and ensure we offer options that fit
-                                your budget. We look forward to working with you to create something special for your
-                                wedding!</p>
-                            <div class="d-flex justify-content-start">
-                                <button type="submit" class="btn rounded-pill mt-3">Submit</button>
-                            </div>
+                <!-- How did you hear about us? -->
+                <div class="row py-3">
+                    <div class="col-lg-8 col-md-10">
+                        <label for="howDidYouHear" class="form-label">How did you hear about Feather and Flora?<span
+                                class="required-star">*</span></label>
+                        <div class="col-lg-4 col-md-6 col-10">
+                            <select class="form-select" id="howDidYouHear" name="howDidYouHear" required
+                                aria-required="true">
+                                <option value="" disabled selected>Select</option>
+                                <option value="Google">Google</option>
+                                <option value="Etsy">Etsy</option>
+                                <option value="Instagram">Instagram</option>
+                                <option value="Facebook">Facebook</option>
+                                <option value="Pinterest">Pinterest</option>
+                                <option value="Word of Mouth">Word of Mouth</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <label for="howDidYouHear" class="visually-hidden">How did you hear about Feather and
+                                Flora?</label>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Error Message Placeholder -->
-                    <div id="error-message" class="error-message">Please select at least one option for your wedding stationery.</div>
+                <!-- Thank You Message -->
+                <div class="row py-5">
+                    <div class="col-lg-8 col-12">
+                        <h3>Thank You for Completing the Form!</h3>
+                        <p class="text-muted">We appreciate you taking the time to provide your details. Your input
+                            helps us tailor our services to meet your needs and ensure we offer options that fit your
+                            budget. We look forward to working with you to create something special for your wedding!
+                        </p>
+                        <div class="d-flex justify-content-start">
+                            <button type="submit" class="btn rounded-pill mt-3">Submit</button>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Error Message Placeholder -->
+                <div id="error-message" class="error-message" style="display: none;">Please select at least one option
+                    for your wedding stationery.</div>
 
             </form>
         </section>
