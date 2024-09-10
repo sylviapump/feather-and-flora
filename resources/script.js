@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
         weddingDateInput.setAttribute('min', today); // Set the min attribute
     }
 
-    // To Prevebt mouse scrolling adjusting increments
+    // Prevent mouse scrolling adjusting increments
     document.getElementById('guestCount').addEventListener('wheel', function (event) {
         event.preventDefault(); // Prevent scrolling
     });
@@ -87,6 +87,20 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to handle form submission
     function handleSubmit(event) {
         event.preventDefault(); // Prevent default form submission
+
+        // Function to update checkbox values to "Yes" for checked items
+        function updateCheckboxValues() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    checkbox.value = 'Yes';
+                } else {
+                    checkbox.value = 'No'; // Optional: Set value to "No" if unchecked
+                }
+            });
+        }
+
+        updateCheckboxValues(); // Update checkbox values
 
         // Get all checkboxes in the form
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
