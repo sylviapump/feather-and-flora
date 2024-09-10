@@ -171,278 +171,260 @@
                 <div class="row mt-5 pt-3">
                     <label class="form-label">What are you wishing to order?<span class="required-star">*</span></label>
 
-                    <!-- Sample Set -->
-                    <div class="form-check">
-                        <div class="row py-3">
-                            <div class="col-12">
-                                <input type="checkbox" class="form-check-input" id="sampleSet" name="sampleSet"
-                                    aria-labelledby="sampleSetLabel">
-                                <label class="form-check-label ms-2" id="sampleSetLabel" for="sampleSet">Sample
-                                    Set</label>
-                            </div>
-                            <!-- Conditional design selection based on the checkbox -->
-                            <div class="col-lg-4 col-md-6 col-8" aria-labelledby="sampleSetSelectLabel">
-                                <select class="form-select mt-2" id="sampleSetDesign" name="sampleSetDesign"
-                                    aria-labelledby="sampleSetSelectLabel">
-                                    <option value="" disabled selected>Select Design</option>
-                                    <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
-                                    <option value="Pink Robins">Pink Robins</option>
-                                    <option value="Fagus">Fagus</option>
-                                    <option value="Waratah">Waratah</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Sample Set -->
+<div class="form-check">
+    <div class="row py-3">
+        <div class="col-12">
+            <input type="checkbox" class="form-check-input" id="sampleSet" name="sampleSet" aria-labelledby="sampleSetLabel">
+            <label class="form-check-label ms-2" id="sampleSetLabel" for="sampleSet">Sample Set</label>
+            <span class="checkbox-status ms-2">No</span>
+        </div>
+        <!-- Conditional design selection based on the checkbox -->
+        <div class="col-lg-4 col-md-6 col-8" aria-labelledby="sampleSetSelectLabel">
+            <select class="form-select mt-2" id="sampleSetDesign" name="sampleSetDesign" aria-labelledby="sampleSetSelectLabel">
+                <option value="" disabled selected>Select Design</option>
+                <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
+                <option value="Pink Robins">Pink Robins</option>
+                <option value="Fagus">Fagus</option>
+                <option value="Waratah">Waratah</option>
+            </select>
+        </div>
+    </div>
+</div>
 
-                    <!-- Save The Date Cards + Envelopes -->
-                    <div class="form-check">
-                        <div class="row py-3">
-                            <div class="col-12">
-                                <input type="checkbox" class="form-check-input" id="saveTheDate" name="saveTheDate"
-                                    aria-labelledby="saveTheDateLabel">
-                                <label class="form-check-label ms-2" id="saveTheDateLabel" for="saveTheDate">Save The
-                                    Date Cards + Envelopes</label>
-                            </div>
-                            <!-- Conditional design selection based on the checkbox -->
-                            <div class="col-lg-4 col-md-6 col-8" aria-labelledby="saveTheDateSelectLabel">
-                                <select class="form-select mt-2" id="saveTheDateDesign" name="saveTheDateDesign"
-                                    aria-labelledby="saveTheDateSelectLabel">
-                                    <option value="" disabled selected>Select Design</option>
-                                    <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
-                                    <option value="Pink Robins">Pink Robins</option>
-                                    <option value="Fagus">Fagus</option>
-                                    <option value="Waratah">Waratah</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+<!-- Save The Date Cards + Envelopes -->
+<div class="form-check">
+    <div class="row py-3">
+        <div class="col-12">
+            <input type="checkbox" class="form-check-input" id="saveTheDate" name="saveTheDate" aria-labelledby="saveTheDateLabel">
+            <label class="form-check-label ms-2" id="saveTheDateLabel" for="saveTheDate">Save The Date Cards + Envelopes</label>
+            <span class="checkbox-status ms-2">No</span>
+        </div>
+        <!-- Conditional design selection based on the checkbox -->
+        <div class="col-lg-4 col-md-6 col-8" aria-labelledby="saveTheDateSelectLabel">
+            <select class="form-select mt-2" id="saveTheDateDesign" name="saveTheDateDesign" aria-labelledby="saveTheDateSelectLabel">
+                <option value="" disabled selected>Select Design</option>
+                <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
+                <option value="Pink Robins">Pink Robins</option>
+                <option value="Fagus">Fagus</option>
+                <option value="Waratah">Waratah</option>
+            </select>
+        </div>
+    </div>
+</div>
 
-                    <!-- Invitations + Envelopes -->
-                    <div class="form-check">
-                        <div class="row py-3">
-                            <div class="col-12">
-                                <input type="checkbox" class="form-check-input" id="invitationsEnvelopes"
-                                    name="invitationsEnvelopes" aria-labelledby="invitationsEnvelopesLabel">
-                                <label class="form-check-label ms-2" id="invitationsEnvelopesLabel"
-                                    for="invitationsEnvelopes">
-                                    Invitations + Envelopes
-                                </label>
-                            </div>
-                            <!-- Conditional design selection based on the checkbox -->
-                            <div class="col-lg-4 col-md-6 col-8" aria-labelledby="invitationsDesignSelectLabel">
-                                <select class="form-select mt-2" id="invitationsDesign" name="invitationsDesign"
-                                    aria-labelledby="invitationsDesignSelectLabel" aria-required="false">
-                                    <option value="" disabled selected>Select Design</option>
-                                    <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
-                                    <option value="Pink Robins">Pink Robins</option>
-                                    <option value="Fagus">Fagus</option>
-                                    <option value="Waratah">Waratah</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+<!-- Invitations + Envelopes -->
+<div class="form-check">
+    <div class="row py-3">
+        <div class="col-12">
+            <input type="checkbox" class="form-check-input" id="invitationsEnvelopes" name="invitationsEnvelopes" aria-labelledby="invitationsEnvelopesLabel">
+            <label class="form-check-label ms-2" id="invitationsEnvelopesLabel" for="invitationsEnvelopes">Invitations + Envelopes</label>
+            <span class="checkbox-status ms-2">No</span>
+        </div>
+        <!-- Conditional design selection based on the checkbox -->
+        <div class="col-lg-4 col-md-6 col-8" aria-labelledby="invitationsDesignSelectLabel">
+            <select class="form-select mt-2" id="invitationsDesign" name="invitationsDesign" aria-labelledby="invitationsDesignSelectLabel" aria-required="false">
+                <option value="" disabled selected>Select Design</option>
+                <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
+                <option value="Pink Robins">Pink Robins</option>
+                <option value="Fagus">Fagus</option>
+                <option value="Waratah">Waratah</option>
+            </select>
+        </div>
+    </div>
+</div>
 
-                    <!-- Invitations + RSVP Cards Set -->
-                    <div class="form-check">
-                        <div class="row py-3">
-                            <div class="col-12">
-                                <input type="checkbox" class="form-check-input" id="invitationsRsvpSet"
-                                    name="invitationsRsvpSet" aria-labelledby="invitationsRsvpSetLabel">
-                                <label class="form-check-label ms-2" id="invitationsRsvpSetLabel"
-                                    for="invitationsRsvpSet">
-                                    Invitations + RSVP Cards Set
-                                </label>
-                            </div>
-                            <!-- Conditional design selection based on the checkbox -->
-                            <div class="col-lg-4 col-md-6 col-8" aria-labelledby="invitationsRsvpSetDesignSelectLabel">
-                                <select class="form-select mt-2" id="invitationsRsvpSetDesign"
-                                    name="invitationsRsvpSetDesign"
-                                    aria-labelledby="invitationsRsvpSetDesignSelectLabel" aria-required="false">
-                                    <option value="" disabled selected>Select Design</option>
-                                    <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
-                                    <option value="Pink Robins">Pink Robins</option>
-                                    <option value="Fagus">Fagus</option>
-                                    <option value="Waratah">Waratah</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+<!-- Invitations + RSVP Cards Set -->
+<div class="form-check">
+    <div class="row py-3">
+        <div class="col-12">
+            <input type="checkbox" class="form-check-input" id="invitationsRsvpSet" name="invitationsRsvpSet" aria-labelledby="invitationsRsvpSetLabel">
+            <label class="form-check-label ms-2" id="invitationsRsvpSetLabel" for="invitationsRsvpSet">Invitations + RSVP Cards Set</label>
+            <span class="checkbox-status ms-2">No</span>
+        </div>
+        <!-- Conditional design selection based on the checkbox -->
+        <div class="col-lg-4 col-md-6 col-8" aria-labelledby="invitationsRsvpSetDesignSelectLabel">
+            <select class="form-select mt-2" id="invitationsRsvpSetDesign" name="invitationsRsvpSetDesign" aria-labelledby="invitationsRsvpSetDesignSelectLabel" aria-required="false">
+                <option value="" disabled selected>Select Design</option>
+                <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
+                <option value="Pink Robins">Pink Robins</option>
+                <option value="Fagus">Fagus</option>
+                <option value="Waratah">Waratah</option>
+            </select>
+        </div>
+    </div>
+</div>
 
-                    <!-- Invitations + RSVP Cards + Details Cards Set -->
-                    <div class="form-check">
-                        <div class="row py-3">
-                            <div class="col-12">
-                                <input type="checkbox" class="form-check-input" id="invitationsRsvpDetailsSet"
-                                    name="invitationsRsvpDetailsSet" aria-labelledby="invitationsRsvpDetailsSetLabel">
-                                <label class="form-check-label ms-2" id="invitationsRsvpDetailsSetLabel"
-                                    for="invitationsRsvpDetailsSet">
-                                    Invitations + RSVP Cards + Details Cards Set
-                                </label>
-                            </div>
-                            <!-- Conditional design selection based on the checkbox -->
-                            <div class="col-lg-4 col-md-6 col-8" aria-labelledby="invitationsRsvpDetailsSetDesignSelectLabel">
-                                <select class="form-select mt-2" id="invitationsRsvpDetailsSetDesign"
-                                    name="invitationsRsvpDetailsSetDesign"
-                                    aria-labelledby="invitationsRsvpDetailsSetDesignSelectLabel" aria-required="false">
-                                    <option value="" disabled selected>Select Design</option>
-                                    <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
-                                    <option value="Pink Robins">Pink Robins</option>
-                                    <option value="Fagus">Fagus</option>
-                                    <option value="Waratah">Waratah</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+<!-- Invitations + RSVP Cards + Details Cards Set -->
+<div class="form-check">
+    <div class="row py-3">
+        <div class="col-12">
+            <input type="checkbox" class="form-check-input" id="invitationsRsvpDetailsSet" name="invitationsRsvpDetailsSet" aria-labelledby="invitationsRsvpDetailsSetLabel">
+            <label class="form-check-label ms-2" id="invitationsRsvpDetailsSetLabel" for="invitationsRsvpDetailsSet">Invitations + RSVP Cards + Details Cards Set</label>
+            <span class="checkbox-status ms-2">No</span>
+        </div>
+        <!-- Conditional design selection based on the checkbox -->
+        <div class="col-lg-4 col-md-6 col-8" aria-labelledby="invitationsRsvpDetailsSetDesignSelectLabel">
+            <select class="form-select mt-2" id="invitationsRsvpDetailsSetDesign" name="invitationsRsvpDetailsSetDesign" aria-labelledby="invitationsRsvpDetailsSetDesignSelectLabel" aria-required="false">
+                <option value="" disabled selected>Select Design</option>
+                <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
+                <option value="Pink Robins">Pink Robins</option>
+                <option value="Fagus">Fagus</option>
+                <option value="Waratah">Waratah</option>
+            </select>
+        </div>
+    </div>
+</div>
 
-                    <!-- Programs -->
-                    <div class="form-check">
-                        <div class="row py-3">
-                            <div class="col-12">
-                                <input type="checkbox" class="form-check-input" id="programs" name="programs"
-                                    aria-labelledby="programsLabel">
-                                <label class="form-check-label ms-2" id="programsLabel" for="programs">
-                                    Programs
-                                </label>
-                            </div>
-                            <!-- Conditional design selection based on the checkbox -->
-                            <div class="col-lg-4 col-md-6 col-8" aria-labelledby="programsDesignSelectLabel">
-                                <select class="form-select mt-2" id="programsDesign" name="programsDesign"
-                                    aria-labelledby="programsDesignSelectLabel" aria-required="false">
-                                    <option value="" disabled selected>Select Design</option>
-                                    <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
-                                    <option value="Pink Robins">Pink Robins</option>
-                                    <option value="Fagus">Fagus</option>
-                                    <option value="Waratah">Waratah</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+<!-- Programs -->
+<div class="form-check">
+    <div class="row py-3">
+        <div class="col-12">
+            <input type="checkbox" class="form-check-input" id="programs" name="programs" aria-labelledby="programsLabel">
+            <label class="form-check-label ms-2" id="programsLabel" for="programs">Programs</label>
+            <span class="checkbox-status ms-2">No</span>
+        </div>
+        <!-- Conditional design selection based on the checkbox -->
+        <div class="col-lg-4 col-md-6 col-8" aria-labelledby="programsDesignSelectLabel">
+            <select class="form-select mt-2" id="programsDesign" name="programsDesign" aria-labelledby="programsDesignSelectLabel" aria-required="false">
+                <option value="" disabled selected>Select Design</option>
+                <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
+                <option value="Pink Robins">Pink Robins</option>
+                <option value="Fagus">Fagus</option>
+                <option value="Waratah">Waratah</option>
+            </select>
+        </div>
+    </div>
+</div>
 
-                    <!-- Menus -->
-                    <div class="form-check">
-                        <div class="row py-3">
-                            <div class="col-12">
-                                <input type="checkbox" class="form-check-input" id="menus" name="menus"
-                                    aria-labelledby="menusLabel">
-                                <label class="form-check-label ms-2" id="menusLabel" for="menus">
-                                    Menus
-                                </label>
-                            </div>
-                            <!-- Conditional design selection based on the checkbox -->
-                            <div class="col-lg-4 col-md-6 col-8" aria-labelledby="menusDesignSelectLabel">
-                                <select class="form-select mt-2" id="menusDesign" name="menusDesign"
-                                    aria-labelledby="menusDesignSelectLabel" aria-required="false">
-                                    <option value="" disabled selected>Select Design</option>
-                                    <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
-                                    <option value="Pink Robins">Pink Robins</option>
-                                    <option value="Fagus">Fagus</option>
-                                    <option value="Waratah">Waratah</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+<!-- Menus -->
+<div class="form-check">
+    <div class="row py-3">
+        <div class="col-12">
+            <input type="checkbox" class="form-check-input" id="menus" name="menus" aria-labelledby="menusLabel">
+            <label class="form-check-label ms-2" id="menusLabel" for="menus">Menus</label>
+            <span class="checkbox-status ms-2">No</span>
+        </div>
+        <!-- Conditional design selection based on the checkbox -->
+        <div class="col-lg-4 col-md-6 col-8" aria-labelledby="menusDesignSelectLabel">
+            <select class="form-select mt-2" id="menusDesign" name="menusDesign" aria-labelledby="menusDesignSelectLabel" aria-required="false">
+                <option value="" disabled selected>Select Design</option>
+                <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
+                <option value="Pink Robins">Pink Robins</option>
+                <option value="Fagus">Fagus</option>
+                <option value="Waratah">Waratah</option>
+            </select>
+        </div>
+    </div>
+</div>
 
-                    <!-- Place Cards -->
-                    <div class="form-check">
-                        <div class="row py-3">
-                            <div class="col-12">
-                                <input type="checkbox" class="form-check-input" id="placeCards" name="placeCards"
-                                    aria-labelledby="placeCardsLabel">
-                                <label class="form-check-label ms-2" id="placeCardsLabel" for="placeCards">
-                                    Place Cards
-                                </label>
-                            </div>
-                            <!-- Conditional design selection based on the checkbox -->
-                            <div class="col-lg-4 col-md-6 col-8" aria-labelledby="placeCardsDesignSelectLabel">
-                                <select class="form-select mt-2" id="placeCardsDesign" name="placeCardsDesign"
-                                    aria-labelledby="placeCardsDesignSelectLabel" aria-required="false">
-                                    <option value="" disabled selected>Select Design</option>
-                                    <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
-                                    <option value="Pink Robins">Pink Robins</option>
-                                    <option value="Fagus">Fagus</option>
-                                    <option value="Waratah">Waratah</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+<!-- Place Cards -->
+<div class="form-check">
+    <div class="row py-3">
+        <div class="col-12">
+            <input type="checkbox" class="form-check-input" id="placeCards" name="placeCards"
+                aria-labelledby="placeCardsLabel">
+            <label class="form-check-label ms-2" id="placeCardsLabel" for="placeCards">
+                Place Cards
+            </label>
+            <span class="checkbox-status ms-2">No</span>
+            
+        </div>
+        <!-- Conditional design selection based on the checkbox -->
+        <div class="col-lg-4 col-md-6 col-8" aria-labelledby="placeCardsDesignSelectLabel">
+            <select class="form-select mt-2" id="placeCardsDesign" name="placeCardsDesign"
+                aria-labelledby="placeCardsDesignSelectLabel" aria-required="false">
+                <option value="" disabled selected>Select Design</option>
+                <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
+                <option value="Pink Robins">Pink Robins</option>
+                <option value="Fagus">Fagus</option>
+                <option value="Waratah">Waratah</option>
+            </select>
+        </div>
+    </div>
+</div>
 
-                    <!-- Favour Tags -->
-                    <div class="form-check">
-                        <div class="row py-3">
-                            <div class="col-12">
-                                <input type="checkbox" class="form-check-input" id="favourTags" name="favourTags"
-                                    aria-labelledby="favourTagsLabel">
-                                <label class="form-check-label ms-2" id="favourTagsLabel" for="favourTags">
-                                    Favour Tags
-                                </label>
-                            </div>
-                            <!-- Conditional design selection based on the checkbox -->
-                            <div class="col-lg-4 col-md-6 col-8" aria-labelledby="favourTagsDesignSelectLabel">
-                                <select class="form-select mt-2" id="favourTagsDesign" name="favourTagsDesign"
-                                    aria-labelledby="favourTagsDesignSelectLabel" aria-required="false">
-                                    <option value="" disabled selected>Select Design</option>
-                                    <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
-                                    <option value="Pink Robins">Pink Robins</option>
-                                    <option value="Fagus">Fagus</option>
-                                    <option value="Waratah">Waratah</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+<!-- Favour Tags -->
+<div class="form-check">
+    <div class="row py-3">
+        <div class="col-12">
+            <input type="checkbox" class="form-check-input" id="favourTags" name="favourTags"
+                aria-labelledby="favourTagsLabel">
+            <label class="form-check-label ms-2" id="favourTagsLabel" for="favourTags">
+                Favour Tags
+            </label>
+            <span class="checkbox-status ms-2">No</span>
+        </div>
+        <!-- Conditional design selection based on the checkbox -->
+        <div class="col-lg-4 col-md-6 col-8" aria-labelledby="favourTagsDesignSelectLabel">
+            <select class="form-select mt-2" id="favourTagsDesign" name="favourTagsDesign"
+                aria-labelledby="favourTagsDesignSelectLabel" aria-required="false">
+                <option value="" disabled selected>Select Design</option>
+                <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
+                <option value="Pink Robins">Pink Robins</option>
+                <option value="Fagus">Fagus</option>
+                <option value="Waratah">Waratah</option>
+            </select>
+        </div>
+    </div>
+</div>
 
-                    <!-- Thank You Note Cards -->
-                    <div class="form-check">
-                        <div class="row py-3">
-                            <div class="col-12">
-                                <input type="checkbox" class="form-check-input" id="thankYouNoteCards"
-                                    name="thankYouNoteCards" aria-labelledby="thankYouNoteCardsLabel">
-                                <label class="form-check-label ms-2" id="thankYouNoteCardsLabel"
-                                    for="thankYouNoteCards">
-                                    Thank You Note Cards
-                                </label>
-                            </div>
-                            <!-- Conditional design selection based on the checkbox -->
-                            <div class="col-lg-4 col-md-6 col-8" aria-labelledby="thankYouNoteCardsDesignSelectLabel">
-                                <select class="form-select mt-2" id="thankYouNoteCardsDesign"
-                                    name="thankYouNoteCardsDesign" aria-labelledby="thankYouNoteCardsDesignSelectLabel"
-                                    aria-required="false">
-                                    <option value="" disabled selected>Select Design</option>
-                                    <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
-                                    <option value="Pink Robins">Pink Robins</option>
-                                    <option value="Fagus">Fagus</option>
-                                    <option value="Waratah">Waratah</option>
-                                </select>
-                                <label id="thankYouNoteCardsDesignSelectLabel" for="thankYouNoteCardsDesign"
-                                    class="visually-hidden">
-                                    Select Design for Thank You Note Cards
-                                </label>
-                            </div>
-                        </div>
-                    </div>
+<!-- Thank You Note Cards -->
+<div class="form-check">
+    <div class="row py-3">
+        <div class="col-12">
+            <input type="checkbox" class="form-check-input" id="thankYouNoteCards"
+                name="thankYouNoteCards" aria-labelledby="thankYouNoteCardsLabel">
+            <label class="form-check-label ms-2" id="thankYouNoteCardsLabel"
+                for="thankYouNoteCards">
+                Thank You Note Cards
+            </label>
+            <span class="checkbox-status ms-2">No</span>
+        </div>
+        <!-- Conditional design selection based on the checkbox -->
+        <div class="col-lg-4 col-md-6 col-8" aria-labelledby="thankYouNoteCardsDesignSelectLabel">
+            <select class="form-select mt-2" id="thankYouNoteCardsDesign"
+                name="thankYouNoteCardsDesign" aria-labelledby="thankYouNoteCardsDesignSelectLabel"
+                aria-required="false">
+                <option value="" disabled selected>Select Design</option>
+                <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
+                <option value="Pink Robins">Pink Robins</option>
+                <option value="Fagus">Fagus</option>
+                <option value="Waratah">Waratah</option>
+            </select>
+            <label id="thankYouNoteCardsDesignSelectLabel" for="thankYouNoteCardsDesign"
+                class="visually-hidden">
+                Select Design for Thank You Note Cards
+            </label>
+        </div>
+    </div>
+</div>
 
-                    <!-- Envelope Seals -->
-                    <div class="form-check">
-                        <div class="row py-3">
-                            <div class="col-12">
-                                <input type="checkbox" class="form-check-input" id="envelopeSeals" name="envelopeSeals"
-                                    aria-labelledby="envelopeSealsLabel">
-                                <label class="form-check-label ms-2" id="envelopeSealsLabel" for="envelopeSeals">
-                                    Envelope Seals
-                                </label>
-                            </div>
-                            <!-- Conditional design selection based on the checkbox -->
-                            <div class="col-lg-4 col-md-6 col-8" aria-labelledby="envelopeSealsDesignSelectLabel">
-                                <select class="form-select mt-2" id="envelopeSealsDesign" name="envelopeSealsDesign"
-                                    aria-labelledby="envelopeSealsDesignSelectLabel" aria-required="false">
-                                    <option value="" disabled selected>Select Design</option>
-                                    <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
-                                    <option value="Pink Robins">Pink Robins</option>
-                                    <option value="Fagus">Fagus</option>
-                                    <option value="Waratah">Waratah</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+<!-- Envelope Seals -->
+<div class="form-check">
+    <div class="row py-3">
+        <div class="col-12">
+            <input type="checkbox" class="form-check-input" id="envelopeSeals" name="envelopeSeals"
+                aria-labelledby="envelopeSealsLabel">
+            <label class="form-check-label ms-2" id="envelopeSealsLabel" for="envelopeSeals">
+                Envelope Seals
+            </label>
+            <span class="checkbox-status ms-2">No</span>
+        </div>
+        <!-- Conditional design selection based on the checkbox -->
+        <div class="col-lg-4 col-md-6 col-8" aria-labelledby="envelopeSealsDesignSelectLabel">
+            <select class="form-select mt-2" id="envelopeSealsDesign" name="envelopeSealsDesign"
+                aria-labelledby="envelopeSealsDesignSelectLabel" aria-required="false">
+                <option value="" disabled selected>Select Design</option>
+                <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
+                <option value="Pink Robins">Pink Robins</option>
+                <option value="Fagus">Fagus</option>
+                <option value="Waratah">Waratah</option>
+            </select>
+        </div>
+    </div>
+</div>
+
 
 
                     <!-- Sender Address Labels -->
@@ -455,6 +437,7 @@
                                     for="senderAddressLabels">
                                     Sender Address Labels
                                 </label>
+                                <span class="checkbox-status ms-2">No</span>
                             </div>
                         </div>
                     </div>
