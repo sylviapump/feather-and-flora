@@ -88,27 +88,33 @@ document.addEventListener('DOMContentLoaded', function () {
     function handleSubmit(event) {
         event.preventDefault(); // Prevent default form submission
 
-        // Remove existing hidden inputs
-        document.querySelectorAll('input[type="hidden"]').forEach(input => input.remove());
+        // Remove default checkbox values
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(checkbox => {
+            checkbox.value = ''; // Clear value attribute
+        });
 
         // Function to update hidden inputs for checkbox values
         function updateHiddenInputs() {
             const checkboxes = document.querySelectorAll('input[type="checkbox"]');
             checkboxes.forEach(checkbox => {
                 const hiddenInputId = checkbox.id + '-hidden';
-                let hiddenInput = document.createElement('input');
-                hiddenInput.type = 'hidden';
-                hiddenInput.name = checkbox.name; // Ensure name matches checkbox
-                hiddenInput.id = hiddenInputId;
+                let hiddenInput = document.getElementById(hiddenInputId);
+                if (!hiddenInput) {
+                    hiddenInput = document.createElement('input');
+                    hiddenInput.type = 'hidden';
+                    hiddenInput.name = checkbox.name; // Ensure name matches checkbox
+                    hiddenInput.id = hiddenInputId;
+                    event.target.appendChild(hiddenInput); // Append hidden input to the form
+                }
                 hiddenInput.value = checkbox.checked ? 'Yes' : 'No'; // Set value based on checkbox state
-                event.target.appendChild(hiddenInput); // Append hidden input to the form
             });
         }
 
         updateHiddenInputs(); // Update hidden inputs
 
         // Get all checkboxes in the form
-        const anyChecked = Array.from(document.querySelectorAll('input[type="checkbox"]')).some(checkbox => checkbox.checked);
+        const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
 
         // Get the error message element
         const errorMessage = document.getElementById('error-message');
