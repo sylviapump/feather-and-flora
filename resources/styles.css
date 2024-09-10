@@ -50,7 +50,7 @@ a:hover {
     border-color: var(--color-accent5);
     background-color: var(--color-accent5);
 }
-    
+
 /* Mouse over buttons */
 .btn:hover,
 .btn:active,
@@ -304,19 +304,25 @@ header {
 
 /* Ensure labels do not wrap onto multiple lines */
 .form-label {
-    white-space: nowrap; /* Prevent text wrapping */
-    overflow: hidden;    /* Hide overflowing text if needed */
-    text-overflow: ellipsis; /* Add ellipsis for long text */
+    white-space: nowrap;
+    /* Prevent text wrapping */
+    overflow: hidden;
+    /* Hide overflowing text if needed */
+    text-overflow: ellipsis;
+    /* Add ellipsis for long text */
 }
 
 /* Optional: Adjust the vertical alignment of the label and input */
 .form-label {
-    display: block; /* Ensure the label is a block element */
-    margin-bottom: 0.5rem; /* Adjust spacing between label and input */
+    display: block;
+    /* Ensure the label is a block element */
+    margin-bottom: 0.5rem;
+    /* Adjust spacing between label and input */
 }
 
 .form-control {
-    width: 100%; /* Ensure input fields take full width of their container */
+    width: 100%;
+    /* Ensure input fields take full width of their container */
 }
 
 
@@ -328,7 +334,8 @@ select,
 input[type=checkbox],
 input[type=radio],
 .form-check-input {
-    border: 1px solid var(--color-accent3) !important; /* Custom border color */
+    border: 1px solid var(--color-accent3) !important;
+    /* Custom border color */
 }
 
 /* Remove default blue outlines and apply custom styles to all relevant form elements */
@@ -353,25 +360,22 @@ input[type=radio]:active,
 .form-check-input:focus,
 .form-check-input:hover,
 .form-check-input:active {
-    outline: none !important; /* Remove default outline */
-    box-shadow: 0 0 5px var(--color-accent3) !important; /* Custom focus/hover shadow */
+    outline: none !important;
+    /* Remove default outline */
+    box-shadow: 0 0 5px var(--color-accent3) !important;
+    /* Custom focus/hover shadow */
 }
 
 /* Custom styles for checked checkboxes and radio buttons */
 .form-check-input:checked {
-    background-color: var(--color-accent3) !important; /* Custom background color */
-}
-
-/* Hide the spinners in WebKit browsers (e.g., Chrome, Safari) */
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+    background-color: var(--color-accent3) !important;
+    /* Custom background color */
 }
 
 .error-message {
     color: red;
-    display: none; /* Hide by default */
+    display: none;
+    /* Hide by default */
 }
 
 /* FOOTER */
