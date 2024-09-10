@@ -105,30 +105,16 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     
-        // Define sections to exclude from email
-        const excludeDesigns = [
-            'sampleSetDesign',
-            'saveTheDateDesign',
-            'invitationsDesign',
-            'invitationsRsvpSetDesign',
-            'invitationsRsvpDetailsSetDesign',
-            'programsDesign',
-            'menusDesign',
-            'placeCardsDesign',
-            'favourTagsDesign',
-            'thankYouNoteCardsDesign',
-            'envelopeSealsDesign',
-            'senderAddressLabelsDesign'
-        ];
-    
-        // Ensure all checkboxes and design labels are included in the FormData object with "Yes" for checked
+        // Iterate over checkboxes to add checked items to FormData
         checkboxes.forEach(checkbox => {
-            const designSelect = form.querySelector(`select[name="${checkbox.id}Design"]`);
-    
             if (checkbox.checked) {
+                // Add checked checkbox value to FormData
                 formData.append(checkbox.id, 'Yes');
-                if (designSelect && !excludeDesigns.includes(designSelect.name)) {
-                    formData.append(designSelect.name, designSelect.value); // Add design select value if checkbox is checked
+                
+                // Get associated design select
+                const designSelect = form.querySelector(`select[name="${checkbox.id}Design"]`);
+                if (designSelect) {
+                    formData.append(designSelect.name, designSelect.value); // Add design select value
                 }
             }
         });
@@ -166,5 +152,5 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     
         return false; // Prevent default form submission
-    }      
+    }    
 });
