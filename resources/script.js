@@ -1,55 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Function to close navbar when a link is clicked
-    function closeNavbar() {
-        const navToggler = document.querySelector('.navbar-toggler');
-        if (navToggler) {
-            const navCollapse = document.querySelector('.navbar-collapse');
-            const icon = navToggler.querySelector('span');
-            if (navCollapse && icon && navCollapse.classList.contains('show')) {
-                navCollapse.classList.remove('show');
-                icon.classList.toggle('fa-times', false);
-                icon.classList.toggle('navbar-toggler-icon', true);
-            }
-        }
-    }
-
-    // Toggle navbar icon between default and 'X' icon
-    const navbarToggler = document.querySelector('.navbar-toggler');
-    if (navbarToggler) {
-        navbarToggler.addEventListener('click', function () {
-            const icon = navbarToggler.querySelector('span');
-            if (icon) {
-                icon.classList.toggle('navbar-toggler-icon');
-                icon.classList.toggle('fa-times');
-            }
-        });
-    }
-
-    // Get current date in YYYY-MM-DD format
-    const today = new Date().toISOString().split('T')[0];
-    const weddingDateInput = document.getElementById('weddingDate');
-    if (weddingDateInput) {
-        weddingDateInput.setAttribute('min', today); // Set the min attribute
-    }
-
     // Function to toggle visibility and required attributes
-    function toggleDesignElements(checkboxId, designSelectId) {
+    function toggleDesignElements(checkboxId, designContainerId) {
         const checkbox = document.getElementById(checkboxId);
-        const designSelect = document.getElementById(designSelectId);
+        const designContainer = document.getElementById(designContainerId);
 
-        if (!checkbox || !designSelect) return; // Early exit if elements don't exist
+        if (!checkbox || !designContainer) return; // Early exit if elements don't exist
 
         function toggleElements() {
             if (checkbox.checked) {
-                designSelect.style.display = 'block'; // Show select box
-                designSelect.setAttribute('aria-required', 'true');
-                designSelect.setAttribute('required', 'required');
-                designSelect.querySelector('option[value=""]').textContent = 'Select Design';
+                designContainer.style.display = 'block'; // Show select box container
+                designContainer.querySelector('select').setAttribute('aria-required', 'true');
+                designContainer.querySelector('select').setAttribute('required', 'required');
             } else {
-                designSelect.style.display = 'none'; // Hide select box
-                designSelect.removeAttribute('aria-required');
-                designSelect.removeAttribute('required');
-                designSelect.querySelector('option[value=""]').textContent = 'No'; // Change default text
+                designContainer.style.display = 'none'; // Hide select box container
+                designContainer.querySelector('select').removeAttribute('aria-required');
+                designContainer.querySelector('select').removeAttribute('required');
             }
         }
 
@@ -60,21 +25,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Set up visibility and required state toggles for each section
     const toggles = [
-        ['sampleSet', 'sampleSetDesign'],
-        ['saveTheDate', 'saveTheDateDesign'],
-        ['invitationsEnvelopes', 'invitationsDesign'],
-        ['invitationsRsvpSet', 'invitationsRsvpSetDesign'],
-        ['invitationsRsvpDetailsSet', 'invitationsRsvpDetailsSetDesign'],
-        ['programs', 'programsDesign'],
-        ['menus', 'menusDesign'],
-        ['placeCards', 'placeCardsDesign'],
-        ['favourTags', 'favourTagsDesign'],
-        ['thankYouNoteCards', 'thankYouNoteCardsDesign'],
-        ['envelopeSeals', 'envelopeSealsDesign'],
-        ['senderAddressLabels', 'senderAddressLabelsDesign']
+        ['sampleSet', 'sampleSetDesignContainer'],
+        ['saveTheDate', 'saveTheDateDesignContainer'],
+        ['invitationsEnvelopes', 'invitationsDesignContainer'],
+        ['invitationsRsvpSet', 'invitationsRsvpSetDesignContainer'],
+        ['invitationsRsvpDetailsSet', 'invitationsRsvpDetailsSetDesignContainer'],
+        ['programs', 'programsDesignContainer'],
+        ['menus', 'menusDesignContainer'],
+        ['placeCards', 'placeCardsDesignContainer'],
+        ['favourTags', 'favourTagsDesignContainer'],
+        ['thankYouNoteCards', 'thankYouNoteCardsDesignContainer'],
+        ['envelopeSeals', 'envelopeSealsDesignContainer'],
+        ['senderAddressLabels', 'senderAddressLabelsDesignContainer']
     ];
 
-    toggles.forEach(([checkboxId, designSelectId]) => toggleDesignElements(checkboxId, designSelectId));
+    toggles.forEach(([checkboxId, designContainerId]) => toggleDesignElements(checkboxId, designContainerId));
 
     // Handle form submission
     function handleSubmit(event) {
@@ -122,26 +87,17 @@ document.addEventListener('DOMContentLoaded', function () {
         ];
 
         // Ensure all checkboxes are included in the FormData object with "Yes" for checked and "No" for unchecked
+        const data = {};
         checkboxes.forEach(checkbox => {
             const designSelect = form.querySelector(`select[name="${checkbox.id}Design"]`);
 
             if (checkbox.checked) {
-                formData.set(checkbox.id, 'Yes');
+                data[checkbox.id] = 'Yes';
                 if (designSelect && !excludeDesigns.includes(designSelect.name)) {
-                    formData.set(designSelect.name, designSelect.value); // Use set instead of append to overwrite value
+                    data[designSelect.name] = designSelect.value; // Use value only if checkbox is checked
                 }
             } else {
-                formData.set(checkbox.id, 'No');
-            }
-        });
-
-        // Convert FormData to a plain object
-        const data = {};
-        formData.forEach((value, key) => {
-            if (data[key]) {
-                data[key] = Array.isArray(data[key]) ? [...data[key], value] : [data[key], value];
-            } else {
-                data[key] = value;
+                data[checkbox.id] = 'No';
             }
         });
 
