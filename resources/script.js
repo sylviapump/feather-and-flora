@@ -147,6 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Attach submit event listener to the form
     const form = document.querySelector('form[name="order-form"]');
     if (form) {
+        console.log('Form found:', form); // Log the form element
         form.addEventListener('submit', handleSubmit);
     } else {
         console.error('Form with name "order-form" not found.');
