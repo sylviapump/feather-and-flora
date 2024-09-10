@@ -88,6 +88,12 @@ document.addEventListener('DOMContentLoaded', function () {
     function handleSubmit(event) {
         event.preventDefault(); // Prevent default form submission
 
+        // Remove default checkbox values
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(checkbox => {
+            checkbox.value = ''; // Clear value attribute
+        });
+
         // Function to update hidden inputs for checkbox values
         function updateHiddenInputs() {
             const checkboxes = document.querySelectorAll('input[type="checkbox"]');
@@ -106,12 +112,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         updateHiddenInputs(); // Update hidden inputs
-
-        // Remove default checkbox values
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        checkboxes.forEach(checkbox => {
-            checkbox.removeAttribute('value');
-        });
 
         // Get all checkboxes in the form
         const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
