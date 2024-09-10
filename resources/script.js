@@ -88,19 +88,24 @@ document.addEventListener('DOMContentLoaded', function () {
     function handleSubmit(event) {
         event.preventDefault(); // Prevent default form submission
 
-        // Function to update checkbox values to "Yes" for checked items
-        function updateCheckboxValues() {
+        // Function to update hidden inputs for checkbox values
+        function updateHiddenInputs() {
             const checkboxes = document.querySelectorAll('input[type="checkbox"]');
             checkboxes.forEach(checkbox => {
-                if (checkbox.checked) {
-                    checkbox.value = 'Yes';
-                } else {
-                    checkbox.value = 'No'; // Optional: Set value to "No" if unchecked
+                const hiddenInputId = checkbox.id + '-hidden';
+                let hiddenInput = document.getElementById(hiddenInputId);
+                if (!hiddenInput) {
+                    hiddenInput = document.createElement('input');
+                    hiddenInput.type = 'hidden';
+                    hiddenInput.name = checkbox.name;
+                    hiddenInput.id = hiddenInputId;
+                    event.target.appendChild(hiddenInput); // Append hidden input to the form
                 }
+                hiddenInput.value = checkbox.checked ? 'Yes' : 'No'; // Set value based on checkbox state
             });
         }
 
-        updateCheckboxValues(); // Update checkbox values
+        updateHiddenInputs(); // Update hidden inputs
 
         // Get all checkboxes in the form
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
