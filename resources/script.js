@@ -33,18 +33,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Prevent mouse scrolling adjusting increments
-    const guestCountInput = document.getElementById('guestCount');
-    const budgetInput = document.getElementById('budget');
-    if (guestCountInput) {
-        guestCountInput.addEventListener('wheel', function (event) {
-            event.preventDefault(); // Prevent scrolling
-        });
-    }
-    if (budgetInput) {
-        budgetInput.addEventListener('wheel', function (event) {
-            event.preventDefault(); // Prevent scrolling
-        });
-    }
+    document.getElementById('guestCount').addEventListener('wheel', function (event) {
+        event.preventDefault(); // Prevent scrolling
+    });
+    document.getElementById('budget').addEventListener('wheel', function (event) {
+        event.preventDefault(); // Prevent scrolling
+    });
 
     // Function to toggle visibility and required attributes
     function toggleDesignElements(checkboxId, designSelectId) {
@@ -94,35 +88,22 @@ document.addEventListener('DOMContentLoaded', function () {
     function handleSubmit(event) {
         event.preventDefault(); // Prevent default form submission
 
-        // Remove default checkbox values
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        checkboxes.forEach(checkbox => {
-            checkbox.value = ''; // Clear value attribute
-        });
-
-        // Function to update hidden inputs for checkbox values
-        function updateHiddenInputs() {
+        // Function to update checkbox values to "Yes" for checked items
+        function updateCheckboxValues() {
             const checkboxes = document.querySelectorAll('input[type="checkbox"]');
             checkboxes.forEach(checkbox => {
-                const hiddenInputId = checkbox.id + '-hidden';
-                let hiddenInput = document.getElementById(hiddenInputId);
-                if (!hiddenInput) {
-                    hiddenInput = document.createElement('input');
-                    hiddenInput.type = 'hidden';
-                    hiddenInput.name = checkbox.name; // Ensure name matches checkbox
-                    hiddenInput.id = hiddenInputId;
-                    event.target.appendChild(hiddenInput); // Append hidden input to the form
+                if (checkbox.checked) {
+                    checkbox.value = 'Yes';
+                } else {
+                    checkbox.value = 'No'; // Optional: Set value to "No" if unchecked
                 }
-                hiddenInput.value = checkbox.checked ? 'Yes' : 'No'; // Set value based on checkbox state
-
-                // Debugging: Log hidden input value
-                console.log(`Checkbox ID: ${checkbox.id}, Hidden Input ID: ${hiddenInputId}, Value: ${hiddenInput.value}`);
             });
         }
 
-        updateHiddenInputs(); // Update hidden inputs
+        updateCheckboxValues(); // Update checkbox values
 
         // Get all checkboxes in the form
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
         const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
 
         // Get the error message element
@@ -147,9 +128,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Attach submit event listener to the form
     const form = document.querySelector('form[name="order-form"]');
     if (form) {
-        console.log('Form found:', form); // Log the form element
         form.addEventListener('submit', handleSubmit);
-    } else {
-        console.error('Form with name "order-form" not found.');
     }
 });
