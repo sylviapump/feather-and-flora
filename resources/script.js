@@ -99,8 +99,75 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
-        // If validation passed, submit the form
-        event.target.submit();
+        // Define sections to exclude from email
+        const excludeDesigns = [
+            'sampleSetDesign',
+            'saveTheDateDesign',
+            'invitationsDesign',
+            'invitationsRsvpSetDesign',
+            'invitationsRsvpDetailsSetDesign',
+            'programsDesign',
+            'menusDesign',
+            'placeCardsDesign',
+            'favourTagsDesign',
+            'thankYouNoteCardsDesign',
+            'envelopeSealsDesign',
+            'senderAddressLabelsDesign'
+        ];
+
+        // Create a FormData object from the form
+        const form = event.target;
+        const formData = new FormData(form);
+
+        // Ensure all checkboxes are included in the FormData object with "Yes" for checked and "No" for unchecked
+        checkboxes.forEach(checkbox => {
+            const designSelect = form.querySelector(`select[name="${checkbox.id}Design"]`);
+
+            if (checkbox.checked) {
+                formData.set(checkbox.id, 'Yes');
+                if (designSelect && !excludeDesigns.includes(designSelect.name)) {
+                    formData.set(designSelect.name, designSelect.value); // Use set instead of append to overwrite value
+                }
+            } else {
+                formData.set(checkbox.id, 'No');
+            }
+        });
+
+        // Convert FormData to a plain object
+        const data = {};
+        formData.forEach((value, key) => {
+            if (!excludeDesigns.includes(key)) {
+                if (data[key]) {
+                    data[key] = Array.isArray(data[key]) ? [...data[key], value] : [data[key], value];
+                } else {
+                    data[key] = value;
+                }
+            }
+        });
+
+        // Optional: Log the data object to verify
+        console.log('Form Data:', data);
+
+        // Use fetch to submit the form data
+        fetch(form.action, {
+            method: 'POST',
+            body: new URLSearchParams(data),
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        })
+        .then(response => response.text())
+        .then(result => {
+            console.log('Success:', result);
+            // Redirect or show a success message
+            window.location.href = 'thank-you.html'; // Redirect to thank you page
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Optionally, show an error message
+        });
+
+        return false; // Prevent default form submission
     }
 
     // Attach submit event listener to the form
