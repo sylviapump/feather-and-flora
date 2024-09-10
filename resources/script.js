@@ -105,21 +105,17 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
-        // Add only checked checkboxes and their design labels
+        // Add all checkboxes with their values and associated design labels
         checkboxes.forEach(checkbox => {
             const designSelect = form.querySelector(`select[name="${checkbox.id}Design"]`);
 
             if (checkbox.checked) {
-                // Add checked checkbox value to FormData
-                formData.append(checkbox.id, 'Yes');
-                
-                // Add associated design select value if exists
+                formData.append(checkbox.id, 'Yes'); // Add checked checkbox value
                 if (designSelect) {
-                    formData.append(designSelect.name, designSelect.value);
+                    formData.append(designSelect.name, designSelect.value); // Add design select value
                 }
             } else {
-                // Explicitly append "No" for unchecked checkboxes
-                formData.append(checkbox.id, 'No');
+                formData.append(checkbox.id, 'No'); // Explicitly append "No" for unchecked checkboxes
             }
         });
 
@@ -138,7 +134,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
         })
-        .then(response => response.text())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
         .then(result => {
             console.log('Success:', result);
             // Redirect or show a success message
