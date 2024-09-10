@@ -32,12 +32,13 @@ document.addEventListener('DOMContentLoaded', function () {
         weddingDateInput.setAttribute('min', today); // Set the min attribute
     }
 
-    // Prevent mouse scrolling adjustments on number inputs
-    function preventWheelScroll(event) {
+    // To Prevebt mouse scrolling adjusting increments
+    document.getElementById('guestCount').addEventListener('wheel', function (event) {
         event.preventDefault(); // Prevent scrolling
-    }
-    document.getElementById('guestCount')?.addEventListener('wheel', preventWheelScroll);
-    document.getElementById('budget')?.addEventListener('wheel', preventWheelScroll);
+    });
+    document.getElementById('budget').addEventListener('wheel', function (event) {
+        event.preventDefault(); // Prevent scrolling
+    });
 
     // Function to toggle visibility and required attributes
     function toggleDesignElements(checkboxId, designSelectId) {
@@ -115,22 +116,4 @@ document.addEventListener('DOMContentLoaded', function () {
     if (form) {
         form.addEventListener('submit', handleSubmit);
     }
-
-    // Function to update checkbox status display
-    function updateCheckboxStatus() {
-        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-            const statusSpan = checkbox.nextElementSibling?.nextElementSibling; // Get the span element next to the checkbox
-            if (statusSpan) {
-                statusSpan.textContent = checkbox.checked ? 'Yes' : 'No';
-            }
-        });
-    }
-
-    // Attach change event listeners to checkboxes
-    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-        checkbox.addEventListener('change', updateCheckboxStatus);
-    });
-
-    // Initialize checkbox statuses on page load
-    updateCheckboxStatus();
 });
