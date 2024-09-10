@@ -79,17 +79,17 @@ document.addEventListener('DOMContentLoaded', function () {
     // Handle form submission
     function handleSubmit(event) {
         event.preventDefault(); // Prevent default form submission
-    
+
         // Get the form element
         const form = event.target;
-    
+
         // Create a FormData object
         const formData = new FormData();
-    
+
         // Collect all the checkbox inputs in the form
         const checkboxes = form.querySelectorAll('input[type="checkbox"]');
         const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
-    
+
         // Display an error message if no checkboxes are checked
         const errorMessage = document.getElementById('error-message');
         if (!anyChecked) {
@@ -104,11 +104,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 errorMessage.style.display = 'none'; // Hide error message
             }
         }
-    
+
         // Add only checked checkboxes and their design labels
         checkboxes.forEach(checkbox => {
             const designSelect = form.querySelector(`select[name="${checkbox.id}Design"]`);
-    
+
             if (checkbox.checked) {
                 // Add checked checkbox value to FormData
                 formData.append(checkbox.id, 'Yes');
@@ -117,16 +117,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (designSelect) {
                     formData.append(designSelect.name, designSelect.value);
                 }
+            } else {
+                // Explicitly append "No" for unchecked checkboxes
+                formData.append(checkbox.id, 'No');
             }
         });
-    
+
         // Convert FormData to a plain object and log it
         const data = {};
         formData.forEach((value, key) => {
             data[key] = value;
         });
         console.log('Form Data:', data); // Check the contents
-    
+
         // Use fetch to submit the form data
         fetch(form.action, {
             method: 'POST',
@@ -145,8 +148,13 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Error:', error);
             // Optionally, show an error message
         });
-    
+
         return false; // Prevent default form submission
     }
-    
+
+    // Attach submit event listener to the form
+    const form = document.querySelector('form[name="order-form"]');
+    if (form) {
+        form.addEventListener('submit', handleSubmit);
+    }
 });
