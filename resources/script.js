@@ -32,6 +32,14 @@ document.addEventListener('DOMContentLoaded', function () {
         weddingDateInput.setAttribute('min', today); // Set the min attribute
     }
 
+    // To Prevebt mouse scrolling adjusting increments
+    document.getElementById('guestCount').addEventListener('wheel', function (event) {
+        event.preventDefault(); // Prevent scrolling
+    });
+    document.getElementById('budget').addEventListener('wheel', function (event) {
+        event.preventDefault(); // Prevent scrolling
+    });
+
     // Function to toggle visibility and required attributes
     function toggleDesignElements(checkboxId, designSelectId) {
         const checkbox = document.getElementById(checkboxId);
