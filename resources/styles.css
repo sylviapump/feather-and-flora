@@ -362,6 +362,13 @@ input[type=radio]:active,
     background-color: var(--color-accent3) !important; /* Custom background color */
 }
 
+/* Hide the spinners in WebKit browsers (e.g., Chrome, Safari) */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 .error-message {
     color: red;
     display: none; /* Hide by default */
