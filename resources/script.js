@@ -92,11 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
         function updateCheckboxValues() {
             const checkboxes = document.querySelectorAll('input[type="checkbox"]');
             checkboxes.forEach(checkbox => {
-                if (checkbox.checked) {
-                    checkbox.value = 'Yes';
-                } else {
-                    checkbox.value = 'No'; // Optional: Set value to "No" if unchecked
-                }
+                checkbox.value = checkbox.checked ? 'Yes' : 'No';
             });
         }
 
