@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
         weddingDateInput.setAttribute('min', today); // Set the min attribute
     }
 
-    // To Prevebt mouse scrolling adjusting increments
+    // To prevent mouse scrolling adjusting increments
     document.getElementById('guestCount').addEventListener('wheel', function (event) {
         event.preventDefault(); // Prevent scrolling
     });
@@ -88,27 +88,37 @@ document.addEventListener('DOMContentLoaded', function () {
     function handleSubmit(event) {
         event.preventDefault(); // Prevent default form submission
 
-        // Get all checkboxes in the form
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+        // Collect form data
+        const formData = new FormData(event.target);
+        const formEntries = Array.from(formData.entries());
 
-        // Get the error message element
-        const errorMessage = document.getElementById('error-message');
-        if (!anyChecked) {
-            // Display an error message if no checkboxes are checked
-            if (errorMessage) {
-                errorMessage.style.display = 'block'; // Show error message
+        // Modify checkbox values
+        const updatedEntries = formEntries.map(([key, value]) => {
+            if (key.endsWith('checkbox') && value === 'on') {
+                return [key, 'Yes'];
             }
-            return; // Prevent form submission
-        } else {
-            // Hide the error message if at least one checkbox is checked
-            if (errorMessage) {
-                errorMessage.style.display = 'none'; // Hide error message
-            }
-        }
+            return [key, value];
+        });
 
-        // If validation passed, submit the form
-        event.target.submit();
+        // Convert back to FormData
+        const updatedFormData = new FormData();
+        updatedEntries.forEach(([key, value]) => updatedFormData.append(key, value));
+
+        // Prepare email content
+        const emailContent = Array.from(updatedFormData.entries())
+            .map(([key, value]) => `${key}: ${value}`)
+            .join('\n');
+
+        // Example email sending function (to be replaced with actual implementation)
+        sendEmail(emailContent);
+
+        // Optionally handle form submission or display a success message
+        // event.target.submit(); // Uncomment if you want to submit the form as well
+    }
+
+    function sendEmail(content) {
+        console.log('Email content:', content);
+        // Implement actual email sending logic here
     }
 
     // Attach submit event listener to the form
