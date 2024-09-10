@@ -75,4 +75,37 @@ document.addEventListener('DOMContentLoaded', function () {
     ];
 
     toggles.forEach(([checkboxId, designSelectId]) => toggleDesignElements(checkboxId, designSelectId));
+
+    // Function to handle form submission
+    function handleSubmit(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Get all checkboxes in the form
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+
+        // Get the error message element
+        const errorMessage = document.getElementById('error-message');
+        if (!anyChecked) {
+            // Display an error message if no checkboxes are checked
+            if (errorMessage) {
+                errorMessage.style.display = 'block'; // Show error message
+            }
+            return; // Prevent form submission
+        } else {
+            // Hide the error message if at least one checkbox is checked
+            if (errorMessage) {
+                errorMessage.style.display = 'none'; // Hide error message
+            }
+        }
+
+        // If validation passed, submit the form
+        event.target.submit();
+    }
+
+    // Attach submit event listener to the form
+    const form = document.querySelector('form[name="order-form"]');
+    if (form) {
+        form.addEventListener('submit', handleSubmit);
+    }
 });

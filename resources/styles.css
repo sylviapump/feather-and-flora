@@ -362,6 +362,10 @@ input[type=radio]:active,
     background-color: var(--color-accent3) !important; /* Custom background color */
 }
 
+.error-message {
+    color: red;
+    display: none; /* Hide by default */
+}
 
 /* FOOTER */
 footer {
