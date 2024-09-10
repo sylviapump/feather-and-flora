@@ -32,7 +32,20 @@ document.addEventListener('DOMContentLoaded', function () {
         weddingDateInput.setAttribute('min', today); // Set the min attribute
     }
 
+    // Prevent mouse scrolling adjusting increments
+    const guestCountElement = document.getElementById('guestCount');
+    if (guestCountElement) {
+        guestCountElement.addEventListener('wheel', function (event) {
+            event.preventDefault(); // Prevent scrolling
+        });
+    }
 
+    const budgetElement = document.getElementById('budget');
+    if (budgetElement) {
+        budgetElement.addEventListener('wheel', function (event) {
+            event.preventDefault(); // Prevent scrolling
+        });
+    }
 
     // Function to toggle visibility and required attributes
     function toggleDesignElements(checkboxId, designSelectId) {
