@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const icon = navToggler.querySelector('span');
             if (navCollapse && icon && navCollapse.classList.contains('show')) {
                 navCollapse.classList.remove('show');
-                icon.classList.replace('fa-times', 'navbar-toggler-icon');
+                icon.classList.toggle('fa-times', false);
+                icon.classList.toggle('navbar-toggler-icon', true);
             }
         }
     }
@@ -28,48 +29,51 @@ document.addEventListener('DOMContentLoaded', function () {
     const today = new Date().toISOString().split('T')[0];
     const weddingDateInput = document.getElementById('weddingDate');
     if (weddingDateInput) {
-        weddingDateInput.setAttribute('min', today);
+        weddingDateInput.setAttribute('min', today); // Set the min attribute
     }
 
     // Prevent mouse scrolling adjusting increments
-    function preventScrollAdjustment(elementId) {
-        const element = document.getElementById(elementId);
-        if (element) {
-            element.addEventListener('wheel', function (event) {
-                event.preventDefault();
-            });
-        }
+    const guestCountElement = document.getElementById('guestCount');
+    if (guestCountElement) {
+        guestCountElement.addEventListener('wheel', function (event) {
+            event.preventDefault(); // Prevent scrolling
+        });
     }
 
-    preventScrollAdjustment('guestCount');
-    preventScrollAdjustment('budget');
+    const budgetElement = document.getElementById('budget');
+    if (budgetElement) {
+        budgetElement.addEventListener('wheel', function (event) {
+            event.preventDefault(); // Prevent scrolling
+        });
+    }
 
-    // Toggle visibility and required attributes
+    // Function to toggle visibility and required attributes
     function toggleDesignElements(checkboxId, designSelectId) {
         const checkbox = document.getElementById(checkboxId);
         const designSelect = document.getElementById(designSelectId);
 
-        if (!checkbox || !designSelect) return;
+        if (!checkbox || !designSelect) return; // Early exit if elements don't exist
 
         function toggleElements() {
             if (checkbox.checked) {
-                designSelect.style.display = 'block';
+                designSelect.style.display = 'block'; // Show select box
                 designSelect.setAttribute('aria-required', 'true');
                 designSelect.setAttribute('required', 'required');
                 designSelect.querySelector('option[value=""]').textContent = 'Select Design';
             } else {
-                designSelect.style.display = 'none';
+                designSelect.style.display = 'none'; // Hide select box
                 designSelect.removeAttribute('aria-required');
                 designSelect.removeAttribute('required');
-                designSelect.querySelector('option[value=""]').textContent = 'No';
+                designSelect.querySelector('option[value=""]').textContent = 'No'; // Change default text
             }
         }
 
         checkbox.addEventListener('change', toggleElements);
+        // Initialize state
         toggleElements();
     }
 
-    // Set up visibility and required state toggles
+    // Set up visibility and required state toggles for each section
     const toggles = [
         ['sampleSet', 'sampleSetDesign'],
         ['saveTheDate', 'saveTheDateDesign'],
@@ -87,11 +91,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     toggles.forEach(([checkboxId, designSelectId]) => toggleDesignElements(checkboxId, designSelectId));
 
-    // Handle form submission
+    // Function to handle form submission
     function handleSubmit(event) {
-        event.preventDefault();
+        event.preventDefault(); // Prevent default form submission
 
-        // Update checkbox values to "Yes" for checked items
+        // Function to update checkbox values to "Yes" for checked items
         function updateCheckboxValues() {
             const checkboxes = document.querySelectorAll('input[type="checkbox"]');
             checkboxes.forEach(checkbox => {
@@ -99,48 +103,32 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
-        updateCheckboxValues();
+        updateCheckboxValues(); // Update checkbox values
 
-        // Filter out empty fields
-        function getFilteredFormData(form) {
-            const formData = new FormData(form);
-            const filteredData = {};
-            for (const [key, value] of formData.entries()) {
-                if (value.trim() !== "" && !key.startsWith("honeypot")) {
-                    filteredData[key] = value;
-                }
+        // Get all checkboxes in the form
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        const anyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+
+        // Get the error message element
+        const errorMessage = document.getElementById('error-message');
+        if (!anyChecked) {
+            // Display an error message if no checkboxes are checked
+            if (errorMessage) {
+                errorMessage.style.display = 'block'; // Show error message
             }
-            return filteredData;
+            return; // Prevent form submission
+        } else {
+            // Hide the error message if at least one checkbox is checked
+            if (errorMessage) {
+                errorMessage.style.display = 'none'; // Hide error message
+            }
         }
 
-        const form = document.querySelector('form[name="order-form"]');
-        if (form) {
-            const filteredData = getFilteredFormData(form);
-
-            // Display or hide error message based on form data
-            const errorMessage = document.getElementById('error-message');
-            if (Object.keys(filteredData).length === 0) {
-                if (errorMessage) errorMessage.style.display = 'block';
-                return;
-            } else {
-                if (errorMessage) errorMessage.style.display = 'none';
-            }
-
-            // Submit form data via fetch
-            fetch(form.action, {
-                method: form.method,
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(filteredData),
-            })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Success:', data);
-                    window.location.href = form.action; // Redirect to thank-you page
-                })
-                .catch(error => console.error('Error:', error));
-        }
+        // If validation passed, submit the form
+        event.target.submit();
     }
 
+    // Attach submit event listener to the form
     const form = document.querySelector('form[name="order-form"]');
     if (form) {
         form.addEventListener('submit', handleSubmit);
