@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Get the form element
         const form = event.target;
     
-        // Create a FormData object from the form
+        // Create a FormData object
         const formData = new FormData();
     
         // Collect all the checkbox inputs in the form
@@ -105,32 +105,27 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     
-        // Iterate over checkboxes to add checked items to FormData
+        // Add only checked checkboxes and their design labels
         checkboxes.forEach(checkbox => {
+            const designSelect = form.querySelector(`select[name="${checkbox.id}Design"]`);
+    
             if (checkbox.checked) {
                 // Add checked checkbox value to FormData
                 formData.append(checkbox.id, 'Yes');
                 
-                // Get associated design select
-                const designSelect = form.querySelector(`select[name="${checkbox.id}Design"]`);
+                // Add associated design select value if exists
                 if (designSelect) {
-                    formData.append(designSelect.name, designSelect.value); // Add design select value
+                    formData.append(designSelect.name, designSelect.value);
                 }
             }
         });
     
-        // Convert FormData to a plain object
+        // Convert FormData to a plain object and log it
         const data = {};
         formData.forEach((value, key) => {
-            if (data[key]) {
-                data[key] = Array.isArray(data[key]) ? [...data[key], value] : [data[key], value];
-            } else {
-                data[key] = value;
-            }
+            data[key] = value;
         });
-    
-        // Optional: Log the data object to verify
-        console.log('Form Data:', data);
+        console.log('Form Data:', data); // Check the contents
     
         // Use fetch to submit the form data
         fetch(form.action, {
@@ -152,5 +147,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     
         return false; // Prevent default form submission
-    }    
+    }
+    
 });
