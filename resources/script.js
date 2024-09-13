@@ -1,5 +1,3 @@
-// Custom JavaScript
-
 // Function to close navbar when link is clicked
 function closeNavbar() {
     var navToggler = document.querySelector('.navbar-toggler');
