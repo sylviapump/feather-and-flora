@@ -179,6 +179,11 @@ header {
     z-index: 1;
 }
 
+.introduction h2 {
+    font-family: "Playfair Display", serif;
+   
+}
+
 .heading-content,
 .quote {
     position: relative;
@@ -226,10 +231,6 @@ header {
 .newsletter {
     background-color: rgba(242, 238, 235, 0.3);
 }
-
-
-
-
 
 .quote {
     font-family: "Fleur De Leah", "Brush Script MT", cursive;
