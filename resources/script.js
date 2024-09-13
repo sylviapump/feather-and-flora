@@ -1,25 +1,23 @@
-// Custom JavaScript
-
-// Function to close navbar when link is clicked
-function closeNavbar() {
-    var navToggler = document.querySelector('.navbar-toggler');
-    if (navToggler) {
-        var navCollapse = document.querySelector('.navbar-collapse');
-        var icon = navToggler.querySelector('span');
-        if (navCollapse && icon) {
-            if (navCollapse.classList.contains('show')) {
-                navCollapse.classList.remove('show');
-                if (icon.classList.contains('fa-times')) {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('navbar-toggler-icon');
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to close navbar when link is clicked
+    function closeNavbar() {
+        var navToggler = document.querySelector('.navbar-toggler');
+        if (navToggler) {
+            var navCollapse = document.querySelector('.navbar-collapse');
+            var icon = navToggler.querySelector('span');
+            if (navCollapse && icon) {
+                if (navCollapse.classList.contains('show')) {
+                    navCollapse.classList.remove('show');
+                    if (icon.classList.contains('fa-times')) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('navbar-toggler-icon');
+                    }
                 }
             }
         }
     }
-}
 
-// Toggle navbar icon between default and 'X' icon
-document.addEventListener('DOMContentLoaded', function() {
+    // Toggle navbar icon between default and 'X' icon
     var navbarToggler = document.querySelector('.navbar-toggler');
     if (navbarToggler) {
         navbarToggler.addEventListener('click', function () {
@@ -56,6 +54,22 @@ document.addEventListener('DOMContentLoaded', function() {
         budgetElement.addEventListener('wheel', function (event) {
             event.preventDefault(); // Prevent scrolling
         });
+    }
+
+    // Function to format the budget value
+    function formatBudgetInput() {
+        const budgetElement = document.getElementById('budget');
+        if (budgetElement) {
+            let budgetValue = budgetElement.value;
+            // Remove any existing dollar signs and non-numeric characters
+            budgetValue = budgetValue.replace(/[^\d]/g, '');
+            // Add a dollar sign and format the value
+            if (budgetValue) {
+                budgetElement.value = `$${parseFloat(budgetValue).toFixed(2)}`;
+            } else {
+                budgetElement.value = '$0.00';
+            }
+        }
     }
 
     // Function to toggle visibility and required attributes
@@ -115,6 +129,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         updateCheckboxValues(); // Update checkbox values
+
+        // Format the budget input value
+        formatBudgetInput();
 
         // Get all checkboxes in the form
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
