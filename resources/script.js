@@ -86,16 +86,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const toggles = [
         ['sampleSet', 'sampleSetDesign'],
         ['saveTheDate', 'saveTheDateDesign'],
-        ['invitationsEnvelopes', 'invitationsDesign'],
+        ['invitations', 'invitationsDesign'],
         ['invitationsRsvpSet', 'invitationsRsvpSetDesign'],
         ['invitationsRsvpDetailsSet', 'invitationsRsvpDetailsSetDesign'],
         ['programs', 'programsDesign'],
         ['menus', 'menusDesign'],
-        ['placeCards', 'placeCardsDesign'],
-        ['favourTags', 'favourTagsDesign'],
         ['thankYouNoteCards', 'thankYouNoteCardsDesign'],
-        ['envelopeSeals', 'envelopeSealsDesign'],
-        ['senderAddressLabels', 'senderAddressLabelsDesign']
+        ['welcomeSign', 'welcomeSignDesign'],  // Added Welcome Sign
+        ['seatingChart', 'seatingChartDesign']  // Added Seating Chart
     ];
 
     toggles.forEach(([checkboxId, designSelectId]) => toggleDesignElements(checkboxId, designSelectId));

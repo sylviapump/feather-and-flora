@@ -227,6 +227,11 @@ header {
     }
 }
 
+/* Add spacing between list items in ordered list */
+ol li {
+    margin-bottom: 1rem; /* Adjust this value as needed for desired spacing */
+}
+
 /* Newsletter */
 .newsletter {
     background-color: rgba(242, 238, 235, 0.3);
@@ -238,14 +243,13 @@ header {
 
 /* process Container */
 
-
 .process h2 {
     margin-bottom: 1.5rem;
     font-size: 2rem;
     color: var(--color-accent1);
 }
 
-/* process List */
+/* Process List */
 .process-list {
     list-style: none;
     position: relative;
@@ -255,7 +259,7 @@ header {
 
 .process-item {
     position: relative;
-    padding: 1rem 0;
+    padding: 1.25rem 0;
     border-left: 2px solid var(--color-accent5);
     margin-left: 2rem;
 }
@@ -264,7 +268,7 @@ header {
     content: "";
     position: absolute;
     left: -7px;
-    top: 0;
+    top: 1.25rem; /* Aligns the dot with the headings */
     width: 14px;
     height: 14px;
     background-color: var(--color-accent5);
@@ -272,18 +276,22 @@ header {
     box-shadow: 0 0 0 3px var(--color-accent5);
 }
 
+
+
+
 .process-content {
-    padding-left: 1.5rem;
+    padding-left: 2rem; /* Adjusts padding to align with the dot */
 }
 
 .process-content h3 {
     font-size: 1.5rem;
     color: var(--color-accent1);
     margin-bottom: 0.5rem;
+    line-height: 1.5rem; /* Optional: Adjusts the line height for better alignment */
 }
 
 .process-content p {
-    font-size: 1rem;
+    font-size: 1.125rem;
     color: var(--color-accent2);
 }
 
@@ -294,8 +302,9 @@ header {
 }
 
 .faqs-content p {
-    font-size: 1rem;
+    font-size: 1.125rem;
     color: var(--color-accent2);
+    margin-bottom: 2rem;
 }
 
 /* Contact Form */

@@ -18,7 +18,7 @@
 
     <!-- Link Google Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Buda:wght@300&family=Dancing+Script&family=Fleur+De+Leah&family=Quattrocento&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Buda:wght@300&family=Dancing+Script&family=Fleur+De+Leah&family=Quattrocento&family=Tangerine&display=swap"
         rel="stylesheet">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
@@ -69,9 +69,9 @@
                                 Process
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="weddingDropdown">
-                                <li><a class="dropdown-item" href="wedding-stationery-guide.html">Guide to Wedding
-                                        Stationery</a></li>
-                                <li><a class="dropdown-item" href="order-guide.html">How to Order</a></li>
+                                <li><a class="dropdown-item" href="wedding-stationery-timeline.html">Wedding Stationery
+                                        Timeline</a></li>
+                                <li><a class="dropdown-item" href="order-process.html">How to Order</a></li>
                                 <li><a class="dropdown-item" href="faqs.html">FAQs</a></li>
                             </ul>
                         </li>
@@ -82,14 +82,13 @@
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Wedding Stationery
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="weddingDropdown">
-                                <li><a class="dropdown-item" href="samples.html">Sample Wedding Stationery</a></li>
+                              <ul class="dropdown-menu" aria-labelledby="weddingDropdown">
+                                <li><a class="dropdown-item" href="sample.html">Sample Invitation Set</a></li>
                                 <li><a class="dropdown-item" href="designs.html">Designs</a></li>
                                 <li><a class="dropdown-item" href="save-the-dates.html">Save The Dates</a></li>
                                 <li><a class="dropdown-item" href="invitations.html">Wedding Invitations</a></li>
                                 <li><a class="dropdown-item" href="day-of.html">Ceremony & Reception</a></li>
                                 <li><a class="dropdown-item" href="thankyou.html">Thank You Cards</a></li>
-                                <li><a class="dropdown-item" href="embellishments.html">Envelope Embellishments</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -167,14 +166,14 @@
                 <div class="row mt-5 pt-3">
                     <label class="form-label">What are you wishing to order?<span class="required-star">*</span></label>
 
-                    <!-- Sample Set -->
+                    <!-- Sample Invitation Set -->
                     <div class="form-check">
                         <div class="row py-3">
                             <div class="col-12">
                                 <input type="checkbox" class="form-check-input" id="sampleSet" name="sampleSet"
                                     aria-labelledby="sampleSetLabel">
                                 <label class="form-check-label ms-2" id="sampleSetLabel" for="sampleSet">Sample
-                                    Set</label>
+                                    Invitation Set</label>
                             </div>
                             <!-- Conditional design selection based on the checkbox -->
                             <div class="col-lg-4 col-md-6 col-10" aria-labelledby="sampleSetSelectLabel">
@@ -190,14 +189,14 @@
                         </div>
                     </div>
 
-                    <!-- Save The Date Cards + Envelopes -->
+                    <!-- Save The Date Cards -->
                     <div class="form-check">
                         <div class="row py-3">
                             <div class="col-12">
                                 <input type="checkbox" class="form-check-input" id="saveTheDate" name="saveTheDate"
                                     aria-labelledby="saveTheDateLabel">
                                 <label class="form-check-label ms-2" id="saveTheDateLabel" for="saveTheDate">Save The
-                                    Date Cards + Envelopes</label>
+                                    Date Cards</label>
                             </div>
                             <!-- Conditional design selection based on the checkbox -->
                             <div class="col-lg-4 col-md-6 col-10" aria-labelledby="saveTheDateSelectLabel">
@@ -213,15 +212,14 @@
                         </div>
                     </div>
 
-                    <!-- Invitations + Envelopes -->
+                    <!-- Invitations -->
                     <div class="form-check">
                         <div class="row py-3">
                             <div class="col-12">
-                                <input type="checkbox" class="form-check-input" id="invitationsEnvelopes"
-                                    name="invitationsEnvelopes" aria-labelledby="invitationsEnvelopesLabel">
-                                <label class="form-check-label ms-2" id="invitationsEnvelopesLabel"
-                                    for="invitationsEnvelopes">
-                                    Invitations + Envelopes
+                                <input type="checkbox" class="form-check-input" id="invitations" name="invitations"
+                                    aria-labelledby="invitationsLabel">
+                                <label class="form-check-label ms-2" id="invitationsLabel" for="invitations">
+                                    Invitations
                                 </label>
                             </div>
                             <!-- Conditional design selection based on the checkbox -->
@@ -291,6 +289,30 @@
                         </div>
                     </div>
 
+                    <!-- Welcome Sign -->
+                    <div class="form-check">
+                        <div class="row py-3">
+                            <div class="col-12">
+                                <input type="checkbox" class="form-check-input" id="welcomeSign" name="welcomeSign"
+                                    aria-labelledby="welcomeSignLabel">
+                                <label class="form-check-label ms-2" id="welcomeSignLabel" for="welcomeSign">
+                                    Welcome Sign
+                                </label>
+                            </div>
+                            <!-- Conditional design selection based on the checkbox -->
+                            <div class="col-lg-4 col-md-6 col-10" aria-labelledby="welcomeSignDesignSelectLabel">
+                                <select class="form-select mt-2" id="welcomeSignDesign" name="welcomeSignDesign"
+                                    aria-labelledby="welcomeSignDesignSelectLabel" aria-required="false">
+                                    <option value="" disabled selected>Select Design</option>
+                                    <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
+                                    <option value="Pink Robins">Pink Robins</option>
+                                    <option value="Fagus">Fagus</option>
+                                    <option value="Waratah">Waratah</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Programs -->
                     <div class="form-check">
                         <div class="row py-3">
@@ -315,6 +337,30 @@
                         </div>
                     </div>
 
+                    <!-- Seating Chart -->
+                    <div class="form-check">
+                        <div class="row py-3">
+                            <div class="col-12">
+                                <input type="checkbox" class="form-check-input" id="seatingChart" name="seatingChart"
+                                    aria-labelledby="seatingChartLabel">
+                                <label class="form-check-label ms-2" id="seatingChartLabel" for="seatingChart">
+                                    Seating Chart
+                                </label>
+                            </div>
+                            <!-- Conditional design selection based on the checkbox -->
+                            <div class="col-lg-4 col-md-6 col-10" aria-labelledby="seatingChartDesignSelectLabel">
+                                <select class="form-select mt-2" id="seatingChartDesign" name="seatingChartDesign"
+                                    aria-labelledby="seatingChartDesignSelectLabel" aria-required="false">
+                                    <option value="" disabled selected>Select Design</option>
+                                    <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
+                                    <option value="Pink Robins">Pink Robins</option>
+                                    <option value="Fagus">Fagus</option>
+                                    <option value="Waratah">Waratah</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Menus -->
                     <div class="form-check">
                         <div class="row py-3">
@@ -329,54 +375,6 @@
                             <div class="col-lg-4 col-md-6 col-10" aria-labelledby="menusDesignSelectLabel">
                                 <select class="form-select mt-2" id="menusDesign" name="menusDesign"
                                     aria-labelledby="menusDesignSelectLabel" aria-required="false">
-                                    <option value="" disabled selected>Select Design</option>
-                                    <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
-                                    <option value="Pink Robins">Pink Robins</option>
-                                    <option value="Fagus">Fagus</option>
-                                    <option value="Waratah">Waratah</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Place Cards -->
-                    <div class="form-check">
-                        <div class="row py-3">
-                            <div class="col-12">
-                                <input type="checkbox" class="form-check-input" id="placeCards" name="placeCards"
-                                    aria-labelledby="placeCardsLabel">
-                                <label class="form-check-label ms-2" id="placeCardsLabel" for="placeCards">
-                                    Place Cards
-                                </label>
-                            </div>
-                            <!-- Conditional design selection based on the checkbox -->
-                            <div class="col-lg-4 col-md-6 col-10" aria-labelledby="placeCardsDesignSelectLabel">
-                                <select class="form-select mt-2" id="placeCardsDesign" name="placeCardsDesign"
-                                    aria-labelledby="placeCardsDesignSelectLabel" aria-required="false">
-                                    <option value="" disabled selected>Select Design</option>
-                                    <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
-                                    <option value="Pink Robins">Pink Robins</option>
-                                    <option value="Fagus">Fagus</option>
-                                    <option value="Waratah">Waratah</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Favour Tags -->
-                    <div class="form-check">
-                        <div class="row py-3">
-                            <div class="col-12">
-                                <input type="checkbox" class="form-check-input" id="favourTags" name="favourTags"
-                                    aria-labelledby="favourTagsLabel">
-                                <label class="form-check-label ms-2" id="favourTagsLabel" for="favourTags">
-                                    Favour Tags
-                                </label>
-                            </div>
-                            <!-- Conditional design selection based on the checkbox -->
-                            <div class="col-lg-4 col-md-6 col-10" aria-labelledby="favourTagsDesignSelectLabel">
-                                <select class="form-select mt-2" id="favourTagsDesign" name="favourTagsDesign"
-                                    aria-labelledby="favourTagsDesignSelectLabel" aria-required="false">
                                     <option value="" disabled selected>Select Design</option>
                                     <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
                                     <option value="Pink Robins">Pink Robins</option>
@@ -412,45 +410,6 @@
                                 <label id="thankYouNoteCardsDesignSelectLabel" for="thankYouNoteCardsDesign"
                                     class="visually-hidden">
                                     Select Design for Thank You Note Cards
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Envelope Seals -->
-                    <div class="form-check">
-                        <div class="row py-3">
-                            <div class="col-12">
-                                <input type="checkbox" class="form-check-input" id="envelopeSeals" name="envelopeSeals"
-                                    aria-labelledby="envelopeSealsLabel">
-                                <label class="form-check-label ms-2" id="envelopeSealsLabel" for="envelopeSeals">
-                                    Envelope Seals
-                                </label>
-                            </div>
-                            <!-- Conditional design selection based on the checkbox -->
-                            <div class="col-lg-4 col-md-6 col-10" aria-labelledby="envelopeSealsDesignSelectLabel">
-                                <select class="form-select mt-2" id="envelopeSealsDesign" name="envelopeSealsDesign"
-                                    aria-labelledby="envelopeSealsDesignSelectLabel" aria-required="false">
-                                    <option value="" disabled selected>Select Design</option>
-                                    <option value="Superb Fairy Wrens">Superb Fairy Wrens</option>
-                                    <option value="Pink Robins">Pink Robins</option>
-                                    <option value="Fagus">Fagus</option>
-                                    <option value="Waratah">Waratah</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- Sender Address Labels -->
-                    <div class="form-check">
-                        <div class="row py-3">
-                            <div class="col-lg-4 col-md-6 col-10">
-                                <input type="checkbox" class="form-check-input" id="senderAddressLabels"
-                                    name="senderAddressLabels" aria-labelledby="senderAddressLabelsLabel">
-                                <label class="form-check-label ms-2" id="senderAddressLabelsLabel"
-                                    for="senderAddressLabels">
-                                    Sender Address Labels
                                 </label>
                             </div>
                         </div>
